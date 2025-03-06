@@ -11,7 +11,7 @@
  * public
  * 
  * Collaborators:
- *  Spell Book, Menu Manager
+ *  SpellBook, MenuManager
  * 
  * Responsibilities:
  *  Process and edit a list of valid spells and abilities from a JSON file

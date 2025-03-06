@@ -7,6 +7,20 @@
  *
  * @author Robert J.
  */
+import java.lang.String;
 public class Item {
+    
 
+String itemName;
+
+String itemDesc;
+
+float itemWeight;
+
+public String getItemName(Item retrieveMe)
+{
+
+return itemName;
+
+}
 }
