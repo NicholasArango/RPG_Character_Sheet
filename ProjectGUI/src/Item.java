@@ -5,22 +5,95 @@
 
 /**
  *
- * @author Robert J.
+ * @author Robert J., Ellie R.
  */
 import java.lang.String;
-public class Item {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Item implements Serializable {
+    private static final long serialVersionUID = 1L;
     
+    // Required fields
+    private final String itemName;
+    private final String itemDesc;
+    private final float itemWeight;
+    
+    // Additional useful fields
+    private int quantity;
+    private String itemCategory;
 
-String itemName;
+    // Constructor with validation
+    public Item(String itemName, String itemDesc, float itemWeight) {
+        this(itemName, itemDesc, itemWeight, 1, "Miscellaneous");
+    }
 
-String itemDesc;
+    // default constructor
+    public Item(String itemName, String itemDesc, float itemWeight, 
+                int quantity, String itemCategory) {
+        if (itemWeight < 0) itemWeight = 0;
+        if (quantity < 1) quantity = 1;
+        
+        this.itemName = Objects.requireNonNull(itemName, "Item name cannot be null");
+        this.itemDesc = itemDesc;
+        this.itemWeight = itemWeight;
+        this.quantity = quantity;
+        this.itemCategory = itemCategory;
+    }
 
-float itemWeight;
+    // getters
+    public String getItemName() {
+        return itemName;
+    }
 
-public String getItemName(Item retrieveMe)
-{
+    public String getItemDesc() {
+        return itemDesc;
+    }
 
-return itemName;
+    public float getItemWeight() {
+        return itemWeight;
+    }
 
-}
+    public int getQuantity() {
+        return quantity;
+    }
+
+    // setters
+    public void setQuantity(int quantity) {
+        if (quantity < 0) quantity = 1;
+        this.quantity = quantity;
+    }
+
+
+    // equals check
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return itemName.equals(item.itemName) && 
+               itemCategory.equals(item.itemCategory);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(itemName, itemCategory);
+    }
+
+    // override toString
+    @Override
+    public String toString() {
+        return "Item{" +
+               "name='" + itemName + '\'' +
+               ", category='" + itemCategory + '\'' +
+               ", weight=" + itemWeight +
+               ", quantity=" + quantity +
+               '}';
+    }
+
+    // Additional useful methods
+    public double getTotalWeight() {
+        return itemWeight * quantity;
+    }
+
 }
