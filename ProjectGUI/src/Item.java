@@ -14,17 +14,17 @@ import java.util.Objects;
 public class Item implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    // Required fields
+    // required fields
     private final String itemName;
     private final String itemDesc;
     private final float itemWeight;
     
-    // Additional useful fields
+    // optional fields
     private int quantity;
     private String itemCategory;
 
-    // Constructor with validation
-    public Item(String itemName, String itemDesc, float itemWeight) {
+    // constructor with validation
+    public Item(String itemName, String itemDesc, float itemWeight, int quantity1) {
         this(itemName, itemDesc, itemWeight, 1, "Miscellaneous");
     }
 
