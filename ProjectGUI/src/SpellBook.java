@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -43,5 +47,39 @@
  *      Displays the spells to the GUI
  */
 public class SpellBook {
+    private List<Spell> knownSpells = new ArrayList<>();
 
+    // add spell
+    public void addSpell(Spell spell) {
+        if (spell != null) {
+            knownSpells.add(spell);
+        }
+    }
+
+    // remove a spell
+    public boolean removeSpell(Spell spell) {
+        return knownSpells.remove(spell);
+    }
+
+    // return all known spells 
+    public List<Spell> getAllSpells() {
+        return new ArrayList<>(knownSpells); // Return copy to prevent internal list modification
+    }
+
+    // return spells by specific level
+    public List<Spell> getSpellsByLevel(int level) {
+        List<Spell> spellsByLevel = new ArrayList<>();
+        for (Spell spell : knownSpells) {
+            if (spell.getLevel() == level) {
+                spellsByLevel.add(spell);
+            }
+        }
+        return spellsByLevel;
+    }
+
+
+    // Clear all spells from spellbook
+    public void clearSpellbook() {
+        knownSpells.clear();
+    }
 }
