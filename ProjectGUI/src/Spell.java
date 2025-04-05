@@ -26,6 +26,15 @@ public class Spell {
         this.roll = roll;
     }
 
+        public Spell() {
+        this.name = "Nameless Spell";
+        this.level = 1;
+        this.effect = "add info here";
+        this.stat = "INT";
+        this.save = false;
+        this.roll = true;
+    }
+    
 
     public String getName() {
         return name;

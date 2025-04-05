@@ -47,8 +47,16 @@ import java.util.List;
  *      Displays the spells to the GUI
  */
 public class SpellBook {
-    private List<Spell> knownSpells = new ArrayList<>();
+    
+    
+    private List<Spell> knownSpells;
 
+    public SpellBook(){
+        this.knownSpells = new ArrayList<>();
+        this.addSpell(new Spell());
+    }
+    
+    
     // add spell
     public void addSpell(Spell spell) {
         if (spell != null) {

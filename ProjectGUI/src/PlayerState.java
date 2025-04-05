@@ -45,7 +45,7 @@ public class PlayerState {
     private int experiencePoints;
     private final Set<Status> activeStatuses = EnumSet.noneOf(Status.class);
 
-    PlayerState() {
+    public PlayerState() {
         
         currentHealth = 1;
         experiencePoints = 0;
