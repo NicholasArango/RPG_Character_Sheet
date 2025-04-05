@@ -39,6 +39,13 @@ public class BasicStatManager {
     CHA var - Saving Throws
     */
     
+    
+    public BasicStatManager() 
+    {
+    
+    }
+    
+    
     enum Attributes {
         STR (0),
         DEX (0),
