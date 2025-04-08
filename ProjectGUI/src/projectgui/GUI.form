@@ -528,27 +528,27 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel59">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel59"/>
+                <Property name="text" type="java.lang.String" value="Level"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel60">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel60"/>
+                <Property name="text" type="java.lang.String" value="XP"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel61">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel61"/>
+                <Property name="text" type="java.lang.String" value="HP"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel62">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel62"/>
+                <Property name="text" type="java.lang.String" value="AC"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel63">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel63"/>
+                <Property name="text" type="java.lang.String" value="Weight"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel64">
