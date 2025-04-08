@@ -181,15 +181,15 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel58.setText("Values");
 
-        jLabel59.setText("Level");
+        jLabel59.setText("jLabel59");
 
-        jLabel60.setText("XP");
+        jLabel60.setText("jLabel60");
 
-        jLabel61.setText("HP");
+        jLabel61.setText("jLabel61");
 
-        jLabel62.setText("AC");
+        jLabel62.setText("jLabel62");
 
-        jLabel63.setText("Weight");
+        jLabel63.setText("jLabel63");
 
         jLabel64.setText("jLabel50");
         jLabel64.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
