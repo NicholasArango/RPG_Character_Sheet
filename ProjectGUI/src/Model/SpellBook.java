@@ -1,4 +1,7 @@
+package Model;
 
+
+import Model.Spell;
 import java.util.ArrayList;
 import java.util.List;
 
