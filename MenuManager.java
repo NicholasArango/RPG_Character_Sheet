@@ -28,72 +28,129 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
+import javax.swing.*;
+import java.awt.*;
+import java.io.FileReader;
 import java.io.IOException;
+// Importing of other classes not needed ??? I think
 
 // BasicStatManager enum object names:
-// attribute
+// Attribute
 // Throw
-// skill
+// Skill
 
-public class MenuManager {
-    public static void allGet() {
-        // name
-        // race
-        // class
-        // level
-        // xp
-        // hp
-        // DC
-            // Calculation for DC based on stats
-        // Attributes:
-        BasicStatManager.Attributes attributeSTR = BasicStatManager.Attributes.STR;
-        BasicStatManager.Attributes attributeDEX = BasicStatManager.Attributes.DEX;
-        BasicStatManager.Attributes attributeCON = BasicStatManager.Attributes.CON;
-        BasicStatManager.Attributes attributeINT = BasicStatManager.Attributes.INT;
-        BasicStatManager.Attributes attributeWIS = BasicStatManager.Attributes.WIS;
-        BasicStatManager.Attributes attributeCHA = BasicStatManager.Attributes.CHA;
-        // Skills:
-        BasicStatManager.Skills skillAcro = BasicStatManager.Skills.Acrobatics;
-        BasicStatManager.Skills skillAniHand = BasicStatManager.Skills.AnimalHandling;
-        BasicStatManager.Skills skillArca = BasicStatManager.Skills.Arcana;
-        BasicStatManager.Skills skillAthl = BasicStatManager.Skills.Athletics;
-        BasicStatManager.Skills skillDec = BasicStatManager.Skills.Deception;
-        BasicStatManager.Skills skillHis = BasicStatManager.Skills.History;
-        BasicStatManager.Skills skillIns = BasicStatManager.Skills.Insight;
-        BasicStatManager.Skills skillIntim = BasicStatManager.Skills.Intimidation;
-        BasicStatManager.Skills skillInv = BasicStatManager.Skills.Investigation;
-        BasicStatManager.Skills skillMedi = BasicStatManager.Skills.Medicine;
-        BasicStatManager.Skills skillNatr = BasicStatManager.Skills.Nature;
-        BasicStatManager.Skills skillPerc = BasicStatManager.Skills.Perception;
-        BasicStatManager.Skills skillPerf = BasicStatManager.Skills.Performance;
-        BasicStatManager.Skills skillPers = BasicStatManager.Skills.Persuasion;
-        BasicStatManager.Skills skillReli = BasicStatManager.Skills.Religion;
-        BasicStatManager.Skills skillSoH = BasicStatManager.Skills.SleightOfHand;
-        BasicStatManager.Skills skillStea = BasicStatManager.Skills.Stealth;
-        BasicStatManager.Skills skillSurv = BasicStatManager.Skills.Survival;
-        // Throws:
-        BasicStatManager.Throws throwSTR = BasicStatManager.Throws.STRThrow;
-        BasicStatManager.Throws throwDEX = BasicStatManager.Throws.DEXThrow;
-        BasicStatManager.Throws throwCON = BasicStatManager.Throws.CONThrow;
-        BasicStatManager.Throws throwINT = BasicStatManager.Throws.INTThrow;
-        BasicStatManager.Throws throwWIS = BasicStatManager.Throws.WISThrow;
-        BasicStatManager.Throws throwCHA = BasicStatManager.Throws.CHAThrow;
-        
-    } // Allget() ends ------------------------------------------------------
+public class MenuManager extends JFrame {
     
-    public static void main(String[] args) {
-        // Create ObjectMapper instance
-        ObjectMapper objectMapper = new ObjectMapper();
-        Character character;
+    // The tabbed pane for the GUI
+    private JTabbedPane tabbedPane;
+    // Holds the JSON configuration loaded from the file
+    private JsonNode menuConfig; 
+    
+    // Constructor: Initializes the UI and loads the JSON configuration.
+    public MenuManager() {
+        initUI();         // Setup the user interface
+        loadMenuConfig(); // Load JSON from the file using Jackson
+        initializeTabs(); // Create tabs based on JSON data
+    }
+    
+    
+    // Set up the user interface.
+    private void initUI() {
+        setTitle("Menu Manager");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
         
+        // Initialize the tabbed pane and add it to the frame.
+        tabbedPane = new JTabbedPane();
+        add(tabbedPane, BorderLayout.CENTER);
+        
+        // Set window size and center it.
+        setSize(800, 600);
+        setLocationRelativeTo(null);
+    }
+    
+    
+    // Loads the JSON configuration file using the Jackson ObjectMapper.
+    private void loadMenuConfig() {
+        ObjectMapper mapper = new ObjectMapper();
         try {
-            File file = new File("character.json");
-            character = objectMapper.readValue(file, Character.class);
-
+            // Change the path to the actual location of your JSON file if necessary.
+            menuConfig = mapper.readTree(new File("menu_config.json"));
         } catch (IOException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error loading configuration: " + e.getMessage());
         }
-        
-        allGet();
+    }
+    
+    
+    // Initializes tabs based on the loaded JSON configuration.
+    // Assumes JSON file has an array "tabs", with each tab having "name" and "content".
+    private void initializeTabs() {
+        // Check if the JSON configuration was loaded successfully and contains tabs.
+        if (menuConfig != null && menuConfig.has("tabs")) {
+            for (JsonNode tabNode : menuConfig.get("tabs")) {
+                String tabName = tabNode.get("name").asText();
+                JPanel panel = createPanelFromConfig(tabNode);
+                addTab(tabName, panel);
+            }
+        } else {
+            // Fallback: Add default example tabs if JSON data is missing or malformed.
+            addTab("Home", new JPanel());
+            addTab("Settings", new JPanel());
+            // Add a button here to quit -------------------
+        }
+    }
+    
+    /**
+     * Create a panel from the JSON configuration for a tab.
+     * Content property is important here (maybe)
+     * Adjust this method based on application needs.
+     *
+     * @param tabNode A JsonNode representing the tab configuration.
+     * @return A JPanel containing the tab's content.
+     */
+    private JPanel createPanelFromConfig(JsonNode tabNode) {
+        JPanel panel = new JPanel();
+        return panel;
+    }
+    
+    /**
+     * Adds a new tab to the tabbed pane.
+     *
+     * @param tabName The name (title) of the tab.
+     * @param panel   The JPanel component for the tab's content.
+     */
+    public void addTab(String tabName, JPanel panel) {
+        tabbedPane.addTab(tabName, panel);
+    }
+    
+    /**
+     * Removes a tab from the tabbed pane based on its title.
+     *
+     * @param tabName The title of the tab to remove.
+     */
+    public void removeTab(String tabName) {
+        int index = tabbedPane.indexOfTab(tabName);
+        if (index != -1) {
+            tabbedPane.removeTabAt(index);
+        } else {
+            System.err.println("Tab with name " + tabName + " not found.");
+        }
+    }
+    
+    
+    // Refreshes the tabbed pane.
+    public void refreshTabs() {
+        tabbedPane.revalidate();
+        tabbedPane.repaint();
+    }
+    
+   
+    // The entry point of the application. Ensures the GUI is created on Event
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            MenuManager manager = new MenuManager();
+            manager.setVisible(true);
+        });
     }
 }
