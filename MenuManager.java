@@ -74,7 +74,7 @@ public class MenuManager extends JFrame {
     private void loadMenuConfig() {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            // Change the path to the actual location of your JSON file if necessary.
+            // Change the path to the actual location of the JSON file if necessary.
             menuConfig = mapper.readTree(new File("menu_config.json"));
         } catch (IOException e) {
             e.printStackTrace();
