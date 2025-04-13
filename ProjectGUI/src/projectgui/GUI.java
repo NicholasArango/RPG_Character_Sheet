@@ -119,6 +119,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Character Sheet");
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
