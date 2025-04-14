@@ -84,6 +84,15 @@ public class MenuManager extends JFrame {
         }
     }
     
+    public void newCharacter() {
+    String name = JOptionPane.showInputDialog(this, "Enter Character Name:");
+    if (name != null && !name.trim().isEmpty()) {
+        CharacterSheet newSheet = new CharacterSheet(name.trim());
+        // Example: Store the character or update UI (add your logic here)
+        JOptionPane.showMessageDialog(this, "Created character: " + newSheet.getCharacterName());
+    }
+}
+    
     
     // Initializes tabs based on the loaded JSON configuration.
     // Assumes JSON file has an array "tabs", with each tab having "name" and "content".
