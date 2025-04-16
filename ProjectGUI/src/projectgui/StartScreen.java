@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package projectgui;
-import Model.CharacterSheet;
+import Model.MenuManager;
 
 /**
  *
@@ -34,6 +34,7 @@ public class StartScreen extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RPG Character Sheet");
 
         jButton1.setText("New Character");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,8 +108,9 @@ public class StartScreen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String name = "newChar";
-        CharacterSheet Char = new CharacterSheet(name);
-        new GUI().setVisible(true);
+        GUI gui = new GUI();
+        gui.setVisible(true);
+        MenuManager.newCharSetup(gui);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

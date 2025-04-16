@@ -3,10 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package projectgui;
+import Model.MenuManager;
 
 /**
  *
- * @author nsara
+ * @author N Arango
  */
 public class GUI extends javax.swing.JFrame {
 
@@ -156,7 +157,13 @@ public class GUI extends javax.swing.JFrame {
         jLabel13.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
         jButton1.setText("Edit Character");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
+        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel50.setText("jLabel50");
         jLabel50.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
@@ -225,13 +232,13 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel62)
                     .addComponent(jLabel63))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel64)
-                    .addComponent(jLabel50)
-                    .addComponent(jLabel65)
-                    .addComponent(jLabel66)
-                    .addComponent(jLabel67)
-                    .addComponent(jLabel68))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel66, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel67, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel68, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -239,35 +246,29 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel58))
-                        .addGap(32, 32, 32)
+                            .addComponent(jLabel58)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel57)
+                            .addComponent(jLabel56)
+                            .addComponent(jLabel55)
+                            .addComponent(jLabel54)
                             .addComponent(jLabel52)
-                            .addComponent(jLabel51)))
+                            .addComponent(jLabel51)
+                            .addComponent(jLabel53)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel3))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel10)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel9)
-                                .addGap(32, 32, 32)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel53)
-                                    .addComponent(jLabel54)
-                                    .addComponent(jLabel55)
-                                    .addComponent(jLabel56)
-                                    .addComponent(jLabel57))))
-                        .addGap(25, 25, 25)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7))
+                        .addGap(189, 189, 189)))
                 .addGap(129, 129, 129))
         );
         jPanel1Layout.setVerticalGroup(
@@ -335,6 +336,20 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel57))))
                 .addContainerGap(242, Short.MAX_VALUE))
         );
+
+        jLabel8.getAccessibleContext().setAccessibleName("strVal");
+        jLabel9.getAccessibleContext().setAccessibleName("dexVal");
+        jLabel10.getAccessibleContext().setAccessibleName("conVal");
+        jLabel11.getAccessibleContext().setAccessibleName("intVal");
+        jLabel12.getAccessibleContext().setAccessibleName("wisVal");
+        jLabel13.getAccessibleContext().setAccessibleName("chaVal");
+        jLabel50.getAccessibleContext().setAccessibleName("nameEdit");
+        jLabel52.getAccessibleContext().setAccessibleName("strSave");
+        jLabel53.getAccessibleContext().setAccessibleName("dexSave");
+        jLabel54.getAccessibleContext().setAccessibleName("conSave");
+        jLabel55.getAccessibleContext().setAccessibleName("intSave");
+        jLabel56.getAccessibleContext().setAccessibleName("wisSave");
+        jLabel57.getAccessibleContext().setAccessibleName("chaSave");
 
         jTabbedPane1.addTab("Base Stats", jPanel1);
 
@@ -429,6 +444,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel49.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
         jButton2.setText("Edit Skills");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -571,9 +591,14 @@ public class GUI extends javax.swing.JFrame {
         jTabbedPane1.addTab("Skills", jPanel2);
 
         jButton4.setText("Edit Inventory");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Empty" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -622,7 +647,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jList3.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Empty" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -704,6 +729,60 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        EditChar edit1 = new EditChar();
+        edit1.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        EditSkills skill1 = new EditSkills();
+        skill1.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        EditInventory inv1 = new EditInventory();
+        inv1.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    public static void newSetup(GUI gui){
+        //Iterates through labels and sets them to default values
+        gui.jLabel50.setText("New Character");
+        gui.jLabel8.setText("1");
+        gui.jLabel9.setText("1");
+        gui.jLabel10.setText("1");
+        gui.jLabel11.setText("1");
+        gui.jLabel12.setText("1");
+        gui.jLabel13.setText("1");
+        gui.jLabel52.setText("+0");
+        gui.jLabel53.setText("+0");
+        gui.jLabel54.setText("+0");
+        gui.jLabel55.setText("+0");
+        gui.jLabel56.setText("+0");
+        gui.jLabel57.setText("+0");
+        gui.jLabel32.setText("0");
+        gui.jLabel33.setText("0");
+        gui.jLabel34.setText("0");
+        gui.jLabel35.setText("0");
+        gui.jLabel36.setText("0");
+        gui.jLabel37.setText("0");
+        gui.jLabel38.setText("0");
+        gui.jLabel39.setText("0");
+        gui.jLabel40.setText("0");
+        gui.jLabel41.setText("0");
+        gui.jLabel42.setText("0");
+        gui.jLabel43.setText("0");
+        gui.jLabel44.setText("0");
+        gui.jLabel45.setText("0");
+        gui.jLabel46.setText("0");
+        gui.jLabel47.setText("0");
+        gui.jLabel48.setText("0");
+        gui.jLabel49.setText("0");
+    }
+    
+    public static void editStats(String label, String value){
+
+    }
+    
     /**
      * @param args the command line arguments
      */
