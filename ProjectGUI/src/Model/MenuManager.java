@@ -26,14 +26,14 @@ package Model;
  *      return: bool
  *      Reads from the JSON file
  */
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
+import projectgui.GUI;
+//import com.fasterxml.jackson.databind.JsonNode;
+//import com.fasterxml.jackson.databind.ObjectMapper;
+//import java.io.File;
 import javax.swing.*;
-import java.awt.*;
-import java.io.FileReader;
-import java.io.IOException;
+//import java.awt.*;
+//import java.io.FileReader;
+//import java.io.IOException;
 // Importing of other classes not needed ??? I think
 
 // BasicStatManager enum object names:
@@ -46,16 +46,20 @@ public class MenuManager extends JFrame {
     // The tabbed pane for the GUI
     private JTabbedPane tabbedPane;
     // Holds the JSON configuration loaded from the file
-    private JsonNode menuConfig; 
+    //private JsonNode menuConfig; 
     
     // Constructor: Initializes the UI and loads the JSON configuration.
     public MenuManager() {
-        initUI();         // Setup the user interface
-        loadMenuConfig(); // Load JSON from the file using Jackson
-        initializeTabs(); // Create tabs based on JSON data
+        //initUI();         // Setup the user interface
+        //loadMenuConfig(); // Load JSON from the file using Jackson
+        //initializeTabs(); // Create tabs based on JSON data
     }
     
+    public static void newCharSetup(GUI gui){
+        GUI.newSetup(gui);
+    }
     
+    /*
     // Set up the user interface.
     private void initUI() {
         setTitle("Menu Manager");
@@ -111,7 +115,7 @@ public class MenuManager extends JFrame {
      * @param tabNode A JsonNode representing the tab configuration.
      * @return A JPanel containing the tab's content.
      */
-    private JPanel createPanelFromConfig(JsonNode tabNode) {
+    /*private JPanel createPanelFromConfig(JsonNode tabNode) {
         JPanel panel = new JPanel();
         return panel;
     }
@@ -122,7 +126,7 @@ public class MenuManager extends JFrame {
      * @param tabName The name (title) of the tab.
      * @param panel   The JPanel component for the tab's content.
      */
-    public void addTab(String tabName, JPanel panel) {
+    /*public void addTab(String tabName, JPanel panel) {
         tabbedPane.addTab(tabName, panel);
     }
     

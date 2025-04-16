@@ -3,10 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package projectgui;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JTextField;
+import java.util.Collections;
 
 /**
  *
- * @author nsara
+ * @author N Arango
  */
 public class EditChar extends javax.swing.JFrame {
 
@@ -44,11 +48,22 @@ public class EditChar extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Stat Edit");
 
         jButton1.setText("Cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Edit");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Character Name:");
 
@@ -64,19 +79,20 @@ public class EditChar extends javax.swing.JFrame {
 
         jLabel7.setText("CHA");
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("Enter here");
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("Enter here");
+        jTextField2.setToolTipText("");
 
-        jTextField3.setText("jTextField3");
+        jTextField3.setText("Enter here");
 
-        jTextField4.setText("jTextField4");
+        jTextField4.setText("Enter here");
 
-        jTextField5.setText("jTextField5");
+        jTextField5.setText("Enter here");
 
-        jTextField6.setText("jTextField6");
+        jTextField6.setText("Enter here");
 
-        jTextField7.setText("jTextField7");
+        jTextField7.setText("Enter here");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -164,6 +180,29 @@ public class EditChar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ArrayList<JTextField> tList = new ArrayList<>();
+        Collections.addAll(tList, jTextField1, jTextField2, jTextField3, jTextField4, jTextField5, jTextField6, jTextField7);
+        
+        for(int i = 0; i < 7; i++){
+            JTextField current = tList.get(i);
+            String data = current.getText();
+            if(i == 0){
+                GUI.editStats("jLabel50", data);
+            }
+            else{
+                int num = 7 + i;
+                String lab = "jLabel" + num;
+                GUI.editStats(lab, data);
+            }
+        }
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
