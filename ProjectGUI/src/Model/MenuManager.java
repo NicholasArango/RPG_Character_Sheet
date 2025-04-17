@@ -26,6 +26,7 @@ package Model;
  *      return: bool
  *      Reads from the JSON file
  */
+import java.io.IOException;
 import projectgui.GUI;
 //import com.fasterxml.jackson.databind.JsonNode;
 //import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,6 +43,29 @@ import javax.swing.*;
 // Skill
 
 public class MenuManager extends JFrame {
+    
+    
+    private CharacterSheet currentCharacter;
+
+    // Save character to JSON
+    public void saveCharacter(String filePath) {
+        try {
+            JsonUtils.serializeToFile(currentCharacter, filePath);
+            JOptionPane.showMessageDialog(this, "Character saved successfully!");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving character: " + e.getMessage());
+        }
+    }
+
+    // Load character from JSON
+    public void loadCharacter(String filePath) {
+        try {
+            currentCharacter = JsonUtils.deserializeFromFile(filePath);
+            JOptionPane.showMessageDialog(this, "Character loaded!");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error loading character: " + e.getMessage());
+        }
+    }
     
     // The tabbed pane for the GUI
     private JTabbedPane tabbedPane;
