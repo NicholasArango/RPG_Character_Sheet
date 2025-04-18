@@ -109,27 +109,27 @@ public class EditSkills extends javax.swing.JFrame {
 
         jLabel7.setText("Insight");
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("Enter Here");
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("Enter Here");
 
-        jTextField3.setText("jTextField3");
+        jTextField3.setText("Enter Here");
 
-        jTextField4.setText("jTextField4");
+        jTextField4.setText("Enter Here");
 
-        jTextField5.setText("jTextField5");
+        jTextField5.setText("Enter Here");
 
-        jTextField6.setText("jTextField6");
+        jTextField6.setText("Enter Here");
 
-        jTextField7.setText("jTextField7");
+        jTextField7.setText("Enter Here");
 
         jLabel8.setText("Intimidation");
 
         jLabel9.setText("Investigation");
 
-        jTextField8.setText("jTextField8");
+        jTextField8.setText("Enter Here");
 
-        jTextField9.setText("jTextField9");
+        jTextField9.setText("Enter Here");
 
         jLabel10.setText("Religion");
 
@@ -137,29 +137,29 @@ public class EditSkills extends javax.swing.JFrame {
 
         jLabel12.setText("Sleight of Hand");
 
-        jTextField10.setText("jTextField10");
+        jTextField10.setText("Enter Here");
 
-        jTextField11.setText("jTextField11");
+        jTextField11.setText("Enter Here");
 
-        jTextField12.setText("jTextField12");
+        jTextField12.setText("Enter Here");
 
-        jTextField13.setText("jTextField13");
+        jTextField13.setText("Enter Here");
 
-        jTextField14.setText("jTextField14");
+        jTextField14.setText("Enter Here");
 
-        jTextField15.setText("jTextField15");
+        jTextField15.setText("Enter Here");
 
         jLabel13.setText("Medicine");
 
-        jTextField16.setText("jTextField16");
+        jTextField16.setText("Enter Here");
 
         jLabel14.setText("Nature");
 
-        jTextField17.setText("jTextField17");
+        jTextField17.setText("Enter Here");
 
         jLabel15.setText("Perception");
 
-        jTextField18.setText("jTextField18");
+        jTextField18.setText("Enter Here");
 
         jLabel16.setText("Performance");
 
@@ -353,7 +353,7 @@ public class EditSkills extends javax.swing.JFrame {
                             .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(28, Short.MAX_VALUE))))
+                        .addContainerGap(32, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -475,6 +475,7 @@ public class EditSkills extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
@@ -486,12 +487,11 @@ public class EditSkills extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int i = 0;
-        for (Map.Entry<String, JTextField> entry : skillsMap.entrySet()) {
-            i = i + 1;
-            JTextField textField = entry.getValue();
+        for (int i = 1; i < 19; i++) {
+            String key = Integer.toString(i);
+            JTextField textField = skillsMap.get(key);
             String text = textField.getText();
-            String key = "lab" + i;
+            key = "lab" + i;
             MenuManager.skillEdit(key, text);
         }
         this.dispose();
