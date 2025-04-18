@@ -3,10 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package projectgui;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JTextField;
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JLabel;
+import Model.MenuManager;
 
 /**
  *
@@ -14,6 +15,8 @@ import java.util.Collections;
  */
 public class EditChar extends javax.swing.JFrame {
 
+    private static final Map<String, JTextField> textMap = new HashMap<>();
+    
     /**
      * Creates new form EditChar
      */
@@ -181,25 +184,28 @@ public class EditChar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void map(){
+        textMap.put("1", jTextField1);
+        textMap.put("2", jTextField2);
+        textMap.put("3", jTextField3);
+        textMap.put("4", jTextField4);
+        textMap.put("5", jTextField5);
+        textMap.put("6", jTextField6);
+        textMap.put("7", jTextField7);
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ArrayList<JTextField> tList = new ArrayList<>();
-        Collections.addAll(tList, jTextField1, jTextField2, jTextField3, jTextField4, jTextField5, jTextField6, jTextField7);
-        
-        for(int i = 0; i < 7; i++){
-            JTextField current = tList.get(i);
-            String data = current.getText();
-            if(i == 0){
-                GUI.editStats("jLabel50", data);
-            }
-            else{
-                int num = 7 + i;
-                String lab = "jLabel" + num;
-                GUI.editStats(lab, data);
-            }
+        int i = 0;
+        for (Map.Entry<String, JTextField> entry : textMap.entrySet()) {
+            i = i + 1;
+            JTextField textField = entry.getValue();
+            String text = textField.getText();
+            String key = "lab" + i;
+            MenuManager.statEdit(key, text);
         }
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
