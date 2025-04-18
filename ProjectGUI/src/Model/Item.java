@@ -30,6 +30,9 @@ public class Item implements Serializable {
         this(itemName, itemDesc, itemWeight, 1, "Miscellaneous");
     }
 
+    public Item() {
+    this("Default", "No description", 0.0f, 1, "Miscellaneous");
+}
     // default constructor
     public Item(String itemName, String itemDesc, float itemWeight, 
                 int quantity, String itemCategory) {
@@ -43,6 +46,7 @@ public class Item implements Serializable {
         this.itemCategory = itemCategory;
     }
 
+    
     // getters
     public String getItemName() {
         return itemName;

@@ -29,141 +29,169 @@ package Model;
  *      private
  *      Holds all DND skills for a character, an example is Acrobatics.
  */
-public class BasicStatManager {
-    // NOTES:
-    /*
-    Attributes (Enum):
-    STR var - Saving Throws
-    DEX var - Saving Throws
-    CON var - Saving Throws
-    INT var - Saving Throws
-    WIS var - Saving Throws
-    CHA var - Saving Throws
-    */
+import java.io.Serializable;
+
+public class BasicStatManager implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    // Core Attributes
+    private int strength = 10;
+    private int dexterity = 10;
+    private int constitution = 10;
+    private int intelligence = 10;
+    private int wisdom = 10;
+    private int charisma = 10;
     
+    // Proficiency System
+    private int proficiencyBonus = 2;
+    private boolean[] skillProficiencies = new boolean[18];
     
-    public BasicStatManager() 
-    {
-    
+    // Skill indices (matches D&D 5e skill order)
+    public static final int ATHLETICS = 0;
+    public static final int ACROBATICS = 1;
+    public static final int SLEIGHT_OF_HAND = 2;
+    public static final int STEALTH = 3;
+    public static final int ARCANA = 4;
+    public static final int HISTORY = 5;
+    public static final int INVESTIGATION = 6;
+    public static final int NATURE = 7;
+    public static final int RELIGION = 8;
+    public static final int ANIMAL_HANDLING = 9;
+    public static final int INSIGHT = 10;
+    public static final int MEDICINE = 11;
+    public static final int PERCEPTION = 12;
+    public static final int SURVIVAL = 13;
+    public static final int DECEPTION = 14;
+    public static final int INTIMIDATION = 15;
+    public static final int PERFORMANCE = 16;
+    public static final int PERSUASION = 17;
+
+    public BasicStatManager() {
+        // initialize all proficiencies to false by default
+        for(int i = 0; i < skillProficiencies.length; i++) {
+            skillProficiencies[i] = false;
+        }
+    }
+
+    // attribute getters+getters
+    public int getStrength() { return strength; }
+    public void setStrength(int strength) {
+        validateAttribute(strength);
+        this.strength = strength;
+    }
+
+    public int getDexterity() { return dexterity; }
+    public void setDexterity(int dexterity) {
+        validateAttribute(dexterity);
+        this.dexterity = dexterity;
     }
     
+    public int getConstitution() { return constitution; }
+    public void setConstitution(int constitution) {
+        validateAttribute(constitution);
+        this.constitution = constitution;
+    }
     
-    enum Attributes {
-        STR (0),
-        DEX (0),
-        CON (0),
-        INT (0),
-        WIS (0),
-        CHA (0);
+    public int getIntelligence() { return intelligence; }
+    public void setIntelligence(int intelligence) {
+        validateAttribute(intelligence);
+        this.intelligence = intelligence;
+    }
     
-        private int value;
+    public int getWisdom() { return wisdom; }
+    public void setWisdom(int wisdom) {
+        validateAttribute(wisdom);
+        this.wisdom = wisdom;
+    }
     
-        Attributes (int value) {
-            this.value = value;
+    public int getCharisma() { return charisma; }
+    public void setCharisma(int charisma) {
+        validateAttribute(charisma);
+        this.charisma = charisma;
+    }
+    
+    // proficiency 
+    public int getProficiencyBonus() { return proficiencyBonus; }
+    public void setProficiencyBonus(int bonus) {
+        if(bonus < 0) throw new IllegalArgumentException("Proficiency bonus cannot be negative");
+        this.proficiencyBonus = bonus;
+    }
+
+    public boolean isProficient(int skillIndex) {
+        return skillProficiencies[skillIndex];
+    }
+
+    public void setProficiency(int skillIndex, boolean proficient) {
+        skillProficiencies[skillIndex] = proficient;
+    }
+
+    // Skill Calculations
+    public int getSkillValue(int skillIndex) {
+        int baseModifier = 0;
+        boolean proficient = skillProficiencies[skillIndex];
+        
+        switch(skillIndex) {
+            // STR-based
+            case ATHLETICS:
+                baseModifier = calculateModifier(strength);
+                break;
+                
+            // DEX-based
+            case ACROBATICS:
+            case SLEIGHT_OF_HAND:
+            case STEALTH:
+                baseModifier = calculateModifier(dexterity);
+                break;
+                
+            // INT-based
+            case ARCANA:
+            case HISTORY:
+            case INVESTIGATION:
+            case NATURE:
+            case RELIGION:
+                baseModifier = calculateModifier(intelligence);
+                break;
+                
+            // WIS-based
+            case ANIMAL_HANDLING:
+            case INSIGHT:
+            case MEDICINE:
+            case PERCEPTION:
+            case SURVIVAL:
+                baseModifier = calculateModifier(wisdom);
+                break;
+                
+            // CHA-based
+            case DECEPTION:
+            case INTIMIDATION:
+            case PERFORMANCE:
+            case PERSUASION:
+                baseModifier = calculateModifier(charisma);
+                break;
+                
+            default:
+                throw new IllegalArgumentException("Invalid skill index");
         }
         
-        public int getAttribute (int value){
-            return value;
-        }
-        public int setAttribute (int x, Attributes attName) {
-            if (x > 100 || x < 0) {
-                System.out.println("Integer outside of Attribute bouds.\n");
-                return 0;
-            }
-            for (Attributes A : Attributes.values()) {
-                if (A == attName) {
-                    A.value = x;
-                }
-            }
-            return 0;
+        return baseModifier + (proficient ? proficiencyBonus : 0);
+    }
+
+    // modifier calculation
+    private int calculateModifier(int abilityScore) {
+        return (int) Math.floor((abilityScore - 10) / 2.0);
+    }
+
+    private void validateAttribute(int value) {
+        if(value < 1 || value > 30) {
+            throw new IllegalArgumentException("Ability scores must be between 1 and 30");
         }
     }
 
-    // Skills (Enum):
-    enum Skills {
-
-        // List of Skills, type + Value
-        Acrobatics      (0), // (DEX)
-        AnimalHandling  (0), // (WIS)
-        Arcana          (0), // (INT)
-        Athletics       (0), // (STR)
-        Deception       (0), // (CHA)
-        History         (0), // (INT)
-        Insight         (0), // (WIS)
-        Intimidation    (0), // (CHA)
-        Investigation   (0), // (INT)
-        Medicine        (0), // (WIS)
-        Nature          (0), // (INT)
-        Perception      (0), // (WIS)
-        Performance     (0), // (CHA)
-        Persuasion      (0), // (CHA)
-        Religion        (0), // (INT)
-        SleightOfHand   (0), // (DEX)
-        Stealth         (0), // (DEX)
-        Survival        (0); // (WIS)
-    
-        // Private variables holding the value and name of the Skill
-        private int value;
-    
-        // A constructor for value in the enum list
-        Skills (int value) {
-            this.value = value;
-        }
-    
-        // Returns value for later use
-        public int getSkill() { 
-            return value;
-        }
-    
-        // Function for changing the value of the Skills
-        public int setSkill(int x, Skills skillName) {
-            // If statement for making sure the value is not too large
-            if (x > 100 || x < 0) {
-                System.out.println("Integer outside of Skill bounds.\n");
-                return 0;
-            }
-            
-            // Changes the value for the Skill
-            for (Skills s : Skills.values()) {
-                if (s == skillName) {
-                    s.value = x;
-                }
-            }
-        
-        return 0;
-        }
-    }
-
-    enum Throws {
-        STRThrow (0),
-        DEXThrow (0),
-        CONThrow (0),
-        INTThrow (0),
-        WISThrow (0),
-        CHAThrow (0);
-            
-        private int value;
-            
-        Throws (int value) {
-            this.value = value;
-        }
-            
-        public int getThrow() {
-            return value;
-        }
-        // Sets throw values based on functions
-        // Functions are not yet implemented
-        public int setThrow (int x, Throws throwName) {
-            if (x > 50 || x < 0) {
-                System.out.println("Integer is outide Throw bounds.\n");
-                return -1;
-            }
-            for (Throws t : Throws.values()) {
-                if (t == throwName) {
-                    t.value = x;
-                }
-            }
-            return 0;
-        }
-    }
+    // getters for UI 
+    public int getStrengthModifier() { return calculateModifier(strength); }
+    public int getDexterityModifier() { return calculateModifier(dexterity); }
+    public int getConstitutionModifier() { return calculateModifier(constitution); }
+    public int getIntelligenceModifier() { return calculateModifier(intelligence); }
+    public int getWisdomModifier() { return calculateModifier(wisdom); }
+    public int getCharismaModifier() { return calculateModifier(charisma); }
 }

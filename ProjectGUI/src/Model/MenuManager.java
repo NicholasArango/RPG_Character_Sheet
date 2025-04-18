@@ -26,6 +26,7 @@ package Model;
  *      return: bool
  *      Reads from the JSON file
  */
+import java.io.IOException;
 import projectgui.GUI;
 //import com.fasterxml.jackson.databind.JsonNode;
 //import com.fasterxml.jackson.databind.ObjectMapper;
