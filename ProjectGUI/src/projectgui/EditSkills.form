@@ -182,7 +182,7 @@
                               <Component id="jTextField11" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField12" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace pref="32" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -354,37 +354,37 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField2"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField3"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField4"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField5"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField6"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField7"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -399,12 +399,12 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField8"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField9">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField9"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
@@ -424,32 +424,32 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField10">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField10"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField11">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField11"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField12">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField12"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField13">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField13"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField14">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField14"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField15">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField15"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
@@ -459,7 +459,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField16">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField16"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
@@ -469,7 +469,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField17">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField17"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
@@ -479,7 +479,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField18">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField18"/>
+            <Property name="text" type="java.lang.String" value="Enter Here"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">

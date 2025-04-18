@@ -1,7 +1,6 @@
 package Model;
 
 
-import Model.BasicStatManager;
 import java.io.Serializable;
 import java.util.Objects;
 
