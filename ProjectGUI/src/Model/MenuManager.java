@@ -31,6 +31,10 @@ import projectgui.GUI;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import java.io.File;
 import javax.swing.*;
+import projectgui.EditChar;
+import projectgui.EditInventory;
+import projectgui.EditSkills;
+import projectgui.EditSpellbook;
 //import java.awt.*;
 //import java.io.FileReader;
 //import java.io.IOException;
@@ -43,10 +47,8 @@ import javax.swing.*;
 
 public class MenuManager extends JFrame {
     
-    // The tabbed pane for the GUI
-    private JTabbedPane tabbedPane;
-    // Holds the JSON configuration loaded from the file
-    //private JsonNode menuConfig; 
+    // main GUI window
+    private static GUI gui;
     
     // Constructor: Initializes the UI and loads the JSON configuration.
     public MenuManager() {
@@ -55,9 +57,50 @@ public class MenuManager extends JFrame {
         //initializeTabs(); // Create tabs based on JSON data
     }
     
-    public static void newCharSetup(GUI gui){
-        GUI.newSetup(gui);
+    /**
+     * Opens a new GUI for a new character
+     * It creates the GUI and calls the functions to initialize it to the default values
+     * TODO: call the 
+     */
+    public static void newCharSetup(){
+        gui = new GUI();
+        gui.setVisible(true);
+        gui.map();
     }
+    /**
+     * Opens the Stat Editor window
+     * 
+     */
+    public static void openStatEdit(){
+        EditChar edit1 = new EditChar();
+        edit1.setVisible(true);
+        edit1.map();
+    }
+    
+    public static void statEdit(String key, String value){
+        GUI.editStats(key, value);
+    }
+
+    public static void openSkillEdit(){
+        EditSkills skill1 = new EditSkills();
+        skill1.setVisible(true);
+        skill1.map();
+    }
+    
+    public static void skillEdit(String key, String value){
+        GUI.editSkills(key, value);
+    }
+    
+    public static void openInv(){
+        EditInventory inv1 = new EditInventory();
+        inv1.setVisible(true);
+    }
+    
+    public static void openSpells(){
+        EditSpellbook spells1 = new EditSpellbook();
+        spells1.setVisible(true);
+    }
+    
     
     /*
     // Set up the user interface.
@@ -74,8 +117,8 @@ public class MenuManager extends JFrame {
         setSize(800, 600);
         setLocationRelativeTo(null);
     }
-    
-    
+    */
+    /*
     // Loads the JSON configuration file using the Jackson ObjectMapper.
     private void loadMenuConfig() {
         ObjectMapper mapper = new ObjectMapper();
@@ -87,71 +130,7 @@ public class MenuManager extends JFrame {
             JOptionPane.showMessageDialog(this, "Error loading configuration: " + e.getMessage());
         }
     }
-    
-    
-    // Initializes tabs based on the loaded JSON configuration.
-    // Assumes JSON file has an array "tabs", with each tab having "name" and "content".
-    private void initializeTabs() {
-        // Check if the JSON configuration was loaded successfully and contains tabs.
-        if (menuConfig != null && menuConfig.has("tabs")) {
-            for (JsonNode tabNode : menuConfig.get("tabs")) {
-                String tabName = tabNode.get("name").asText();
-                JPanel panel = createPanelFromConfig(tabNode);
-                addTab(tabName, panel);
-            }
-        } else {
-            // Fallback: Add default example tabs if JSON data is missing or malformed.
-            addTab("Home", new JPanel());
-            addTab("Settings", new JPanel());
-            // Add a button here to quit -------------------
-        }
-    }
-    
-    /**
-     * Create a panel from the JSON configuration for a tab.
-     * Content property is important here (maybe)
-     * Adjust this method based on application needs.
-     *
-     * @param tabNode A JsonNode representing the tab configuration.
-     * @return A JPanel containing the tab's content.
-     */
-    /*private JPanel createPanelFromConfig(JsonNode tabNode) {
-        JPanel panel = new JPanel();
-        return panel;
-    }
-    
-    /**
-     * Adds a new tab to the tabbed pane.
-     *
-     * @param tabName The name (title) of the tab.
-     * @param panel   The JPanel component for the tab's content.
-     */
-    /*public void addTab(String tabName, JPanel panel) {
-        tabbedPane.addTab(tabName, panel);
-    }
-    
-    /**
-     * Removes a tab from the tabbed pane based on its title.
-     *
-     * @param tabName The title of the tab to remove.
-     */
-    public void removeTab(String tabName) {
-        int index = tabbedPane.indexOfTab(tabName);
-        if (index != -1) {
-            tabbedPane.removeTabAt(index);
-        } else {
-            System.err.println("Tab with name " + tabName + " not found.");
-        }
-    }
-    
-    
-    // Refreshes the tabbed pane.
-    public void refreshTabs() {
-        tabbedPane.revalidate();
-        tabbedPane.repaint();
-    }
-    
-   
+    */
     // The entry point of the application. Ensures the GUI is created on Event
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
