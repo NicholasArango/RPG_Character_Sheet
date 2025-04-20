@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package projectgui;
+package View;
 import javax.swing.JTextField;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JLabel;
-import Model.MenuManager;
+import Controller.MenuManager;
 
 /**
  *
