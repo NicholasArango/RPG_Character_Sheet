@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package projectgui;
-import Model.MenuManager;
+package View;
+import Controller.MenuManager;
 
 /**
  *
- * @author nsara
+ * @author N Arango
  */
 public class StartScreen extends javax.swing.JFrame {
 

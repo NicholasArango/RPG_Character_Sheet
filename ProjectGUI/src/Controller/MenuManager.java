@@ -1,4 +1,4 @@
-package Model;
+package Controller;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -26,20 +26,14 @@ package Model;
  *      return: bool
  *      Reads from the JSON file
  */
+import Model.CharacterSheet;
 import java.io.IOException;
-import projectgui.GUI;
-//import com.fasterxml.jackson.databind.JsonNode;
-//import com.fasterxml.jackson.databind.ObjectMapper;
-//import java.io.File;
+import View.MainScreen;
 import javax.swing.*;
-import projectgui.EditChar;
-import projectgui.EditInventory;
-import projectgui.EditSkills;
-import projectgui.EditSpellbook;
-//import java.awt.*;
-//import java.io.FileReader;
-//import java.io.IOException;
-// Importing of other classes not needed ??? I think
+import View.EditChar;
+import View.EditInventory;
+import View.EditSkills;
+import View.EditSpellbook;
 
 // BasicStatManager enum object names:
 // Attribute
@@ -49,76 +43,75 @@ import projectgui.EditSpellbook;
 public class MenuManager extends JFrame {
     
     // main GUI window
-    private static GUI gui;
+    private static MainScreen gui;
+    private static CharacterSheet character;
     
     // Constructor: Initializes the UI and loads the JSON configuration.
     public MenuManager() {
-        //initUI();         // Setup the user interface
-        //loadMenuConfig(); // Load JSON from the file using Jackson
-        //initializeTabs(); // Create tabs based on JSON data
     }
     
     /**
      * Opens a new GUI for a new character
      * It creates the GUI and calls the functions to initialize it to the default values
-     * TODO: call the 
+     * TODO: connect it to the CharacterSheet
      */
     public static void newCharSetup(){
-        gui = new GUI();
+        gui = new MainScreen();
         gui.setVisible(true);
         gui.map();
+        character = new CharacterSheet("New Character");
     }
     /**
      * Opens the Stat Editor window
-     * 
      */
     public static void openStatEdit(){
         EditChar edit1 = new EditChar();
         edit1.setVisible(true);
         edit1.map();
     }
-    
+    /**
+     * Calls the function to change a single label in the stat tab of the GUI
+     * @param key the key to select the correct label from the statMap
+     * @param value the value that will be input
+     */
     public static void statEdit(String key, String value){
-        GUI.editStats(key, value);
+        MainScreen.editStats(key, value);
     }
 
+    /**
+     * Opens the Skill Editor window
+     */
     public static void openSkillEdit(){
         EditSkills skill1 = new EditSkills();
         skill1.setVisible(true);
         skill1.map();
     }
-    
+    /**
+     * Calls the function to change a single label in skill tab of the GUI
+     * @param key the key to select the correct label from the statMap
+     * @param value the value that will be input
+     */
     public static void skillEdit(String key, String value){
-        GUI.editSkills(key, value);
+        MainScreen.editSkills(key, value);
     }
     
+    /**
+     * Opens the Inventory editor window
+     */
     public static void openInv(){
         EditInventory inv1 = new EditInventory();
         inv1.setVisible(true);
     }
     
+    /**
+     * Opens the Spellbook editor window
+     */
     public static void openSpells(){
         EditSpellbook spells1 = new EditSpellbook();
         spells1.setVisible(true);
     }
     
     
-    /*
-    // Set up the user interface.
-    private void initUI() {
-        setTitle("Menu Manager");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
-        
-        // Initialize the tabbed pane and add it to the frame.
-        tabbedPane = new JTabbedPane();
-        add(tabbedPane, BorderLayout.CENTER);
-        
-        // Set window size and center it.
-        setSize(800, 600);
-        setLocationRelativeTo(null);
-    }
-    */
     /*
     // Loads the JSON configuration file using the Jackson ObjectMapper.
     private void loadMenuConfig() {

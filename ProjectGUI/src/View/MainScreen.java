@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package projectgui;
-import Model.MenuManager;
+package View;
+import Controller.MenuManager;
 import javax.swing.JLabel;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,16 +12,16 @@ import java.util.Map;
  *
  * @author N Arango
  */
-public class GUI extends javax.swing.JFrame {
+public class MainScreen extends javax.swing.JFrame {
 
-    //maps iteration through labels
+    //maps for iteration through labels
     private static final Map<String, JLabel> statMap = new HashMap<>();
     private static final Map<String, JLabel> saveMap = new HashMap<>();
     private static final Map<String, JLabel> skillMap = new HashMap<>();
     /**
      * Creates new form GUI
      */
-    public GUI() {
+    public MainScreen() {
         initComponents();
     }
 
@@ -196,9 +196,9 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel58.setText("Values");
 
-        jLabel59.setText("jLabel59");
+        jLabel59.setText("Health:");
 
-        jLabel60.setText("jLabel60");
+        jLabel60.setText("XP:");
 
         jLabel61.setText("jLabel61");
 
@@ -206,10 +206,10 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel63.setText("jLabel63");
 
-        jLabel64.setText("jLabel50");
+        jLabel64.setText("1/1");
         jLabel64.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
-        jLabel65.setText("jLabel50");
+        jLabel65.setText("0/100");
         jLabel65.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
         jLabel66.setText("jLabel50");
@@ -791,11 +791,21 @@ public class GUI extends javax.swing.JFrame {
         skillMap.put("lab18", jLabel49);
     }
     
+    /**
+     * Changes a single label in the stat tab
+     * @param key key to pull the correct label from the statMap
+     * @param value string for the text replacement
+     */
     public static void editStats(String key, String value){
         JLabel label = statMap.get(key);
         label.setText(value);
     }
     
+    /**
+     * Changes a single label in the skill tab
+     * @param key key to pull the correct label from the skillMap
+     * @param value string for the text replacement
+     */
     public static void editSkills(String key, String value){
         JLabel change = skillMap.get(key);
         change.setText(value);
@@ -818,20 +828,21 @@ public class GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI().setVisible(true);
+                new MainScreen().setVisible(true);
             }
         });
     }

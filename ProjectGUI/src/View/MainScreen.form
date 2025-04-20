@@ -562,12 +562,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel59">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel59"/>
+                <Property name="text" type="java.lang.String" value="Health:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel60">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel60"/>
+                <Property name="text" type="java.lang.String" value="XP:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel61">
@@ -587,7 +587,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel64">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel50"/>
+                <Property name="text" type="java.lang.String" value="1/1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
                     <CompoundBorder>
@@ -604,7 +604,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel65">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel50"/>
+                <Property name="text" type="java.lang.String" value="0/100"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
                     <CompoundBorder>
