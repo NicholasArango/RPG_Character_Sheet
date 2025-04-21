@@ -50,7 +50,6 @@ public class PlayerState {
     private final Set<Status> activeStatuses = EnumSet.noneOf(Status.class);
 
     public PlayerState() {
-        
         currentHealth = 1;
         maxHealth = 1;
         experiencePoints = 0;
@@ -89,8 +88,7 @@ public class PlayerState {
     public PlayerState(int initialHealth) {
         this.currentHealth = initialHealth;
     }
-
-   
+  
     public void setMaxHealth(int amount) {
         maxHealth = amount;
     }
