@@ -31,6 +31,12 @@ import java.io.IOException;
 import javax.swing.*;
 import View.*;
 import java.util.Scanner; // For user I/O
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import java.io.File;
+import java.math.BigDecimal;
 
 // BasicStatManager enum object names:
 // Attribute
@@ -141,11 +147,23 @@ public class MenuManager extends JFrame {
         spells1.setVisible(true);
     }
     
+    public static void newJSON() {
+        ObjectMapper mapper = new ObjectMapper();
+        
+    }
     
-    /*
+    public static void loadJSON() {
+        ObjectMapper mapper = new ObjectMapper();
+    }
+
     // Loads the JSON configuration file using the Jackson ObjectMapper.
     private void loadMenuConfig() {
+        JsonNode menuConfig;
         ObjectMapper mapper = new ObjectMapper();
+        ObjectNode root = mapper.createObjectNode();
+        
+        
+                
         try {
             // Change the path to the actual location of the JSON file if necessary.
             menuConfig = mapper.readTree(new File("menu_config.json"));
@@ -154,7 +172,7 @@ public class MenuManager extends JFrame {
             JOptionPane.showMessageDialog(this, "Error loading configuration: " + e.getMessage());
         }
     }
-    */
+
     // The entry point of the application. Ensures the GUI is created on Event
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {

@@ -103,17 +103,22 @@ public class StartScreen extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    // Exit Program Button
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         System.exit(0); // Closes the program
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    // New Character:
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MenuManager.newCharSetup();
+        
+        
+        
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    // Load Character:
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        // Accesses saved JSON file
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

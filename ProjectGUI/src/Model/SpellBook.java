@@ -51,14 +51,12 @@ import java.util.List;
  */
 public class SpellBook {
     
-    
     private List<Spell> knownSpells;
 
     public SpellBook(){
         this.knownSpells = new ArrayList<>();
         this.addSpell(new Spell());
     }
-    
     
     // add spell
     public void addSpell(Spell spell) {
@@ -87,7 +85,6 @@ public class SpellBook {
         }
         return spellsByLevel;
     }
-
 
     // Clear all spells from spellbook
     public void clearSpellbook() {
