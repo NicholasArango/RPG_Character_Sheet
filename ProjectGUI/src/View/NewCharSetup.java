@@ -270,14 +270,19 @@ public class NewCharSetup extends javax.swing.JFrame {
                 text = textField.getText();
                 if(i == 1){
                     name = text;
+                    MenuManager.createNewChar(name);
                 }
                 key = "lab" + i;
                 MenuManager.statEdit(key, text);
+                MenuManager.editInitChar(i,text);
             }
             JTextField hpMax = textMap.get("8");
             text = hpMax.getText() + "/" + hpMax.getText();
             MenuManager.statEdit("lab8", text);
-            MenuManager.createNewChar(name);
+            MenuManager.editInitChar(8,text);
+            
+            
+            
             this.dispose();
         }
         

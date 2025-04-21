@@ -17,7 +17,7 @@ import java.util.Scanner; // For user I/O
 
     public class CharacterSheet implements Serializable {
     private static final long serialVersionUID = 1L;
-    private final String characterName;
+    private String characterName;
     private final BasicStatManager basicStats;
     private final Inventory inventory;
     private final PlayerState playerState;
@@ -32,6 +32,9 @@ import java.util.Scanner; // For user I/O
     }
 
     public String getCharacterName() { return characterName; }
+    public void setCharacterName(String name){
+        characterName = name;
+    }
     public BasicStatManager getBaseStats() { return basicStats; }
     public Inventory getInventory() { return inventory; }
     public PlayerState getPlayerState() { return playerState; }
@@ -66,5 +69,37 @@ import java.util.Scanner; // For user I/O
         } while (val < min || val > max);
         in.nextLine(); // consume end‑of‑line
         return val;
+    }
+    
+    public void setStrength(int i){
+        basicStats.setStrength(i);
+    }
+    
+    public void setDexterity(int i){
+        basicStats.setDexterity(i);
+    }
+    
+    public void setConstitution(int i){
+        basicStats.setConstitution(i);
+    }
+    
+    public void setIntelligence(int i){
+        basicStats.setIntelligence(i);
+    }
+    
+    public void setWisdom(int i){
+        basicStats.setWisdom(i);
+    }
+    
+    public void setCharisma(int i){
+        basicStats.setCharisma(i);
+    }
+    
+    public void setMaxHealth(int i){
+        playerState.setMaxHealth(i);
+    }
+    
+    public void setCurrentHealth(int i){
+        playerState.setCurrentHealth(i);
     }
 }

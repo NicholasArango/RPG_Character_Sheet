@@ -30,7 +30,9 @@ import Model.*;
 import java.io.IOException;
 import javax.swing.*;
 import View.*;
+import java.util.HashSet;
 import java.util.Scanner; // For user I/O
+import java.util.Set;
 
 // BasicStatManager enum object names:
 // Attribute
@@ -41,6 +43,7 @@ public class MenuManager extends JFrame {
     
     // main GUI window
     private static MainScreen gui;
+    private static CharacterSheet sheet;
     
     // Constructor: Initializes the UI and loads the JSON configuration.
     public MenuManager() {
@@ -69,8 +72,46 @@ public class MenuManager extends JFrame {
     }
     
     public static void createNewChar(String name){
-        CharacterSheet sheet = new CharacterSheet(name);
+        sheet = new CharacterSheet(name);
         //sheet.initializeBaseStats();
+    }
+    
+    public static void editInitChar(int key, String value){
+        int i;
+        switch (key){
+            case 1 -> sheet.setCharacterName(value);
+            case 2 -> {
+                i = Integer.parseInt(value);
+                sheet.setStrength(i);
+            }
+            case 3 -> {
+                i = Integer.parseInt(value);
+                sheet.setDexterity(i);
+            }
+            case 4 -> {
+                i = Integer.parseInt(value);
+                sheet.setConstitution(i);
+            }
+            case 5 -> {
+                i = Integer.parseInt(value);
+                sheet.setIntelligence(i);
+            }
+            case 6 -> {
+                i = Integer.parseInt(value);
+                sheet.setWisdom(i);
+            }
+            case 7 -> {
+                i = Integer.parseInt(value);
+                sheet.setCharisma(i);
+            }
+            case 8 -> {
+                i = Integer.parseInt(value);
+                sheet.setMaxHealth(i);
+                sheet.setCurrentHealth(i);
+            }
+            default -> {
+            }
+        }
     }
     
     /**
