@@ -30,6 +30,7 @@ import Model.*;
 import java.io.IOException;
 import javax.swing.*;
 import View.*;
+import java.util.Scanner; // For user I/O
 
 // BasicStatManager enum object names:
 // Attribute
@@ -40,7 +41,6 @@ public class MenuManager extends JFrame {
     
     // main GUI window
     private static MainScreen gui;
-    private static CharacterSheet character;
     
     // Constructor: Initializes the UI and loads the JSON configuration.
     public MenuManager() {
@@ -55,8 +55,20 @@ public class MenuManager extends JFrame {
         gui = new MainScreen();
         gui.setVisible(true);
         gui.map();
-        character = new CharacterSheet("New Character");
+        //newChar();
     }
+    
+        public static CharacterSheet newChar() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter character name: ");
+        String name = in.nextLine().trim();
+
+        CharacterSheet sheet = new CharacterSheet(name);
+        sheet.initializeBaseStats();
+        return sheet;
+    }
+    
+    
     /**
      * Opens the Stat Editor window
      */
