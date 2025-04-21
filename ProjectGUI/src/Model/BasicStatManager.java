@@ -242,8 +242,4 @@ public class BasicStatManager implements Serializable {
         getWisdomModifier();
         getCharismaModifier();
     }
-    
-    public int setStrength() {
-        return 0; 
-    }
 }

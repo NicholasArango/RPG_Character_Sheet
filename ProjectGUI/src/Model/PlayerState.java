@@ -45,11 +45,16 @@ public class PlayerState {
 
     private int currentHealth;
     private int experiencePoints;
+    private int playerLevel;
+    private int maxHealth;
     private final Set<Status> activeStatuses = EnumSet.noneOf(Status.class);
 
     public PlayerState() {
         currentHealth = 1;
+        maxHealth = 1;
         experiencePoints = 0;
+        playerLevel = 1;
+        
     }
 
     // Status effect enumeration remains unchanged
@@ -83,11 +88,15 @@ public class PlayerState {
     public PlayerState(int initialHealth) {
         this.currentHealth = initialHealth;
     }
-
-    public void editHealth(int amount) {
-        currentHealth += amount;
+  
+    public void setMaxHealth(int amount) {
+        maxHealth = amount;
     }
 
+    public void setCurrentHealth(int amount) {
+        currentHealth = amount;
+    }
+    
     public void editExperience(int amount) {
         experiencePoints += amount;
     }
