@@ -198,9 +198,9 @@ public class MainScreen extends javax.swing.JFrame {
 
         jLabel59.setText("Health:");
 
-        jLabel60.setText("XP:");
+        jLabel60.setText("Level:");
 
-        jLabel61.setText("jLabel61");
+        jLabel61.setText("XP:");
 
         jLabel62.setText("jLabel62");
 
@@ -209,10 +209,10 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel64.setText("1/1");
         jLabel64.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
-        jLabel65.setText("0/100");
+        jLabel65.setText("1");
         jLabel65.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
-        jLabel66.setText("jLabel50");
+        jLabel66.setText("0");
         jLabel66.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
         jLabel67.setText("jLabel50");
@@ -763,6 +763,9 @@ public class MainScreen extends javax.swing.JFrame {
         statMap.put("lab5", jLabel11);
         statMap.put("lab6", jLabel12);
         statMap.put("lab7", jLabel13);
+        statMap.put("lab8", jLabel64);
+        statMap.put("lab9", jLabel65);
+        statMap.put("lab10", jLabel66);
         
         saveMap.put("lab1", jLabel52);
         saveMap.put("lab2", jLabel53);

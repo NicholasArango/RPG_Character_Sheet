@@ -69,6 +69,15 @@ public class MenuManager extends JFrame {
         edit1.setVisible(true);
         edit1.map();
     }
+    
+    /**
+     * validates input for the Stat Editor
+     */
+    public static void checkStatEdit(){
+        
+    }
+    
+    
     /**
      * Calls the function to change a single label in the stat tab of the GUI
      * @param key the key to select the correct label from the statMap
