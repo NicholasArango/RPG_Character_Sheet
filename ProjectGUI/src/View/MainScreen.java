@@ -212,7 +212,7 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel65.setText("1");
         jLabel65.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
-        jLabel66.setText("0");
+        jLabel66.setText("0/1000");
         jLabel66.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
         jLabel67.setText("jLabel50");
@@ -803,7 +803,7 @@ public class MainScreen extends javax.swing.JFrame {
         JLabel label = statMap.get(key);
         label.setText(value);
     }
-    
+       
     /**
      * Changes a single label in the skill tab
      * @param key key to pull the correct label from the skillMap
@@ -813,6 +813,7 @@ public class MainScreen extends javax.swing.JFrame {
         JLabel change = skillMap.get(key);
         change.setText(value);
     }
+    
     
     /**
      * @param args the command line arguments

@@ -26,14 +26,10 @@ package Controller;
  *      return: bool
  *      Reads from the JSON file
  */
-import Model.CharacterSheet;
+import Model.*;
 import java.io.IOException;
-import View.MainScreen;
 import javax.swing.*;
-import View.EditChar;
-import View.EditInventory;
-import View.EditSkills;
-import View.EditSpellbook;
+import View.*;
 
 // BasicStatManager enum object names:
 // Attribute
@@ -68,15 +64,23 @@ public class MenuManager extends JFrame {
         EditChar edit1 = new EditChar();
         edit1.setVisible(true);
         edit1.map();
-    }
-    
-    /**
-     * validates input for the Stat Editor
-     */
-    public static void checkStatEdit(){
         
     }
     
+    /**
+     * validates the input
+     * @return returns result of the check
+     */
+    public static boolean checkStatEdit(){
+        boolean check = EditChar.inputValidate();
+        return check;
+    }
+    
+    public static void errorWindow(String text){
+        ErrorScreen newError = new ErrorScreen();
+        newError.setup(text);
+        newError.setVisible(true);
+    }
     
     /**
      * Calls the function to change a single label in the stat tab of the GUI
@@ -94,6 +98,11 @@ public class MenuManager extends JFrame {
         EditSkills skill1 = new EditSkills();
         skill1.setVisible(true);
         skill1.map();
+    }
+    
+    public static boolean checkSkillEdit(){
+        boolean check = EditSkills.inputValidate();
+        return check;
     }
     /**
      * Calls the function to change a single label in skill tab of the GUI

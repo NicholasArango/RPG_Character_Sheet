@@ -3,10 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-import javax.swing.JTextField;
+import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JLabel;
 import Controller.MenuManager;
 
 /**
@@ -284,18 +283,19 @@ public class EditChar extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jLabel11))
                 .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField11)
-                    .addComponent(jTextField10)
-                    .addComponent(jTextField9)
-                    .addComponent(jTextField8)
-                    .addComponent(jTextField7)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField11)
+                        .addComponent(jTextField10)
+                        .addComponent(jTextField9)
+                        .addComponent(jTextField8)
+                        .addComponent(jTextField7)
+                        .addComponent(jTextField6)
+                        .addComponent(jTextField5)
+                        .addComponent(jTextField4)
+                        .addComponent(jTextField3)
+                        .addComponent(jTextField2))
+                    .addComponent(jTextField1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -371,6 +371,9 @@ public class EditChar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * maps the text fields for better iteration, then sets the tooltips for the fields
+     */
     public void map(){
         textMap.put("1", jTextField1);
         textMap.put("2", jTextField2);
@@ -383,6 +386,18 @@ public class EditChar extends javax.swing.JFrame {
         textMap.put("9", jTextField9);
         textMap.put("10", jTextField10);
         textMap.put("11", jTextField11);
+        
+        jTextField1.setToolTipText("Name must be between 1 and 20 characters");
+        jTextField2.setToolTipText("Can be between 1 and 30");
+        jTextField3.setToolTipText("Can be between 1 and 30");
+        jTextField4.setToolTipText("Can be between 1 and 30");
+        jTextField5.setToolTipText("Can be between 1 and 30");
+        jTextField6.setToolTipText("Can be between 1 and 30");
+        jTextField7.setToolTipText("Can be between 1 and 30");
+        jTextField8.setToolTipText("Can be between 1 and 9999");
+        jTextField9.setToolTipText("Cannot be greater than Max HP");
+        jTextField10.setToolTipText("Can be between 1 and 99");
+        jTextField11.setToolTipText("XP cannot be greater than (Level * 1000)");
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -390,36 +405,47 @@ public class EditChar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String text;
-        for (int i = 1; i < 8; i++) {
-            String key = Integer.toString(i);
-            JTextField textField = textMap.get(key);
-            text = textField.getText();
-            if(!"Enter Here".equals(text)){
-                key = "lab" + i;
-                MenuManager.statEdit(key, text);
-            } 
-        }
-        //Get the input from the hp Max and Current fields to format correctly for the Main Screen
-        JTextField hpMax = textMap.get("8");
-        if(!"Enter Here".equals(hpMax.getText())){
-            JTextField hpCurr = textMap.get("9");
-            if(!"Enter Here".equals(hpCurr.getText())){
-                text = hpCurr.getText() + "/" + hpMax.getText();
-                MenuManager.statEdit("lab8", text);
+        boolean val = MenuManager.checkStatEdit();
+        if(val){
+            String text;
+            int level = 0;
+            int xp= 0;
+            int maxXP = 0;
+            for (int i = 1; i < 8; i++) {
+                String key = Integer.toString(i);
+                JTextField textField = textMap.get(key);
+                text = textField.getText();
+                if(!"Enter Here".equals(text)){
+                    key = "lab" + i;
+                    MenuManager.statEdit(key, text);
+                } 
             }
-        }
-        //Finish the last 2 labels
-        for (int i = 10; i < 12; i++){
-            String key = Integer.toString(i);
-            JTextField textField = textMap.get(key);
+            //Get the input from the hp Max and Current fields to format correctly for the Main Screen
+            JTextField hpMax = textMap.get("8");
+            if(!"Enter Here".equals(hpMax.getText())){
+                JTextField hpCurr = textMap.get("9");
+                if(!"Enter Here".equals(hpCurr.getText())){
+                    text = hpCurr.getText() + "/" + hpMax.getText();
+                    MenuManager.statEdit("lab8", text);
+                }
+            }
+            //Get Level and XP and correctly format for the Main Screen
+            JTextField textField = textMap.get("10");
             text = textField.getText();
             if(!"Enter Here".equals(text)){
-                key = "lab" + i;
-                MenuManager.statEdit(key, text);
-            } 
+                level = Integer.parseInt(text);
+                MenuManager.statEdit("lab9", text);
+            }
+            textField = textMap.get("11");
+            text = textField.getText();
+            if(!"Enter Here".equals(text)){
+                xp = Integer.parseInt(text);
+                maxXP = level * 1000;
+                text = text + "/" + maxXP;
+                MenuManager.statEdit("lab10", text);
+            }
+            this.dispose();
         }
-        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
@@ -636,33 +662,74 @@ public class EditChar extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField11KeyTyped
 
     /**
-     * validates input, partially iterative 
+     * validates input before changing any values
+     * @return returns the result
      */
-    public static void inputValidate(){
-        
+    public static boolean inputValidate(){
+        boolean good = true;
+        int maxH = 0;
+        int curH = 0;
+        int lev = 0;
+        int xp = 0;
+        int num = 0;
         for(int i = 1; i < 12; i++){
+            if(!good){
+                break;
+            }
             String key = Integer.toString(i);
             JTextField field = textMap.get(key);
             String text = field.getText();
-            if(i == 1){
-                //TODO put validation for character Name here
-            }
-            if(i > 1 && i < 8){
-                //TODO put validation for base stats here
-            }
-            if(i == 8){
-                //TODO put validation for MaxHP here
-            }
-            if(i == 9){
-                //TODO put validation for Current HP here
-            }
-            if(i == 10){
-                //TODO put validation for Level here
-            }
-            if(i == 11){
-                //TODO put validation for XP here
-            }
+            if(!"Enter Here".equals(text)){
+                if(i == 1){
+                    if(text.length() > 20){
+                        text = "Character Name cannot be greater than 20 characters";
+                        MenuManager.errorWindow(text);
+                        good = false;
+                    }
+                }
+                if(i > 1 && i < 8){
+                    num = Integer.parseInt(text);
+                    if(num < 1 || num > 999){
+                        text = "All Base stats must be between 1 and 30";
+                        MenuManager.errorWindow(text);
+                        good = false;
+                    }
+                }
+                if(i == 8){
+                    maxH = Integer.parseInt(text);
+                    if(maxH < 1 || maxH > 9999){
+                        text = "Max Health must be between 1 and 9999";
+                        MenuManager.errorWindow(text);
+                        good = false;
+                    }
+                }
+                if(i == 9){
+                    curH = Integer.parseInt(text);
+                    if(curH > maxH){
+                        text = "Current Health cannot be greater than Max Health";
+                        MenuManager.errorWindow(text);
+                        good = false;
+                    }
+                }
+                if(i == 10){
+                    lev = Integer.parseInt(text);
+                    if(lev < 1 || lev > 99){
+                        text = "Level must be between 1 and 99";
+                        MenuManager.errorWindow(text);
+                        good = false;
+                    }
+                }
+                if(i == 11){
+                    xp = Integer.parseInt(text);
+                    if(xp < 0 || xp > (lev * 1000)){
+                        text = "XP must be between 0 and the character's level * 1000";
+                        MenuManager.errorWindow(text);
+                        good = false;
+                    }
+                }
+            }    
         }
+        return good;
     }
     
     /**
