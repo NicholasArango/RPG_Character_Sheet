@@ -55,19 +55,23 @@ public class MenuManager extends JFrame {
         gui = new MainScreen();
         gui.setVisible(true);
         gui.map();
-        //newChar();
     }
     
-        public static CharacterSheet newChar() {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter character name: ");
-        String name = in.nextLine().trim();
-
+    public static void newChar() {
+        NewCharSetup setup = new NewCharSetup();
+        setup.setVisible(true);
+        setup.map();
+    }
+    
+    public static boolean checkNewChar(){
+        boolean check = NewCharSetup.inputValidate();
+        return check;
+    }
+    
+    public static void createNewChar(String name){
         CharacterSheet sheet = new CharacterSheet(name);
-        sheet.initializeBaseStats();
-        return sheet;
+        //sheet.initializeBaseStats();
     }
-    
     
     /**
      * Opens the Stat Editor window

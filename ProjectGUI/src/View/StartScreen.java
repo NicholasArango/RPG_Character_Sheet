@@ -108,7 +108,7 @@ public class StartScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MenuManager.newCharSetup();
+        MenuManager.newChar();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
