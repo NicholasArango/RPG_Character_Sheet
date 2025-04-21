@@ -83,7 +83,7 @@ public class BasicStatManager implements Serializable {
         return playerLevel;
     }
 
-    // attribute getters+getters
+    // attribute getters+setters
     public int getStrength() { return strength; }
     public void setStrength(int strength) {
         validateAttribute(strength);
@@ -148,33 +148,59 @@ public class BasicStatManager implements Serializable {
                 
             // DEX-based
             case ACROBATICS:
+                baseModifier = calculateModifier(dexterity);
+                break;
             case SLEIGHT_OF_HAND:
+                baseModifier = calculateModifier(dexterity);
+                break;
             case STEALTH:
                 baseModifier = calculateModifier(dexterity);
                 break;
                 
             // INT-based
             case ARCANA:
+                baseModifier = calculateModifier(intelligence);
+                break;
             case HISTORY:
+                baseModifier = calculateModifier(intelligence);
+                break;
             case INVESTIGATION:
+                baseModifier = calculateModifier(intelligence);
+                break;
             case NATURE:
+                baseModifier = calculateModifier(intelligence);
+                break;
             case RELIGION:
                 baseModifier = calculateModifier(intelligence);
                 break;
                 
             // WIS-based
             case ANIMAL_HANDLING:
+                baseModifier = calculateModifier(wisdom);
+                break;
             case INSIGHT:
+                baseModifier = calculateModifier(wisdom);
+                break;
             case MEDICINE:
+                baseModifier = calculateModifier(wisdom);
+                break;
             case PERCEPTION:
+                baseModifier = calculateModifier(wisdom);
+                break;
             case SURVIVAL:
                 baseModifier = calculateModifier(wisdom);
                 break;
                 
             // CHA-based
             case DECEPTION:
+                baseModifier = calculateModifier(charisma);
+                break;
             case INTIMIDATION:
+                baseModifier = calculateModifier(charisma);
+                break;
             case PERFORMANCE:
+                baseModifier = calculateModifier(charisma);
+                break;
             case PERSUASION:
                 baseModifier = calculateModifier(charisma);
                 break;
@@ -204,4 +230,17 @@ public class BasicStatManager implements Serializable {
     public int getIntelligenceModifier() { return calculateModifier(intelligence); }
     public int getWisdomModifier() { return calculateModifier(wisdom); }
     public int getCharismaModifier() { return calculateModifier(charisma); }
+    
+    public void getBaseStats() {
+        getStrengthModifier();
+        getDexterityModifier();
+        getConstitutionModifier();
+        getIntelligenceModifier();
+        getWisdomModifier();
+        getCharismaModifier();
+    }
+    
+    public int setStrength() {
+        return 0; 
+    }
 }
