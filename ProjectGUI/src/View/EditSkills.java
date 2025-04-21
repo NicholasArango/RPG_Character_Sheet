@@ -8,9 +8,7 @@ import Controller.MenuManager;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+
 
 
 /**
@@ -726,16 +724,19 @@ public class EditSkills extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        for (int i = 1; i < 19; i++) {
-            String key = Integer.toString(i);
-            JTextField textField = skillsMap.get(key);
-            String text = textField.getText();
-            if(!"Enter Here".equals(text)){
-                key = "lab" + i;
-                MenuManager.skillEdit(key, text);
-            } 
+        boolean val = MenuManager.checkSkillEdit();
+        if(val){
+            for (int i = 1; i < 19; i++) {
+                String key = Integer.toString(i);
+                JTextField textField = skillsMap.get(key);
+                String text = textField.getText();
+                if(!"Enter Here".equals(text)){
+                    key = "lab" + i;
+                    MenuManager.skillEdit(key, text);
+                } 
+            }
+            this.dispose();
         }
-        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
         
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -1102,7 +1103,9 @@ public class EditSkills extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField18KeyTyped
 
-    
+    /**
+     * maps the text fields for iteration, then sets the tooltips for each field
+     */
     public void map(){
         skillsMap.put("1", jTextField1);
         skillsMap.put("2", jTextField2);
@@ -1122,15 +1125,47 @@ public class EditSkills extends javax.swing.JFrame {
         skillsMap.put("16", jTextField16);
         skillsMap.put("17", jTextField17);
         skillsMap.put("18", jTextField18);
+        
+        jTextField1.setToolTipText("Can be between 1 and 20");
+        jTextField2.setToolTipText("Can be between 1 and 20");
+        jTextField3.setToolTipText("Can be between 1 and 20");
+        jTextField4.setToolTipText("Can be between 1 and 20");
+        jTextField5.setToolTipText("Can be between 1 and 20");
+        jTextField6.setToolTipText("Can be between 1 and 20");
+        jTextField7.setToolTipText("Can be between 1 and 20");
+        jTextField8.setToolTipText("Can be between 1 and 20");
+        jTextField9.setToolTipText("Can be between 1 and 20");
+        jTextField10.setToolTipText("Can be between 1 and 20");
+        jTextField11.setToolTipText("Can be between 1 and 20");
+        jTextField12.setToolTipText("Can be between 1 and 20");
+        jTextField13.setToolTipText("Can be between 1 and 20");
+        jTextField14.setToolTipText("Can be between 1 and 20");
+        jTextField15.setToolTipText("Can be between 1 and 20");
+        jTextField16.setToolTipText("Can be between 1 and 20");
+        jTextField17.setToolTipText("Can be between 1 and 20");
+        jTextField18.setToolTipText("Can be between 1 and 20");
     }
     
-    public static void inputValidate(){
+    public static boolean inputValidate(){
+        boolean good = true;
+        int num = 0;
         for(int i = 1; i < 19; i++){
+            if(!good){
+                break;
+            }
             String key = Integer.toString(i);
             JTextField field = skillsMap.get(key);
             String text = field.getText();
-            //TODO put validation for skills here
+            if(!"Enter Here".equals(text)){
+                num = Integer.parseInt(text);
+                if(num > 20){
+                    text = "Skills cannot be greater than 20";
+                    MenuManager.errorWindow(text);
+                    good = false;
+                }
+            }
         }
+        return good;
     }
     
     /**
