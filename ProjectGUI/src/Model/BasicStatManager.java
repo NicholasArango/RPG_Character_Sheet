@@ -32,7 +32,8 @@ package Model;
 import java.io.Serializable;
 
 public class BasicStatManager implements Serializable {
-    private static final long serialVersionUID = 1L;
+     private static final long serialVersionUID = 1L;
+    private int playerLevel = 1;
 
     // Core Attributes
     private int strength = 10;
@@ -43,7 +44,7 @@ public class BasicStatManager implements Serializable {
     private int charisma = 10;
     
     // Proficiency System
-    private int proficiencyBonus = 2;
+    private int proficiencyBonus = (int) (Math.ceil(playerLevel/4) + 2);
     private boolean[] skillProficiencies = new boolean[18];
     
     // Skill indices (matches D&D 5e skill order)
@@ -71,6 +72,15 @@ public class BasicStatManager implements Serializable {
         for(int i = 0; i < skillProficiencies.length; i++) {
             skillProficiencies[i] = false;
         }
+    }
+    
+    public void setLevel(int level)
+    {
+       playerLevel = level; 
+        
+    }
+    public int getLevel(){
+        return playerLevel;
     }
 
     // attribute getters+getters
@@ -178,7 +188,7 @@ public class BasicStatManager implements Serializable {
 
     // modifier calculation
     private int calculateModifier(int abilityScore) {
-        return (int) Math.floor((abilityScore - 10) / 2.0);
+        return (int) Math.floor((abilityScore - 10) / 2);
     }
 
     private void validateAttribute(int value) {
