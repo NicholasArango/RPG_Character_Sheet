@@ -277,8 +277,9 @@ public class NewCharSetup extends javax.swing.JFrame {
                 MenuManager.editInitChar(i,text);
             }
             JTextField hpMax = textMap.get("8");
-            text = hpMax.getText() + "/" + hpMax.getText();
-            MenuManager.statEdit("lab8", text);
+            text = hpMax.getText();
+            String uiText = text + "/" + text;
+            MenuManager.statEdit("lab8", uiText);
             MenuManager.editInitChar(8,text);
             
             
