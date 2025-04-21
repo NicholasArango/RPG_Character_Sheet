@@ -689,7 +689,7 @@ public class EditChar extends javax.swing.JFrame {
                 }
                 if(i > 1 && i < 8){
                     num = Integer.parseInt(text);
-                    if(num < 1 || num > 999){
+                    if(num < 1 || num > 30){
                         text = "All Base stats must be between 1 and 30";
                         MenuManager.errorWindow(text);
                         good = false;
