@@ -14,7 +14,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -82,11 +81,19 @@ public class jsonData {
         c.setBaseStats(stats);
         
         // Serialize
+        try {
         mapper.writerWithDefaultPrettyPrinter()
                 .writeValue(new File("baseStats.json"), c);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void JsonLoad(String filename) {
         File file = new File(filename);
+    }
+    
+    public static void JsonSave(String filename) {
+        
     }
 }
