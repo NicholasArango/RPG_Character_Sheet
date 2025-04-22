@@ -164,7 +164,7 @@ public class jsonData {
     }
     
     
-    private void loadData() {
+    public void loadData() {
         try {
             dataList = MAPPER.readValue(
                 currentJsonFile,
@@ -181,7 +181,7 @@ public class jsonData {
         }
     }
 
-    private void saveData() {
+    public void saveData() {
         // TODO ▶ read your JTable back into dataList
         try {
             MAPPER.writeValue(currentJsonFile, dataList);

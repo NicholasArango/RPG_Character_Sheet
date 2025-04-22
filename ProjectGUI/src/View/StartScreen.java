@@ -5,13 +5,18 @@
 package View;
 
 import Controller.MenuManager;
+import Json.jsonData;
+import javax.swing.JButton;
 
 /**
  *
  * @author N Arango
  */
 public class StartScreen extends javax.swing.JFrame {
-
+    private final JButton saveButton = new JButton("Save");
+    private final JButton loadButton = new JButton("Load");
+    private final JButton newCharButton = new JButton("New Character");
+    private final jsonData dataCall = new jsonData();
     /**
      * Creates new form StartScreen
      */
@@ -119,6 +124,7 @@ public class StartScreen extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         // Accesses saved JSON file
+        dataCall.loadData();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
