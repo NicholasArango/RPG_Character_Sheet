@@ -75,31 +75,108 @@ import java.util.Scanner; // For user I/O
         basicStats.setStrength(i);
     }
     
+    public int getStrength(){
+        int i = basicStats.getStrength();
+        return i;
+    }
+    
     public void setDexterity(int i){
         basicStats.setDexterity(i);
+    }
+    
+    public int getDexterity(){
+        int i = basicStats.getDexterity();
+        return i;
     }
     
     public void setConstitution(int i){
         basicStats.setConstitution(i);
     }
     
+    public int getConstitution(){
+        int i = basicStats.getConstitution();
+        return i;
+    }
+    
     public void setIntelligence(int i){
         basicStats.setIntelligence(i);
+    }
+    
+    public int getIntelligence(){
+        int i = basicStats.getIntelligence();
+        return i;
     }
     
     public void setWisdom(int i){
         basicStats.setWisdom(i);
     }
     
+    public int getWisdom(){
+        int i = basicStats.getWisdom();
+        return i;
+    }
+    
     public void setCharisma(int i){
         basicStats.setCharisma(i);
+    }
+    
+    public int getCharisma(){
+        int i = basicStats.getCharisma();
+        return i;
     }
     
     public void setMaxHealth(int i){
         playerState.setMaxHealth(i);
     }
     
+    public int getMaxHealth(){
+        int i = playerState.getMaxHealth();
+        return i;
+    }
+    
     public void setCurrentHealth(int i){
         playerState.setCurrentHealth(i);
+    }
+    
+    public int getCurrentHealth(){
+        int i = playerState.getCurrentHealth();
+        return i;
+    }
+    
+    public void setLevel(int i){
+        basicStats.setLevel(i);
+    }
+    
+    public int getLevel(){
+        int i = basicStats.getLevel();
+        return i;
+    }
+    
+    public void setExperience(int i){
+        basicStats.setExperience(i);
+    }
+    
+    public int getExperience(){
+        int i = basicStats.getExperience();
+        return i;
+    }
+    
+    public int getSkillValue(int i){
+        int j = basicStats.getSkillValue(i);
+        return j;
+    }
+    
+    public int getSkillProf(int key){
+        int j;
+        switch (key){
+            case 1 -> j = basicStats.getStrengthModifier();
+            case 2 -> j = basicStats.getDexterityModifier();
+            case 3 -> j = basicStats.getConstitutionModifier();
+            case 4 -> j = basicStats.getIntelligenceModifier();
+            case 5 -> j = basicStats.getWisdomModifier();
+            case 6 -> j = basicStats.getCharismaModifier();
+            default -> j = 0;
+        }
+        return j;
     }
 }

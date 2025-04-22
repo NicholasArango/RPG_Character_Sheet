@@ -34,6 +34,7 @@ import java.io.Serializable;
 public class BasicStatManager implements Serializable {
      private static final long serialVersionUID = 1L;
     private int playerLevel = 1;
+    private int experiencePoints = 0;
 
     // Core Attributes
     private int strength = 10;
@@ -75,15 +76,20 @@ public class BasicStatManager implements Serializable {
         }
     }
     
-    public void setLevel(int level)
-    {
+    public void setLevel(int level){
        playerLevel = level; 
-        
     }
     public int getLevel(){
         return playerLevel;
     }
 
+    public void setExperience(int amount) {
+        experiencePoints = amount;
+    }
+        
+    public int getExperience(){
+        return experiencePoints;
+    }
     // attribute getters+setters
     public int getStrength() { return strength; }
     public void setStrength(int strength) {

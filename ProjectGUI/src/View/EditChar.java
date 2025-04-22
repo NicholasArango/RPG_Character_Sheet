@@ -398,6 +398,20 @@ public class EditChar extends javax.swing.JFrame {
         jTextField9.setToolTipText("Cannot be greater than Max HP");
         jTextField10.setToolTipText("Can be between 1 and 99");
         jTextField11.setToolTipText("XP cannot be greater than (Level * 1000)");
+        
+        for(int i = 1; i < 12; i++){
+            int j;
+            if(i == 1){
+                jTextField1.setText(MenuManager.showName());
+            }
+            else{
+                j = MenuManager.getChar(i);
+                String key = Integer.toString(i);
+                JTextField change = textMap.get(key);
+                key = Integer.toString(j);
+                change.setText(key);
+            }
+        }
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -418,6 +432,7 @@ public class EditChar extends javax.swing.JFrame {
                 if(!"Enter Here".equals(text)){
                     key = "lab" + i;
                     MenuManager.statEdit(key, text);
+                    MenuManager.editChar(i, text);
                 } 
             }
             //Get the input from the hp Max and Current fields to format correctly for the Main Screen
@@ -427,6 +442,8 @@ public class EditChar extends javax.swing.JFrame {
                 if(!"Enter Here".equals(hpCurr.getText())){
                     text = hpCurr.getText() + "/" + hpMax.getText();
                     MenuManager.statEdit("lab8", text);
+                    MenuManager.editChar(8, hpMax.getText());
+                    MenuManager.editChar(9, hpCurr.getText());
                 }
             }
             //Get Level and XP and correctly format for the Main Screen
@@ -435,6 +452,7 @@ public class EditChar extends javax.swing.JFrame {
             if(!"Enter Here".equals(text)){
                 level = Integer.parseInt(text);
                 MenuManager.statEdit("lab9", text);
+                MenuManager.editChar(10, text);
             }
             textField = textMap.get("11");
             text = textField.getText();
@@ -443,7 +461,9 @@ public class EditChar extends javax.swing.JFrame {
                 maxXP = level * 1000;
                 text = text + "/" + maxXP;
                 MenuManager.statEdit("lab10", text);
+                MenuManager.editChar(11, textField.getText());
             }
+            MenuManager.updateSkills();
             this.dispose();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -731,6 +751,7 @@ public class EditChar extends javax.swing.JFrame {
         }
         return good;
     }
+    
     
     /**
      * @param args the command line arguments

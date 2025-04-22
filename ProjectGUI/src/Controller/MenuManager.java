@@ -74,10 +74,31 @@ public class MenuManager extends JFrame {
     
     public static void createNewChar(String name){
         sheet = new CharacterSheet(name);
-        //sheet.initializeBaseStats();
     }
     
-    public static void editInitChar(int key, String value){
+    public static void updateSkills(){
+        for(int i = 0; i < 19; i++){
+            int num = sheet.getSkillValue(i);
+            int j = i + 1;
+            String key = Integer.toString(j);
+            key = "lab" + key;
+            String value = Integer.toString(num);
+            MainScreen.editSkills(key, value);
+        }
+        
+        for(int k = 1; k < 7; k++){
+            int num = sheet.getSkillProf(k);
+            String key = Integer.toString(k);
+            key = "lab" + key;
+            String value = Integer.toString(num);
+            if(num >= 0){
+                value = "+" + value;
+            }
+            MainScreen.editProf(key, value);
+        }
+    }
+    
+    public static void editChar(int key, String value){
         int i;
         switch (key){
             case 1 -> sheet.setCharacterName(value);
@@ -108,11 +129,67 @@ public class MenuManager extends JFrame {
             case 8 -> {
                 i = Integer.parseInt(value);
                 sheet.setMaxHealth(i);
+            }
+            case 9 -> {
+                i = Integer.parseInt(value);
                 sheet.setCurrentHealth(i);
+            }
+            case 10 -> {
+                i = Integer.parseInt(value);
+                sheet.setLevel(i);
+            }
+            case 11 -> {
+                i = Integer.parseInt(value);
+                sheet.setExperience(i);
             }
             default -> {
             }
         }
+    }
+    
+    public static String showName(){
+        String text = sheet.getCharacterName();
+        return text;
+    }
+    
+    public static int getChar(int key){
+        int i;
+        switch (key){
+            case 2 -> {
+                i = sheet.getStrength();
+            }
+            case 3 -> {
+                i = sheet.getDexterity();
+            }
+            case 4 -> {
+                i = sheet.getConstitution();
+            }
+            case 5 -> {
+                i = sheet.getIntelligence();
+            }
+            case 6 -> {
+                i = sheet.getWisdom();
+            }
+            case 7 -> {
+                i = sheet.getCharisma();
+            }
+            case 8 -> {
+                i = sheet.getMaxHealth();
+            }
+            case 9 -> {
+                i = sheet.getCurrentHealth();
+            }
+            case 10 -> {
+                i = sheet.getLevel();
+            }
+            case 11 -> {
+                i = sheet.getExperience();
+            }
+            default -> {
+                i = 0;
+            }
+        }
+        return i;
     }
     
     /**
