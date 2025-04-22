@@ -7,7 +7,7 @@ package Controller;
 
 /**
  *
- * @author Robert J.
+ * @author Robert J., Ellie R., N. Arango
  * 
  * Class: Menu Manager
  *  public
