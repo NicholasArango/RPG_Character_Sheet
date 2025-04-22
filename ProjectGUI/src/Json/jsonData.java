@@ -20,9 +20,11 @@ import java.util.Map;
 import com.fasterxml.jackson.databind.JsonNode;
 
 public class jsonData {
+    
     // Used for storing information into the json files
     private static final ObjectMapper MAPPER = new ObjectMapper();
     private Map<String, Integer> BaseStats;
+    
     // Holds Directories and file names
     private final String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
     private String fileName  = "myConfig.json"; // String that will hold file names
