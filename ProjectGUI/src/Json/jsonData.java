@@ -21,8 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-//import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JOptionPane;
@@ -114,7 +113,7 @@ public class jsonData {
     public void getStats() {
         
     }
-    /*
+    
     private void onNewCharacter(ActionEvent ev) {
         String name = JOptionPane.showInputDialog(
                 null,
@@ -156,8 +155,6 @@ public class jsonData {
         }
     }
 
-    public void setDataMap() {
-    */
     public void setDataMap(){
         dataMap.put("name", MenuManager.showName());
         profs = MenuManager.saveProf();
@@ -251,7 +248,7 @@ public class jsonData {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-    /*
+    
     private void refreshTableFromData() {
         // if there’s no data, clear the table
         if (dataList == null || dataList.isEmpty()) {
@@ -277,5 +274,5 @@ public class jsonData {
 
         // swap it into the JTable
         table.setModel(model);
-    }*/
+    }
 }
