@@ -298,6 +298,7 @@ public class MenuManager extends JFrame {
     
     /**
      * Calls the function to change a single label in skill tab of the GUI
+     * 
      * @param key the key to select the correct label from the statMap
      * @param value the value that will be input
      */
@@ -306,6 +307,7 @@ public class MenuManager extends JFrame {
     }
     /**
      * Calls the function to change a single label in skill tab of the GUI
+     * 
      * @param i the i holds the proficiency value
      */
     public static boolean isProf(int i){
