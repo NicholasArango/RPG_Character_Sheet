@@ -77,7 +77,8 @@ public class BasicStatManager implements Serializable {
     }
     
     public void setLevel(int level){
-       playerLevel = level; 
+       playerLevel = level;
+       proficiencyBonus = (int) (Math.ceil(playerLevel/4) + 2);
     }
     public int getLevel(){
         return playerLevel;
@@ -154,6 +155,7 @@ public class BasicStatManager implements Serializable {
                 break;
             case FORTITUDE:
                 baseModifier = calculateModifier(strength);
+                break;
                 
             // DEX-based
             case ACROBATICS:
@@ -213,7 +215,7 @@ public class BasicStatManager implements Serializable {
             case PERSUASION:
                 baseModifier = calculateModifier(charisma);
                 break;
-                
+            
             default:
                 throw new IllegalArgumentException("Invalid skill index");
         }

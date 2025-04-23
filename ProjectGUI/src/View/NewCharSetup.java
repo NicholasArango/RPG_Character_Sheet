@@ -318,6 +318,7 @@ public class NewCharSetup extends javax.swing.JFrame {
             MenuManager.editChar(8,text);
             MenuManager.editChar(9,text);
             MenuManager.updateSkills();
+            MenuManager.updateProf();
             this.dispose();
         }
         
