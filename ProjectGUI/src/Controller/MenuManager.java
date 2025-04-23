@@ -13,7 +13,7 @@ package Controller;
  *  public
  * 
  * Responsibilities:
- *  Load menus based on data in a JSON file
+ *  Load menus based on given data
  * 
  * Collaborators:
  *  Inventory, Character Sheet, Item, Player State, 
@@ -29,11 +29,6 @@ package Controller;
 import Model.*;
 import javax.swing.*;
 import View.*;
-
-// BasicStatManager enum object names:
-// Attribute
-// Throw
-// Skill
 
 public class MenuManager extends JFrame {
     
@@ -303,13 +298,18 @@ public class MenuManager extends JFrame {
     
     /**
      * Calls the function to change a single label in skill tab of the GUI
+     * 
      * @param key the key to select the correct label from the statMap
      * @param value the value that will be input
      */
     public static void skillEdit(String key, String value){
         MainScreen.editSkills(key, value);
     }
-    
+    /**
+     * Calls the function to change a single label in skill tab of the GUI
+     * 
+     * @param i the i holds the proficiency value
+     */
     public static boolean isProf(int i){
         return sheet.isProficient(i);
     }

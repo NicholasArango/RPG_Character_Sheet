@@ -12,7 +12,13 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author N Arango, Robert J.
+ * @author N Arango
+ * @author Robert J.
+ * @version
+ * 
+ * This displays the first screen the user will see, and is the activation point
+ *      for all following events. It shows the first three buttons: Load Character,
+ *      New Character, and Quit
  */
 public class StartScreen extends javax.swing.JFrame {
     private final jsonData dataCall = new jsonData();
@@ -110,16 +116,24 @@ public class StartScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Exit Program Button
+    // @param action event listtener
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
         System.exit(0); // Closes the program
     }// GEN-LAST:event_jButton3ActionPerformed
     
-     // New Character:
+    /** New Character
+        @paramm action event listener
+      * 
+      * 
+    */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MenuManager.newChar();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-    // Load Character:
+    /** Load Character
+     * @param action event listener
+     * 
+    */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         JFileChooser file = new JFileChooser();
         file.setDialogTitle("Load Character");
@@ -138,7 +152,12 @@ public class StartScreen extends javax.swing.JFrame {
         // Accesses saved JSON file
         
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /**
+     * Main function to begin program, displaying the start screen.
+     * 
+     * @param args 
+     * @see StartScreen
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
          //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
