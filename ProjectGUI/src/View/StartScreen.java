@@ -8,6 +8,7 @@ import Controller.MenuManager;
 import Json.jsonData;
 import javax.swing.*;
 import java.io.File;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -120,13 +121,19 @@ public class StartScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     // Load Character:
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        FileSelect frame = new FileSelect();
         JFileChooser file = new JFileChooser();
-        int result = file.showOpenDialog(frame);
-        //frame.setVisible(true);
+        file.setDialogTitle("Load Character");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".json", "json");
+        file.setFileFilter(filter);
+        int result = file.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = file.getSelectedFile();
+            dataCall.loadData(selectedFile);
+        }
+
         // TODO add your handling code here:
         // Accesses saved JSON file
-        dataCall.loadData();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
