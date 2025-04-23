@@ -12,7 +12,7 @@ import java.util.Scanner; // For user I/O
 
 /**
  *
- * @author Robert J.
+ * @author Robert J., N Arango
  */
 
     public class CharacterSheet implements Serializable {

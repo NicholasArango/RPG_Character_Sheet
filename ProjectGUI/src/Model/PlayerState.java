@@ -7,7 +7,7 @@ package Model;
 
 /**
  *
- * @author Robert J., Ellie R
+ * @author Robert J., Ellie R, N Arango
  * 
  * Class: Player State
  * public
