@@ -5,17 +5,23 @@
 package View;
 
 import Controller.MenuManager;
+import Json.jsonData;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author nsara
  */
-public class WarningScreenNew extends javax.swing.JFrame {
+public class WarningScreenLoad extends javax.swing.JFrame {
 
+    
+    private final jsonData dataCall = new jsonData();
     /**
      * Creates new form WarningScreen
      */
-    public WarningScreenNew() {
+    public WarningScreenLoad() {
         initComponents();
     }
 
@@ -97,8 +103,17 @@ public class WarningScreenNew extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MenuManager.newCharS();
         this.dispose();
+        JFileChooser file = new JFileChooser();
+        file.setDialogTitle("Load Character");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".json", "json");
+        file.setFileFilter(filter);
+        int result = file.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = file.getSelectedFile();
+            dataCall.loadData(selectedFile);
+            MenuManager.loadChar();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -118,13 +133,13 @@ public class WarningScreenNew extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WarningScreenNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WarningScreenLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WarningScreenNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WarningScreenLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WarningScreenNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WarningScreenLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WarningScreenNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WarningScreenLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -134,7 +149,7 @@ public class WarningScreenNew extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new WarningScreenNew().setVisible(true);
+                new WarningScreenLoad().setVisible(true);
             }
         });
     }
