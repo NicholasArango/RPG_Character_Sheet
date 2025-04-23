@@ -7,16 +7,19 @@ package Json;
 
 /**
  *
- * @author Robert J.
+ * @author Robert J., N Arango
  */
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
@@ -24,6 +27,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Controller.*;
 
 public class jsonData {
     
@@ -37,6 +41,9 @@ public class jsonData {
     private final        String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
     private final        JTable table = new JTable();
     private              File currentJsonFile; // Holds current file
+    private List<Map<String, Integer>> dataList;
+    private final JTable table = new JTable();
+    private Map<String, Object> dataMap = new HashMap<>();
     
     public jsonData() {
         // not neccesssary for jackson
@@ -152,15 +159,58 @@ public class jsonData {
         }
     }
     
+    public void setDataMap(){
+        dataMap.put("name", MenuManager.showName());
+        dataMap.put("proficiencies", MenuManager.saveProf());
+        dataMap.put("Strength", MenuManager.getChar(2));
+        dataMap.put("Dexterity", MenuManager.getChar(3));
+        dataMap.put("Constitution", MenuManager.getChar(4));
+        dataMap.put("Intelligence", MenuManager.getChar(5));
+        dataMap.put("Wisdom", MenuManager.getChar(6));
+        dataMap.put("Charisma", MenuManager.getChar(7));
+        dataMap.put("MaxHP", MenuManager.getChar(8));
+        dataMap.put("CurrentHP", MenuManager.getChar(9));
+        dataMap.put("Level", MenuManager.getChar(10));
+        dataMap.put("XP", MenuManager.getChar(11));
+    }
+    
+    public void loadCharacter(){
+        MenuManager.editChar(1, (String) dataMap.get("name"));
+        String value = Integer.toString((int) dataMap.get("Strength"));
+        MenuManager.editChar(2, value);
+        value = Integer.toString((int) dataMap.get("Dexterity"));
+        MenuManager.editChar(3, value);
+        value = Integer.toString((int) dataMap.get("Constitution"));
+        MenuManager.editChar(4, value);
+        value = Integer.toString((int) dataMap.get("Intelligence"));
+        MenuManager.editChar(5, value);
+        value = Integer.toString((int) dataMap.get("Wisdom"));
+        MenuManager.editChar(6, value);
+        value = Integer.toString((int) dataMap.get("Charisma"));
+        MenuManager.editChar(7, value);
+        value = Integer.toString((int) dataMap.get("MaxHP"));
+        MenuManager.editChar(8, value);
+        value = Integer.toString((int) dataMap.get("CurrentHP"));
+        MenuManager.editChar(9, value);
+        value = Integer.toString((int) dataMap.get("Level"));
+        MenuManager.editChar(10, value);
+        value = Integer.toString((int) dataMap.get("XP"));
+        MenuManager.editChar(11, value);
+        boolean[] profs = (boolean []) dataMap.get("proficiencies");
+        for(int i = 0; i < 19; i++){
+            boolean state = profs[i];
+            MenuManager.setProf(i, state);
+        }
+    }
     
     public void loadData(File file) {
         currentJsonFile = file;
         try {
-            dataList = MAPPER.readValue(
-                currentJsonFile,
-                new com.fasterxml.jackson.core.type.TypeReference<List<Map<String, Integer>>>() {}
-            );
-            refreshTableFromData();
+            TypeReference<HashMap<String,Object>> typeRef = new TypeReference<HashMap<String,Object>>() {};
+            Map<String, Object> readMap = MAPPER.readValue(currentJsonFile, typeRef);
+            dataMap.clear();
+            dataMap.putAll(readMap);
+            //refreshTableFromData();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(
                 null,
@@ -169,19 +219,27 @@ public class jsonData {
                 JOptionPane.ERROR_MESSAGE
             );
         }
+        loadCharacter();
     }
 
     public void saveData(File file) {
         // TODO ▶ read your JTable back into dataList
+        setDataMap();
         currentJsonFile = file;
+        String path = currentJsonFile.getAbsolutePath();
+        if (!path.toLowerCase().endsWith(".json")) {
+                path += ".json";
+                currentJsonFile = new File(path);
+             }
         try {
-            MAPPER.writeValue(currentJsonFile, dataList);
+            MAPPER.writeValue(currentJsonFile, dataMap);
             JOptionPane.showMessageDialog(
                 null,
                 "Data saved to " + currentJsonFile.getName(),
                 "Saved",
                 JOptionPane.INFORMATION_MESSAGE
             );
+            
         } catch (IOException e) {
             JOptionPane.showMessageDialog(
                 null,
