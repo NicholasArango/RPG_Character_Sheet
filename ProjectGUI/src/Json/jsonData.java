@@ -41,8 +41,6 @@ public class jsonData {
     private final        String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
     private final        JTable table = new JTable();
     private              File currentJsonFile; // Holds current file
-    private List<Map<String, Integer>> dataList;
-    private final JTable table = new JTable();
     private Map<String, Object> dataMap = new HashMap<>();
     
     public jsonData() {
@@ -196,11 +194,11 @@ public class jsonData {
         MenuManager.editChar(10, value);
         value = Integer.toString((int) dataMap.get("XP"));
         MenuManager.editChar(11, value);
-        boolean[] profs = (boolean []) dataMap.get("proficiencies");
+        /*boolean[] profs = (boolean []) dataMap.get("proficiencies");
         for(int i = 0; i < 19; i++){
             boolean state = profs[i];
             MenuManager.setProf(i, state);
-        }
+        }*/
     }
     
     public void loadData(File file) {
