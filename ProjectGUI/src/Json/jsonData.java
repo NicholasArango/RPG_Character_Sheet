@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.HashMap;
@@ -41,9 +40,7 @@ public class jsonData {
     private final        String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
     private final        JTable table = new JTable();
     private              File currentJsonFile; // Holds current file
-    private List<Map<String, Integer>> dataList;
-    private final JTable table = new JTable();
-    private Map<String, Object> dataMap = new HashMap<>();
+    private final Map<String, Object> dataMap = new HashMap<>();  
     
     public jsonData() {
         // not neccesssary for jackson
@@ -109,10 +106,6 @@ public class jsonData {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    
-    public void getStats() {
-        
     }
     
     private void onNewCharacter(ActionEvent ev) {

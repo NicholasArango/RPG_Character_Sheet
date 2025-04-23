@@ -36,7 +36,6 @@ public class Spell {
         this.save = false;
         this.roll = true;
     }
-    
 
     public String getName() {
         return name;

@@ -27,13 +27,8 @@ package Controller;
  *      Reads from the JSON file
  */
 import Model.*;
-import java.io.IOException;
 import javax.swing.*;
 import View.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.JsonNode;
-import java.io.File;
 
 // BasicStatManager enum object names:
 // Attribute
@@ -211,7 +206,6 @@ public class MenuManager extends JFrame {
         EditChar edit1 = new EditChar();
         edit1.setVisible(true);
         edit1.map();
-        
     }
     
     /**
@@ -283,33 +277,6 @@ public class MenuManager extends JFrame {
     
     public static boolean[] saveProf(){
         return sheet.returnProf();
-    }
-    
-    public static void newJSON() {
-        ObjectMapper mapper = new ObjectMapper();
-        
-    }
-    
-    public static void loadJSON() {
-        ObjectMapper mapper = new ObjectMapper();
-    }
-
-    
-    // Loads the JSON configuration file using the Jackson ObjectMapper.
-    private void loadMenuConfig() {
-        JsonNode menuConfig;
-        ObjectMapper mapper = new ObjectMapper();
-        ObjectNode root = mapper.createObjectNode();
-        
-        
-                
-        try {
-            // Change the path to the actual location of the JSON file if necessary.
-            menuConfig = mapper.readTree(new File("menu_config.json"));
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error loading configuration: " + e.getMessage());
-        }
     }
 
     // The entry point of the application. Ensures the GUI is created on Event
