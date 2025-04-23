@@ -345,8 +345,8 @@ public class NewCharSetup extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2FocusGained
 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
-        if(jTextField1.getText().isEmpty()){
-            jTextField1.setText("Enter Here");
+        if(jTextField2.getText().isEmpty()){
+            jTextField2.setText("Enter Here");
         }
     }//GEN-LAST:event_jTextField2FocusLost
 
@@ -358,8 +358,8 @@ public class NewCharSetup extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3FocusGained
 
     private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
-        if(jTextField1.getText().isEmpty()){
-            jTextField1.setText("Enter Here");
+        if(jTextField3.getText().isEmpty()){
+            jTextField3.setText("Enter Here");
         }
     }//GEN-LAST:event_jTextField3FocusLost
 
@@ -371,8 +371,8 @@ public class NewCharSetup extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4FocusGained
 
     private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
-        if(jTextField1.getText().isEmpty()){
-            jTextField1.setText("Enter Here");
+        if(jTextField4.getText().isEmpty()){
+            jTextField4.setText("Enter Here");
         }
     }//GEN-LAST:event_jTextField4FocusLost
 
@@ -384,8 +384,8 @@ public class NewCharSetup extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5FocusGained
 
     private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
-        if(jTextField1.getText().isEmpty()){
-            jTextField1.setText("Enter Here");
+        if(jTextField5.getText().isEmpty()){
+            jTextField5.setText("Enter Here");
         }
     }//GEN-LAST:event_jTextField5FocusLost
 
@@ -397,8 +397,8 @@ public class NewCharSetup extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6FocusGained
 
     private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
-        if(jTextField1.getText().isEmpty()){
-            jTextField1.setText("Enter Here");
+        if(jTextField6.getText().isEmpty()){
+            jTextField6.setText("Enter Here");
         }
     }//GEN-LAST:event_jTextField6FocusLost
 
@@ -410,8 +410,8 @@ public class NewCharSetup extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField7FocusGained
 
     private void jTextField7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusLost
-        if(jTextField1.getText().isEmpty()){
-            jTextField1.setText("Enter Here");
+        if(jTextField7.getText().isEmpty()){
+            jTextField7.setText("Enter Here");
         }
     }//GEN-LAST:event_jTextField7FocusLost
 
@@ -423,8 +423,8 @@ public class NewCharSetup extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField8FocusGained
 
     private void jTextField8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusLost
-        if(jTextField1.getText().isEmpty()){
-            jTextField1.setText("Enter Here");
+        if(jTextField8.getText().isEmpty()){
+            jTextField8.setText("Enter Here");
         }
     }//GEN-LAST:event_jTextField8FocusLost
 
