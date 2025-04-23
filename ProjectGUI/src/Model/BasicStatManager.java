@@ -143,6 +143,10 @@ public class BasicStatManager implements Serializable {
         skillProficiencies[skillIndex] = proficient;
     }
 
+    public boolean[] returnProf(){
+        return skillProficiencies;
+    }
+    
     // Skill Calculations
     public int getSkillValue(int skillIndex) {
         int baseModifier = 0;

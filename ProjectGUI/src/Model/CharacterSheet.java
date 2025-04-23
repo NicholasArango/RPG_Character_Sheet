@@ -174,6 +174,10 @@ import java.util.Scanner; // For user I/O
         return basicStats.isProficient(i);
     }
     
+    public boolean[] returnProf(){
+        return basicStats.returnProf();
+    }
+    
     public int getSkillProf(int key){
         int j;
         switch (key){

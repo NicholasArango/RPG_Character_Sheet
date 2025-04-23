@@ -281,6 +281,10 @@ public class MenuManager extends JFrame {
         spells1.setVisible(true);
     }
     
+    public static boolean[] saveProf(){
+        return sheet.returnProf();
+    }
+    
     public static void newJSON() {
         ObjectMapper mapper = new ObjectMapper();
         
@@ -290,6 +294,7 @@ public class MenuManager extends JFrame {
         ObjectMapper mapper = new ObjectMapper();
     }
 
+    
     // Loads the JSON configuration file using the Jackson ObjectMapper.
     private void loadMenuConfig() {
         JsonNode menuConfig;
