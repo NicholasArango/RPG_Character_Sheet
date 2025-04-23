@@ -224,7 +224,6 @@ public class jsonData {
     }
 
     public void saveData(File file) {
-        // TODO ▶ read your JTable back into dataList
         setDataMap();
         currentJsonFile = file;
         String path = currentJsonFile.getAbsolutePath();

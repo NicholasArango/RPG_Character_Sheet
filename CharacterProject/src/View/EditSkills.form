@@ -563,9 +563,6 @@
             <Property name="text" type="java.lang.String" value="Prof?"/>
             <Property name="actionCommand" type="java.lang.String" value="PerformanceProf"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox13ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBox14">
           <Properties>
@@ -584,9 +581,6 @@
             <Property name="text" type="java.lang.String" value="Prof?"/>
             <Property name="actionCommand" type="java.lang.String" value="SleightProf"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox16ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBox17">
           <Properties>
@@ -635,9 +629,6 @@
             <Property name="text" type="java.lang.String" value="Prof?"/>
             <Property name="actionCommand" type="java.lang.String" value="HistoryProf"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox6ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBox7">
           <Properties>
