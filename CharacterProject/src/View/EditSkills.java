@@ -234,11 +234,6 @@ public class EditSkills extends javax.swing.JFrame {
 
         jCheckBox13.setText("Prof?");
         jCheckBox13.setActionCommand("PerformanceProf");
-        jCheckBox13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox13ActionPerformed(evt);
-            }
-        });
 
         jCheckBox14.setText("Prof?");
         jCheckBox14.setActionCommand("PersuasionProf");
@@ -248,11 +243,6 @@ public class EditSkills extends javax.swing.JFrame {
 
         jCheckBox16.setText("Prof?");
         jCheckBox16.setActionCommand("SleightProf");
-        jCheckBox16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox16ActionPerformed(evt);
-            }
-        });
 
         jCheckBox17.setText("Prof?");
         jCheckBox17.setActionCommand("StealthProf");
@@ -277,11 +267,6 @@ public class EditSkills extends javax.swing.JFrame {
 
         jCheckBox6.setText("Prof?");
         jCheckBox6.setActionCommand("HistoryProf");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
-            }
-        });
 
         jCheckBox7.setText("Prof?");
         jCheckBox7.setActionCommand("InsightProf");
@@ -529,14 +514,6 @@ public class EditSkills extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
-
-    private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox13ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         for (int i = 0; i < 19; i++) {
             int j = i + 1;
@@ -554,14 +531,11 @@ public class EditSkills extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jCheckBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox16ActionPerformed
-
     /**
      * maps the text fields for iteration, then sets the tooltips for each field
      */
     public void map(){
+        //Puts all text fields into a Hash Map to use a loop for iteration
         skillsMap.put("1", jTextField4);
         skillsMap.put("2", jTextField1);
         skillsMap.put("3", jTextField16);
@@ -581,7 +555,7 @@ public class EditSkills extends javax.swing.JFrame {
         skillsMap.put("17", jTextField13);
         skillsMap.put("18", jTextField14);
         skillsMap.put("19", jTextField6);
-        
+        //puts all checkboxes in a loop to use for iteration
         checkMap.put("1", jCheckBox4);
         checkMap.put("2", jCheckBox1);
         checkMap.put("3", jCheckBox16);
@@ -601,7 +575,7 @@ public class EditSkills extends javax.swing.JFrame {
         checkMap.put("17", jCheckBox13);
         checkMap.put("18", jCheckBox14);
         checkMap.put("19", jCheckBox6);
-        
+        //sets tooltips on all text fields for user information
         jTextField1.setToolTipText("Determined by Dexterity");
         jTextField2.setToolTipText("Determined by Wisdom");
         jTextField3.setToolTipText("Determined by Intelligence");
@@ -621,7 +595,7 @@ public class EditSkills extends javax.swing.JFrame {
         jTextField17.setToolTipText("Determined by Dexterity");
         jTextField18.setToolTipText("Determined by Wisdom");
         jTextField19.setToolTipText("Determined by Intelligence");
-        
+        //checks the Character sheet and activates checkboxes as needed
         for(int i = 0; i < 19; i++){
             boolean state = MenuManager.isProf(i);
             if(state){
@@ -632,7 +606,11 @@ public class EditSkills extends javax.swing.JFrame {
             }
         }
     }
-    
+    /**
+     * 
+     * @param key key for the Hash Map to access correct text field
+     * @param value text to place in the text field
+     */
     public static void editSkills(String key, String value){
         JTextField change = skillsMap.get(key);
         change.setText(value);

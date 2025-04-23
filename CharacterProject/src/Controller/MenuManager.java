@@ -48,29 +48,49 @@ public class MenuManager extends JFrame {
     /**
      * Opens a new GUI for a new character
      * It creates the GUI and calls the functions to initialize it to the default values
-     * TODO: connect it to the CharacterSheet
      */
     public static void newCharSetup(){
         gui = new MainScreen();
         gui.setVisible(true);
         gui.map();
     }
-    
+    /**
+     * Opens the Setup window for a new character
+     */
     public static void newChar() {
         NewCharSetup setup = new NewCharSetup();
         setup.setVisible(true);
         setup.map();
     }
     
+    /**
+     * Opens a warning window for making a new character from outside the start screen
+     */
     public static void newWarning(){
         WarningScreenNew screen = new WarningScreenNew();
         screen.setVisible(true);
     }
     
+    /**
+     * Opens a warning window for loading a character outside the start screen
+     */
     public static void loadWarning(){
         WarningScreenLoad screen = new WarningScreenLoad();
         screen.setVisible(true);
     }
+    
+    /**
+     * Open a simple window to indicate features that are not implemented
+     */
+    public static void notDone(){
+        NotDone info = new NotDone();
+        info.setVisible(true);
+    }
+    
+    /**
+     * function for starting to make a new character from outside the start screen
+     * It disposes the Main Screen and opens the new character dialog
+     */
     public static void newCharS(){
         gui.dispose();
         NewCharSetup setup = new NewCharSetup();
@@ -78,17 +98,26 @@ public class MenuManager extends JFrame {
         setup.map();
     }
     
+    /**
+     * 
+     * @return true indicates it 
+     */
     public static boolean checkNewChar(){
         boolean check = NewCharSetup.inputValidate();
         return check;
     }
     
+    /**
+     * Creates a new character sheet with the character name
+     * @param name the name of the character
+     */
     public static void createNewChar(String name){
         sheet = new CharacterSheet(name);
     }
     
     /**
-     * Load function from start screen
+     * Load function when accessed from start screen
+     * This creates a Main Screen that the regular load function can update
      */
     public static void loadCharS(){
         gui = new MainScreen();
@@ -97,6 +126,9 @@ public class MenuManager extends JFrame {
         loadChar();
     }
     
+    /**
+     * Load function that updates the current Main Screen with all character values
+     */
     public static void loadChar(){
         String value;
         int maxHP;
@@ -130,6 +162,8 @@ public class MenuManager extends JFrame {
         updateSkills();
         updateProf();
     }
+    
+    
     public static void updateSkills(){
         for(int i = 0; i < 19; i++){
             int num = sheet.getSkillValue(i);
