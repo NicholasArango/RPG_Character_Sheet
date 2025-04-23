@@ -29,31 +29,31 @@ import javax.swing.table.DefaultTableModel;
 import Controller.*;
 
 public class jsonData {
-    
+
     // Used for storing information into the json files
     private static final ObjectMapper MAPPER = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-    public  static       ObjectNode root = MAPPER.createObjectNode();
-    private              Map<String, Integer> BaseStats;
-    private              List<Map<String, Integer>> dataList;
-    
+    public static ObjectNode root = MAPPER.createObjectNode();
+    private Map<String, Integer> BaseStats;
+    private List<Map<String, Integer>> dataList;
+
     // Holds Directories and file names
-    private final        String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
-    private final        JTable table = new JTable();
-    private              File currentJsonFile; // Holds current file
-    private final Map<String, Object> dataMap = new HashMap<>();  
-    
+    private final String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
+    private final JTable table = new JTable();
+    private File currentJsonFile; // Holds current file
+    private final Map<String, Object> dataMap = new HashMap<>();
+
     public jsonData() {
         // not neccesssary for jackson
     }
-    
+
     public Map<String, Integer> getBaseStats() {
         return BaseStats;
     }
-    
+
     public void setBaseStats(Map<String, Integer> baseStats) {
         this.BaseStats = baseStats;
     }
-    
+
     public static void jsonCreateBaseStats() throws IOException {
         // Base Info
         root.put("name", "characterName");
@@ -85,7 +85,7 @@ public class jsonData {
                 .add("")
                 .add("")
                 .add("");
-        
+
         // Create base stat data
         Map<String, Integer> baseStats = new LinkedHashMap<>();
         baseStats.put("STR", 0);
@@ -94,39 +94,38 @@ public class jsonData {
         baseStats.put("INT", 0);
         baseStats.put("WIS", 0);
         baseStats.put("CHA", 0);
-        
+
         jsonData c = new jsonData();
         c.setBaseStats(baseStats);
         // Put root information into c
-        
+
         // Serialize
         try {
-        MAPPER.writerWithDefaultPrettyPrinter()
-                .writeValue(new File("baseStats.json"), c);
+            MAPPER.writerWithDefaultPrettyPrinter()
+                    .writeValue(new File("baseStats.json"), c);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
+
     private void onNewCharacter(ActionEvent ev) {
         String name = JOptionPane.showInputDialog(
-            null,
-            "Enter new character name (no extension):",
-            "Create New Character",
-            JOptionPane.PLAIN_MESSAGE
-        );
-        if (name == null || name.isBlank()) return;
+                null,
+                "Enter new character name (no extension):",
+                "Create New Character",
+                JOptionPane.PLAIN_MESSAGE);
+        if (name == null || name.isBlank())
+            return;
 
         File folder = new File(configDir);
         folder.mkdirs();
         File file = new File(folder, name.trim() + ".json");
         if (file.exists()) {
             JOptionPane.showMessageDialog(
-                null,
-                "A file named \"" + file.getName() + "\" already exists.",
-                "Error",
-                JOptionPane.ERROR_MESSAGE
-            );
+                    null,
+                    "A file named \"" + file.getName() + "\" already exists.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -134,25 +133,23 @@ public class jsonData {
             // write an empty root array so loadData() can parse it
             MAPPER.writeValue(file, new ArrayList<>());
             currentJsonFile = file;
-            dataList = new ArrayList<>();       // start with empty data
-            refreshTableFromData();             // your method to repopulate the JTable
+            dataList = new ArrayList<>(); // start with empty data
+            refreshTableFromData(); // your method to repopulate the JTable
             JOptionPane.showMessageDialog(
-                null,
-                "Created " + file.getName(),
-                "Successfully",
-                JOptionPane.INFORMATION_MESSAGE
-            );
+                    null,
+                    "Created " + file.getName(),
+                    "Successfully",
+                    JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(
-                null,
-                "Could not create file:\n" + e.getMessage(),
-                "Error",
-                JOptionPane.ERROR_MESSAGE
-            );
+                    null,
+                    "Could not create file:\n" + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void setDataMap(){
+
+    public void setDataMap() {
         dataMap.put("name", MenuManager.showName());
         dataMap.put("proficiencies", MenuManager.saveProf());
         dataMap.put("Strength", MenuManager.getChar(2));
@@ -166,8 +163,8 @@ public class jsonData {
         dataMap.put("Level", MenuManager.getChar(10));
         dataMap.put("XP", MenuManager.getChar(11));
     }
-    
-    public void loadCharacter(){
+
+    public void loadCharacter() {
         MenuManager.editChar(1, (String) dataMap.get("name"));
         String value = Integer.toString((int) dataMap.get("Strength"));
         MenuManager.editChar(2, value);
@@ -189,28 +186,30 @@ public class jsonData {
         MenuManager.editChar(10, value);
         value = Integer.toString((int) dataMap.get("XP"));
         MenuManager.editChar(11, value);
-        boolean[] profs = (boolean []) dataMap.get("proficiencies");
-        for(int i = 0; i < 19; i++){
-            boolean state = profs[i];
-            MenuManager.setProf(i, state);
-        }
+        /*
+         * boolean[] profs = (boolean []) dataMap.get("proficiencies");
+         * for(int i = 0; i < 19; i++){
+         * boolean state = profs[i];
+         * MenuManager.setProf(i, state);
+         * }
+         */
     }
-    
+
     public void loadData(File file) {
         currentJsonFile = file;
         try {
-            TypeReference<HashMap<String,Object>> typeRef = new TypeReference<HashMap<String,Object>>() {};
+            TypeReference<HashMap<String, Object>> typeRef = new TypeReference<HashMap<String, Object>>() {
+            };
             Map<String, Object> readMap = MAPPER.readValue(currentJsonFile, typeRef);
             dataMap.clear();
             dataMap.putAll(readMap);
-            //refreshTableFromData();
+            // refreshTableFromData();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(
-                null,
-                "Failed to load JSON:\n" + e.getMessage(),
-                "Error",
-                JOptionPane.ERROR_MESSAGE
-            );
+                    null,
+                    "Failed to load JSON:\n" + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
         loadCharacter();
     }
@@ -221,28 +220,26 @@ public class jsonData {
         currentJsonFile = file;
         String path = currentJsonFile.getAbsolutePath();
         if (!path.toLowerCase().endsWith(".json")) {
-                path += ".json";
-                currentJsonFile = new File(path);
-             }
+            path += ".json";
+            currentJsonFile = new File(path);
+        }
         try {
             MAPPER.writeValue(currentJsonFile, dataMap);
             JOptionPane.showMessageDialog(
-                null,
-                "Data saved to " + currentJsonFile.getName(),
-                "Saved",
-                JOptionPane.INFORMATION_MESSAGE
-            );
-            
+                    null,
+                    "Data saved to " + currentJsonFile.getName(),
+                    "Saved",
+                    JOptionPane.INFORMATION_MESSAGE);
+
         } catch (IOException e) {
             JOptionPane.showMessageDialog(
-                null,
-                "Failed to save JSON:\n" + e.getMessage(),
-                "Error",
-                JOptionPane.ERROR_MESSAGE
-            );
+                    null,
+                    "Failed to save JSON:\n" + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     private void refreshTableFromData() {
         // if there’s no data, clear the table
         if (dataList == null || dataList.isEmpty()) {

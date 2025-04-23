@@ -62,6 +62,22 @@ public class MenuManager extends JFrame {
         setup.map();
     }
     
+    public static void newWarning(){
+        WarningScreenNew screen = new WarningScreenNew();
+        screen.setVisible(true);
+    }
+    
+    public static void loadWarning(){
+        WarningScreenLoad screen = new WarningScreenLoad();
+        screen.setVisible(true);
+    }
+    public static void newCharS(){
+        gui.dispose();
+        NewCharSetup setup = new NewCharSetup();
+        setup.setVisible(true);
+        setup.map();
+    }
+    
     public static boolean checkNewChar(){
         boolean check = NewCharSetup.inputValidate();
         return check;
@@ -71,6 +87,49 @@ public class MenuManager extends JFrame {
         sheet = new CharacterSheet(name);
     }
     
+    /**
+     * Load function from start screen
+     */
+    public static void loadCharS(){
+        gui = new MainScreen();
+        gui.setVisible(true);
+        gui.map();
+        loadChar();
+    }
+    
+    public static void loadChar(){
+        String value;
+        int maxHP;
+        int currHP;
+        int lev;
+        int xp;
+        for(int i = 1; i < 8; i++){
+            if(i == 1){
+                value = showName();
+                editChar(i, value);
+            }
+            else{
+                int j = getChar(i);
+                value = Integer.toString(j);
+                editChar(i, value);
+            }
+            String key = "lab" + i;
+            statEdit(key, value);
+        }
+        maxHP = getChar(8);
+        currHP = getChar(9);
+        value = currHP + "/" + maxHP;
+        statEdit("lab8", value);
+        lev = getChar(10);
+        value = Integer.toString(lev);
+        statEdit("lab9", value);
+        xp = getChar(11);
+        value = Integer.toString(xp) + "/" + (lev * 1000);
+        statEdit("lab10", value);
+        
+        updateSkills();
+        updateProf();
+    }
     public static void updateSkills(){
         for(int i = 0; i < 19; i++){
             int num = sheet.getSkillValue(i);

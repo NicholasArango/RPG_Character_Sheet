@@ -772,7 +772,7 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jMenu1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jMenu1ComponentAdded
-        // TODO add your handling code here:
+        //ToDo
     }//GEN-LAST:event_jMenu1ComponentAdded
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -789,26 +789,17 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
         // Quit button
         this.dispose();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // Load Character
-        JFileChooser file = new JFileChooser();
-        file.setDialogTitle("Load Character");
-        FileNameExtensionFilter filter = new FileNameExtensionFilter(".json", "json");
-        file.setFileFilter(filter);
-        int result = file.showOpenDialog(null);
-        if (result == JFileChooser.APPROVE_OPTION){
-            File selectedFile = file.getSelectedFile();
-            dataCall.loadData(selectedFile);
-        }
+        MenuManager.loadWarning();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        MenuManager.newWarning();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**

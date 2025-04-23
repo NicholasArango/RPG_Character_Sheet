@@ -46,7 +46,7 @@ public class BasicStatManager implements Serializable {
     
     // Proficiency System
     private int proficiencyBonus = (int) (Math.ceil(playerLevel/4) + 2);
-    private boolean[] skillProficiencies = new boolean[18];
+    private boolean[] skillProficiencies = new boolean[19];
     
     // Skill indices (matches D&D 5e skill order)
     public static final int ATHLETICS = 0;
