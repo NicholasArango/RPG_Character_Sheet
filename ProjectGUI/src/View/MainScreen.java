@@ -4,6 +4,7 @@
  */
 package View;
 import Controller.MenuManager;
+import Json.jsonData;
 import javax.swing.JLabel;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +19,7 @@ public class MainScreen extends javax.swing.JFrame {
     private static final Map<String, JLabel> statMap = new HashMap<>();
     private static final Map<String, JLabel> saveMap = new HashMap<>();
     private static final Map<String, JLabel> skillMap = new HashMap<>();
+    private final jsonData dataCall = new jsonData();
     /**
      * Creates new form GUI
      */
@@ -122,6 +124,7 @@ public class MainScreen extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -685,15 +688,38 @@ public class MainScreen extends javax.swing.JFrame {
         jTabbedPane1.addTab("Spellbook", jPanel4);
 
         jMenu1.setText("File");
+        jMenu1.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jMenu1ComponentAdded(evt);
+            }
+        });
 
         jMenuItem1.setText("New Character");
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Load Character");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Quit");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
+
+        jMenuItem4.setText("Save Character");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
 
@@ -736,6 +762,27 @@ public class MainScreen extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         MenuManager.openInv();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jMenu1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jMenu1ComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ComponentAdded
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        dataCall.saveData();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        // Add file select here:
+        
+        dataCall.loadData();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * Fills 3 maps to allow iteration through the editable labels
@@ -925,6 +972,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
