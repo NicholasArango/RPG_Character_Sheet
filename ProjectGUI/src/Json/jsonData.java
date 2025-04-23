@@ -12,22 +12,32 @@ package Json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 import java.io.File;
-import java.io.InputStream;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import com.fasterxml.jackson.databind.JsonNode;
+import java.util.List;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class jsonData {
     
     // Used for storing information into the json files
-    private static final ObjectMapper MAPPER = new ObjectMapper();
+    private static final ObjectMapper MAPPER = new ObjectMapper()
+        .enable(SerializationFeature.INDENT_OUTPUT);
     private Map<String, Integer> BaseStats;
+    public static ObjectNode root = MAPPER.createObjectNode();
     
     // Holds Directories and file names
     private final String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
-    private String fileName  = "myConfig.json"; // String that will hold file names
+    private File currentJsonFile; // Holds current file
+    private List<Map<String, Integer>> dataList;
+    private final JTable table = new JTable();
     
     public jsonData() {
         // nothing for jackson
@@ -42,9 +52,6 @@ public class jsonData {
     }
     
     public static void jsonCreateBaseStats() throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        ObjectNode root = mapper.createObjectNode();
-        
         // Base Info
         root.put("name", "characterName");
         root.put("health", 10);
@@ -77,71 +84,147 @@ public class jsonData {
                 .add("");
         
         // Create base stat data
-        Map<String, Integer> stats = new LinkedHashMap<>();
-        stats.put("STR", 0);
-        stats.put("DEX", 0);
-        stats.put("CON", 0);
-        stats.put("INT", 0);
-        stats.put("WIS", 0);
-        stats.put("CHA", 0);
+        Map<String, Integer> baseStats = new LinkedHashMap<>();
+        baseStats.put("STR", 0);
+        baseStats.put("DEX", 0);
+        baseStats.put("CON", 0);
+        baseStats.put("INT", 0);
+        baseStats.put("WIS", 0);
+        baseStats.put("CHA", 0);
         
         jsonData c = new jsonData();
-        c.setBaseStats(stats);
+        c.setBaseStats(baseStats);
+        // Put root information into c
         
         // Serialize
         try {
-        mapper.writerWithDefaultPrettyPrinter()
+        MAPPER.writerWithDefaultPrettyPrinter()
                 .writeValue(new File("baseStats.json"), c);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
-    /**
-     * Reads a JSON resource bundled on the classpath.
-     *
-     * @param resourcePath e.g. "/config.json" (leading slash = root of classpath)
-     * @return the parsed JsonNode
-     * @throws IOException if the resource isn't found or can't be parsed
-     */
-
-    public static JsonNode readJsonResource(String resourcePath) throws IOException {
-        try (InputStream is = jsonData.class.getResourceAsStream(resourcePath)) {
-            if (is == null) {
-                throw new IOException("Resource not found: " + resourcePath);
-            }
-            return MAPPER.readTree(is);
-        }
-    }
-
-    public static void JsonLoad(String filename) {
-        File file = new File(filename);
-    }
-    
     /*
-     * Reads a JSON file from disk and returns it as a JsonNode.
-     *
-     * @param path the filesystem path to the JSON file
-     * @return the parsed JsonNode
-     * @throws IOException if the file can't be read or parsed
-     */
-    public static JsonNode JsonSave(String path) throws IOException {
-        return MAPPER.readTree(new File(path));
+    // TODO inside of the GUI, Buttons will listen and then call these functions
+    private final JButton saveButton = new JButton("Save");
+    private final JButton loadButton = new JButton("Load");
+    private final JButton newCharButton = new JButton("New Character");
+    
+    private void bindSaveAction() {
+        saveButton.addActionListener((ActionEvent ev) -> saveData());
     }
     
-    /**
-     * Overwrites (or creates) the JSON file at {@code path} with the contents of {@code data}.
-     *
-     * @param path file system path to write to
-     * @param data the JsonNode to serialize
-     * @throws IOException if the file can't be written
-     */
-    public static void writeJsonFile(String path, JsonNode data) throws IOException {
-        try {
-        MAPPER.writerWithDefaultPrettyPrinter()
-              .writeValue(new File(path), data);
-        } catch (IOException e) {
-            e.printStackTrace();
+    private void bindSaveAction() {
+        loadButton.addActionListener((ActionEvent ev) -> loadData());
+    }
+    */
+    
+    private void onNewCharacter(ActionEvent ev) {
+        String name = JOptionPane.showInputDialog(
+            null,
+            "Enter new character name (no extension):",
+            "Create New Character",
+            JOptionPane.PLAIN_MESSAGE
+        );
+        if (name == null || name.isBlank()) return;
+
+        File folder = new File("src/json/jsonConfigs");
+        folder.mkdirs();
+        File file = new File(folder, name.trim() + ".json");
+        if (file.exists()) {
+            JOptionPane.showMessageDialog(
+                null,
+                "A file named \"" + file.getName() + "\" already exists.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+            return;
         }
+
+        try {
+            // write an empty root array so loadData() can parse it
+            MAPPER.writeValue(file, new ArrayList<>());
+            currentJsonFile = file;
+            dataList = new ArrayList<>();       // start with empty data
+            refreshTableFromData();             // your method to repopulate the JTable
+            JOptionPane.showMessageDialog(
+                null,
+                "Created " + file.getName(),
+                "Success",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(
+                null,
+                "Could not create file:\n" + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+    
+    
+    public void loadData() {
+        try {
+            dataList = MAPPER.readValue(
+                currentJsonFile,
+                new com.fasterxml.jackson.core.type.TypeReference<List<Map<String, Integer>>>() {}
+            );
+            refreshTableFromData();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(
+                null,
+                "Failed to load JSON:\n" + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+
+    public void saveData() {
+        // TODO ▶ read your JTable back into dataList
+        try {
+            MAPPER.writeValue(currentJsonFile, dataList);
+            JOptionPane.showMessageDialog(
+                null,
+                "Data saved to " + currentJsonFile.getName(),
+                "Saved",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(
+                null,
+                "Failed to save JSON:\n" + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }
+    
+    private void refreshTableFromData() {
+        // if there’s no data, clear the table
+        if (dataList == null || dataList.isEmpty()) {
+            table.setModel(new DefaultTableModel());
+            return;
+        }
+
+        // use the first map’s key‑set as your column names
+        List<String> columnNames = new ArrayList<>(dataList.get(0).keySet());
+
+        // build a DefaultTableModel
+        DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(columnNames.toArray());
+
+        // add one row per map
+        for (Map<String, Integer> rowMap : dataList) {
+            Object[] rowData = new Object[columnNames.size()];
+            for (int i = 0; i < columnNames.size(); i++) {
+                rowData[i] = rowMap.getOrDefault(columnNames.get(i), 0);
+            }
+            model.addRow(rowData);
+        }
+
+        // swap it into the JTable
+        table.setModel(model);
     }
 }
