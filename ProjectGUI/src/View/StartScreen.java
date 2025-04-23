@@ -6,16 +6,12 @@ package View;
 
 import Controller.MenuManager;
 import Json.jsonData;
-import javax.swing.JButton;
 
 /**
  *
- * @author N Arango
+ * @author N Arango, Robert J.
  */
 public class StartScreen extends javax.swing.JFrame {
-    private final JButton saveButton = new JButton("Save");
-    private final JButton loadButton = new JButton("Load");
-    private final JButton newCharButton = new JButton("New Character");
     private final jsonData dataCall = new jsonData();
     /**
      * Creates new form StartScreen
@@ -114,8 +110,8 @@ public class StartScreen extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
         System.exit(0); // Closes the program
     }// GEN-LAST:event_jButton3ActionPerformed
+    
      // New Character:
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MenuManager.newChar();
         this.dispose();

@@ -104,20 +104,6 @@ public class jsonData {
             e.printStackTrace();
         }
     }
-    /*
-    // TODO inside of the GUI, Buttons will listen and then call these functions
-    private final JButton saveButton = new JButton("Save");
-    private final JButton loadButton = new JButton("Load");
-    private final JButton newCharButton = new JButton("New Character");
-    
-    private void bindSaveAction() {
-        saveButton.addActionListener((ActionEvent ev) -> saveData());
-    }
-    
-    private void bindSaveAction() {
-        loadButton.addActionListener((ActionEvent ev) -> loadData());
-    }
-    */
     
     private void onNewCharacter(ActionEvent ev) {
         String name = JOptionPane.showInputDialog(

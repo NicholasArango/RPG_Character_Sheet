@@ -11,12 +11,13 @@
     <description>Builds, tests, and runs the project ProjectGUI.</description>
     <import file="nbproject/build-impl.xml"/>
     <target name="run" depends="compile">
-    <java classname="Model.MenuManager" classpathref="classpath">
-        <classpath>
-            <pathelement location="bin"/>
-        </classpath>
-    </java>
-</target>
+        <java classname="Model.MenuManager" classpathref="classpath">
+            <classpath>
+                <pathelement location="bin"/>
+            </classpath>
+        </java>
+    </target>
+    
 
 <path id="classpath">
     <fileset dir="lib">
@@ -27,13 +28,6 @@
 <target name="compile">
     <javac srcdir="src" destdir="build/classes" classpathref="classpath"/>
 </target>
-
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.15.0</version>
-</dependency>
-
     <!--
 
     There exist several targets which are by default empty and which can be 
