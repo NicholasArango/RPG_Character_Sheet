@@ -1,0 +1,14 @@
+{
+  "Charisma" : 9,
+  "Dexterity" : 9,
+  "Wisdom" : 9,
+  "Intelligence" : 9,
+  "CurrentHP" : 55,
+  "proficiencies" : [ false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false ],
+  "MaxHP" : 55,
+  "name" : "Squid",
+  "XP" : 0,
+  "Level" : 1,
+  "Strength" : 9,
+  "Constitution" : 9
+}
