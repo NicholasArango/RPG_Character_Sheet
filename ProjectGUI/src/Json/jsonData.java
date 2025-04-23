@@ -144,7 +144,7 @@ public class jsonData {
             JOptionPane.showMessageDialog(
                 null,
                 "Created " + file.getName(),
-                "Success",
+                "Successfully",
                 JOptionPane.INFORMATION_MESSAGE
             );
         } catch (IOException e) {
