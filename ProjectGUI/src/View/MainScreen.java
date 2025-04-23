@@ -5,9 +5,12 @@
 package View;
 import Controller.MenuManager;
 import Json.jsonData;
+import java.io.File;
 import javax.swing.JLabel;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -773,8 +776,15 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ComponentAdded
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        dataCall.saveData();
+        JFileChooser file = new JFileChooser();
+        file.setDialogTitle("Save Character");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".json", "json");
+        file.setFileFilter(filter);
+        int result = file.showSaveDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = file.getSelectedFile();
+            dataCall.saveData(selectedFile);
+        }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -783,10 +793,15 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        // Add file select here:
-        
-        dataCall.loadData();
+        JFileChooser file = new JFileChooser();
+        file.setDialogTitle("Load Character");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".json", "json");
+        file.setFileFilter(filter);
+        int result = file.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = file.getSelectedFile();
+            dataCall.loadData(selectedFile);
+        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

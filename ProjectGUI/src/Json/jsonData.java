@@ -150,7 +150,8 @@ public class jsonData {
     }
     
     
-    public void loadData() {
+    public void loadData(File file) {
+        currentJsonFile = file;
         try {
             dataList = MAPPER.readValue(
                 currentJsonFile,
@@ -167,8 +168,9 @@ public class jsonData {
         }
     }
 
-    public void saveData() {
+    public void saveData(File file) {
         // TODO ▶ read your JTable back into dataList
+        currentJsonFile = file;
         try {
             MAPPER.writeValue(currentJsonFile, dataList);
             JOptionPane.showMessageDialog(
