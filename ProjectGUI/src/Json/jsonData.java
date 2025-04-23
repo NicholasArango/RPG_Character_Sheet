@@ -17,15 +17,11 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import Controller.*;
 
 public class jsonData {
@@ -41,7 +37,7 @@ public class jsonData {
     private final JTable table = new JTable();
     private File currentJsonFile; // Holds current file
     private final Map<String, Object> dataMap = new HashMap<>();
-    private boolean[] profs = new boolean[19]; 
+    private boolean[] profs = new boolean[19];
     
     public jsonData() {
         // not neccesssary for jackson
@@ -54,107 +50,7 @@ public class jsonData {
     public void setBaseStats(Map<String, Integer> baseStats) {
         this.BaseStats = baseStats;
     }
-
-    public static void jsonCreateBaseStats() throws IOException {
-        // Base Info
-        root.put("name", "characterName");
-        root.put("health", 10);
-        root.put("xp", 0);
-        root.put("class", "none");
-        root.put("race", "none");
-        root.putArray("skills")
-                .add("fireball")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("");
-        root.putArray("inventory")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("")
-                .add("");
-
-        // Create base stat data
-        Map<String, Integer> baseStats = new LinkedHashMap<>();
-        baseStats.put("STR", 0);
-        baseStats.put("DEX", 0);
-        baseStats.put("CON", 0);
-        baseStats.put("INT", 0);
-        baseStats.put("WIS", 0);
-        baseStats.put("CHA", 0);
-
-        jsonData c = new jsonData();
-        c.setBaseStats(baseStats);
-        // Put root information into c
-
-        // Serialize
-        try {
-            MAPPER.writerWithDefaultPrettyPrinter()
-                    .writeValue(new File("baseStats.json"), c);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     
-    public void getStats() {
-        
-    }
-    
-    private void onNewCharacter(ActionEvent ev) {
-        String name = JOptionPane.showInputDialog(
-                null,
-                "Enter new character name (no extension):",
-                "Create New Character",
-                JOptionPane.PLAIN_MESSAGE);
-        if (name == null || name.isBlank())
-            return;
-
-        File folder = new File(configDir);
-        folder.mkdirs();
-        File file = new File(folder, name.trim() + ".json");
-        if (file.exists()) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "A file named \"" + file.getName() + "\" already exists.",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        try {
-            // write an empty root array so loadData() can parse it
-            MAPPER.writeValue(file, new ArrayList<>());
-            currentJsonFile = file;
-            dataList = new ArrayList<>(); // start with empty data
-            refreshTableFromData(); // your method to repopulate the JTable
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Created " + file.getName(),
-                    "Successfully",
-                    JOptionPane.INFORMATION_MESSAGE);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Could not create file:\n" + e.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
     public void setDataMap(){
         dataMap.put("name", MenuManager.showName());
         profs = MenuManager.saveProf();
@@ -247,32 +143,5 @@ public class jsonData {
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
-    }
-    
-    private void refreshTableFromData() {
-        // if there’s no data, clear the table
-        if (dataList == null || dataList.isEmpty()) {
-            table.setModel(new DefaultTableModel());
-            return;
-        }
-
-        // use the first map’s key‑set as your column names
-        List<String> columnNames = new ArrayList<>(dataList.get(0).keySet());
-
-        // build a DefaultTableModel
-        DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(columnNames.toArray());
-
-        // add one row per map
-        for (Map<String, Integer> rowMap : dataList) {
-            Object[] rowData = new Object[columnNames.size()];
-            for (int i = 0; i < columnNames.size(); i++) {
-                rowData[i] = rowMap.getOrDefault(columnNames.get(i), 0);
-            }
-            model.addRow(rowData);
-        }
-
-        // swap it into the JTable
-        table.setModel(model);
     }
 }
