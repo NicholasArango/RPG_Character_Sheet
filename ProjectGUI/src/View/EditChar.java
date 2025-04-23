@@ -464,6 +464,7 @@ public class EditChar extends javax.swing.JFrame {
                 MenuManager.editChar(11, textField.getText());
             }
             MenuManager.updateSkills();
+            MenuManager.updateProf();
             this.dispose();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
