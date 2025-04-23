@@ -18,7 +18,7 @@ import javax.swing.*;
 public class EditSkills extends javax.swing.JFrame {
 
     private static final Map<String, JTextField> skillsMap = new HashMap<>();
-    private final String placeholderText = "Enter Here";
+    private static final Map<String, JCheckBox> checkMap = new HashMap<>();
     
     /**
      * Creates new form EditChar
@@ -75,15 +75,6 @@ public class EditSkills extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
         jCheckBox10 = new javax.swing.JCheckBox();
         jCheckBox11 = new javax.swing.JCheckBox();
         jCheckBox12 = new javax.swing.JCheckBox();
@@ -93,6 +84,18 @@ public class EditSkills extends javax.swing.JFrame {
         jCheckBox16 = new javax.swing.JCheckBox();
         jCheckBox17 = new javax.swing.JCheckBox();
         jCheckBox18 = new javax.swing.JCheckBox();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jCheckBox8 = new javax.swing.JCheckBox();
+        jCheckBox9 = new javax.swing.JCheckBox();
+        jLabel19 = new javax.swing.JLabel();
+        jTextField19 = new javax.swing.JTextField();
+        jCheckBox19 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -108,148 +111,49 @@ public class EditSkills extends javax.swing.JFrame {
 
         jLabel5.setText("Deception");
 
-        jLabel6.setText("History");
+        jLabel6.setText("Fortitude");
 
-        jLabel7.setText("Insight");
+        jLabel7.setText("History");
 
+        jTextField1.setEditable(false);
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Enter Here");
-        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField1FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField1FocusLost(evt);
-            }
-        });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
-            }
-        });
 
+        jTextField2.setEditable(false);
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("Enter Here");
-        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField2FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField2FocusLost(evt);
-            }
-        });
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField2KeyTyped(evt);
-            }
-        });
 
+        jTextField3.setEditable(false);
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Enter Here");
-        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField3FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField3FocusLost(evt);
-            }
-        });
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField3KeyTyped(evt);
-            }
-        });
 
+        jTextField4.setEditable(false);
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setText("Enter Here");
-        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField4FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField4FocusLost(evt);
-            }
-        });
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField4KeyTyped(evt);
-            }
-        });
 
+        jTextField5.setEditable(false);
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText("Enter Here");
-        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField5FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField5FocusLost(evt);
-            }
-        });
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField5KeyTyped(evt);
-            }
-        });
 
+        jTextField6.setEditable(false);
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setText("Enter Here");
-        jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField6FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField6FocusLost(evt);
-            }
-        });
-        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField6KeyTyped(evt);
-            }
-        });
 
+        jTextField7.setEditable(false);
+        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField7.setText("Enter Here");
-        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField7FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField7FocusLost(evt);
-            }
-        });
-        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField7KeyTyped(evt);
-            }
-        });
 
-        jLabel8.setText("Intimidation");
+        jLabel8.setText("Insight");
 
-        jLabel9.setText("Investigation");
+        jLabel9.setText("Intimidation");
 
+        jTextField8.setEditable(false);
+        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField8.setText("Enter Here");
-        jTextField8.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField8FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField8FocusLost(evt);
-            }
-        });
-        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField8KeyTyped(evt);
-            }
-        });
 
+        jTextField9.setEditable(false);
+        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField9.setText("Enter Here");
-        jTextField9.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField9FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField9FocusLost(evt);
-            }
-        });
-        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField9KeyTyped(evt);
-            }
-        });
 
         jLabel10.setText("Religion");
 
@@ -257,146 +161,47 @@ public class EditSkills extends javax.swing.JFrame {
 
         jLabel12.setText("Sleight of Hand");
 
+        jTextField10.setEditable(false);
+        jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField10.setText("Enter Here");
-        jTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField10FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField10FocusLost(evt);
-            }
-        });
-        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField10KeyTyped(evt);
-            }
-        });
 
+        jTextField11.setEditable(false);
+        jTextField11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField11.setText("Enter Here");
-        jTextField11.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField11FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField11FocusLost(evt);
-            }
-        });
-        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField11KeyTyped(evt);
-            }
-        });
 
+        jTextField12.setEditable(false);
+        jTextField12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField12.setText("Enter Here");
-        jTextField12.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField12FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField12FocusLost(evt);
-            }
-        });
-        jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField12KeyTyped(evt);
-            }
-        });
 
+        jTextField13.setEditable(false);
+        jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField13.setText("Enter Here");
-        jTextField13.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField13FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField13FocusLost(evt);
-            }
-        });
-        jTextField13.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField13KeyTyped(evt);
-            }
-        });
 
+        jTextField14.setEditable(false);
+        jTextField14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField14.setText("Enter Here");
-        jTextField14.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField14FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField14FocusLost(evt);
-            }
-        });
-        jTextField14.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField14KeyTyped(evt);
-            }
-        });
 
+        jTextField15.setEditable(false);
+        jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField15.setText("Enter Here");
-        jTextField15.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField15FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField15FocusLost(evt);
-            }
-        });
-        jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField15KeyTyped(evt);
-            }
-        });
 
         jLabel13.setText("Medicine");
 
+        jTextField16.setEditable(false);
+        jTextField16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField16.setText("Enter Here");
-        jTextField16.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField16FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField16FocusLost(evt);
-            }
-        });
-        jTextField16.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField16KeyTyped(evt);
-            }
-        });
 
         jLabel14.setText("Nature");
 
+        jTextField17.setEditable(false);
+        jTextField17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField17.setText("Enter Here");
-        jTextField17.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField17FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField17FocusLost(evt);
-            }
-        });
-        jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField17KeyTyped(evt);
-            }
-        });
 
         jLabel15.setText("Perception");
 
+        jTextField18.setEditable(false);
+        jTextField18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField18.setText("Enter Here");
-        jTextField18.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField18FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField18FocusLost(evt);
-            }
-        });
-        jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField18KeyTyped(evt);
-            }
-        });
 
         jLabel16.setText("Performance");
 
@@ -418,69 +223,82 @@ public class EditSkills extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setText("Prof?");
-        jCheckBox1.setActionCommand("MedicineProf");
-
-        jCheckBox2.setText("Prof?");
-        jCheckBox2.setActionCommand("NatureProf");
-
-        jCheckBox3.setText("Prof?");
-        jCheckBox3.setActionCommand("PerceptionProf");
-
-        jCheckBox4.setText("Prof?");
-        jCheckBox4.setActionCommand("PerformanceProf");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox5.setText("Prof?");
-        jCheckBox5.setActionCommand("PersuasionProf");
-
-        jCheckBox6.setText("Prof?");
-        jCheckBox6.setActionCommand("ReligionProf");
-
-        jCheckBox7.setText("Prof?");
-        jCheckBox7.setActionCommand("SleightProf");
-
-        jCheckBox8.setText("Prof?");
-        jCheckBox8.setActionCommand("StealthProf");
-
-        jCheckBox9.setText("Prof?");
-        jCheckBox9.setActionCommand("SurvivalProf");
-
         jCheckBox10.setText("Prof?");
-        jCheckBox10.setActionCommand("AcrobaticsProf");
+        jCheckBox10.setActionCommand("MedicineProf");
 
         jCheckBox11.setText("Prof?");
-        jCheckBox11.setActionCommand("AnimalProf");
+        jCheckBox11.setActionCommand("NatureProf");
 
         jCheckBox12.setText("Prof?");
-        jCheckBox12.setActionCommand("ArcanaProf");
+        jCheckBox12.setActionCommand("PerceptionProf");
 
         jCheckBox13.setText("Prof?");
-        jCheckBox13.setActionCommand("AthleticsProf");
-
-        jCheckBox14.setText("Prof?");
-        jCheckBox14.setActionCommand("DeceptionProf");
-
-        jCheckBox15.setText("Prof?");
-        jCheckBox15.setActionCommand("HistoryProf");
-        jCheckBox15.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox13.setActionCommand("PerformanceProf");
+        jCheckBox13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox15ActionPerformed(evt);
+                jCheckBox13ActionPerformed(evt);
             }
         });
 
+        jCheckBox14.setText("Prof?");
+        jCheckBox14.setActionCommand("PersuasionProf");
+
+        jCheckBox15.setText("Prof?");
+        jCheckBox15.setActionCommand("ReligionProf");
+
         jCheckBox16.setText("Prof?");
-        jCheckBox16.setActionCommand("InsightProf");
+        jCheckBox16.setActionCommand("SleightProf");
+        jCheckBox16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox16ActionPerformed(evt);
+            }
+        });
 
         jCheckBox17.setText("Prof?");
-        jCheckBox17.setActionCommand("IntimidationProf");
+        jCheckBox17.setActionCommand("StealthProf");
 
         jCheckBox18.setText("Prof?");
-        jCheckBox18.setActionCommand("InvestigationProf");
+        jCheckBox18.setActionCommand("SurvivalProf");
+
+        jCheckBox1.setText("Prof?");
+        jCheckBox1.setActionCommand("AcrobaticsProf");
+
+        jCheckBox2.setText("Prof?");
+        jCheckBox2.setActionCommand("AnimalProf");
+
+        jCheckBox3.setText("Prof?");
+        jCheckBox3.setActionCommand("ArcanaProf");
+
+        jCheckBox4.setText("Prof?");
+        jCheckBox4.setActionCommand("AthleticsProf");
+
+        jCheckBox5.setText("Prof?");
+        jCheckBox5.setActionCommand("DeceptionProf");
+
+        jCheckBox6.setText("Prof?");
+        jCheckBox6.setActionCommand("HistoryProf");
+        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox6ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox7.setText("Prof?");
+        jCheckBox7.setActionCommand("InsightProf");
+
+        jCheckBox8.setText("Prof?");
+        jCheckBox8.setActionCommand("IntimidationProf");
+
+        jCheckBox9.setText("Prof?");
+        jCheckBox9.setActionCommand("InvestigationProf");
+
+        jLabel19.setText("Investigation");
+
+        jTextField19.setEditable(false);
+        jTextField19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField19.setText("Enter Here");
+
+        jCheckBox19.setText("Prof?");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -488,109 +306,100 @@ public class EditSkills extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jCheckBox10)
-                                    .addGap(9, 9, 9))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jCheckBox12)
-                                        .addComponent(jCheckBox11)
-                                        .addComponent(jCheckBox13))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jCheckBox15)
-                                    .addComponent(jCheckBox14)
-                                    .addComponent(jCheckBox16)
-                                    .addComponent(jCheckBox17)
-                                    .addComponent(jCheckBox18))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField8)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1))))
-                .addGap(86, 86, 86)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel11)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox9))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel17)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox8))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel12)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox7))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel10)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCheckBox6))
-                                        .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jCheckBox3))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jCheckBox2))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jCheckBox1))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(jCheckBox1)
+                                                    .addGap(9, 9, 9))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jCheckBox3)
+                                                        .addComponent(jCheckBox2)
+                                                        .addComponent(jCheckBox4))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jCheckBox6)
+                                                    .addComponent(jCheckBox5)
+                                                    .addComponent(jCheckBox7)
+                                                    .addComponent(jCheckBox8)
+                                                    .addComponent(jCheckBox9))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                            .addComponent(jTextField8)
+                                            .addComponent(jTextField7)
+                                            .addComponent(jTextField6)
+                                            .addComponent(jTextField5)
+                                            .addComponent(jTextField4)
+                                            .addComponent(jTextField3)
+                                            .addComponent(jTextField2)
+                                            .addComponent(jTextField1)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jCheckBox5)
-                                            .addComponent(jCheckBox4))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addGap(3, 3, 3)
+                                        .addComponent(jCheckBox19)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField19)))))
+                        .addGap(86, 86, 86)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField10)
-                            .addComponent(jTextField16)
-                            .addComponent(jTextField17)
-                            .addComponent(jTextField18)
-                            .addComponent(jTextField14)
-                            .addComponent(jTextField15)
-                            .addComponent(jTextField13)
-                            .addComponent(jTextField11)
-                            .addComponent(jTextField12))
-                        .addContainerGap(35, Short.MAX_VALUE))))
+                            .addComponent(jButton4)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel13)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel17)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jCheckBox17, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jCheckBox18, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jCheckBox14, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jCheckBox13, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(jCheckBox10)
+                                    .addComponent(jCheckBox15)
+                                    .addComponent(jCheckBox16)
+                                    .addComponent(jCheckBox12)
+                                    .addComponent(jCheckBox11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                                    .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField11)
+                                    .addComponent(jTextField10)
+                                    .addComponent(jTextField12)
+                                    .addComponent(jTextField13)
+                                    .addComponent(jTextField14)
+                                    .addComponent(jTextField18))))
+                        .addGap(57, 57, 57))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,50 +407,49 @@ public class EditSkills extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jCheckBox1)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckBox10)
+                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(jCheckBox2)
+                            .addComponent(jCheckBox11)
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(jCheckBox3)
+                            .addComponent(jCheckBox12)
                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(jCheckBox4)
+                            .addComponent(jCheckBox13)
                             .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(jCheckBox5)
+                            .addComponent(jCheckBox14)
                             .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(jCheckBox6)
+                            .addComponent(jCheckBox15)
                             .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
-                            .addComponent(jCheckBox7)
+                            .addComponent(jCheckBox16)
                             .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(jCheckBox8)
+                            .addComponent(jCheckBox17)
                             .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(jCheckBox9)
+                            .addComponent(jCheckBox18)
                             .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -651,44 +459,50 @@ public class EditSkills extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox11))
+                            .addComponent(jCheckBox2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox12))
+                            .addComponent(jCheckBox3))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox13))
+                            .addComponent(jCheckBox4))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox14))
+                            .addComponent(jCheckBox5))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox15))
+                            .addComponent(jCheckBox6))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox16))
+                            .addComponent(jCheckBox7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox17))
+                            .addComponent(jCheckBox8))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox18)))
-                    .addComponent(jCheckBox10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                            .addComponent(jCheckBox9)))
+                    .addComponent(jCheckBox1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCheckBox19)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
@@ -700,472 +514,128 @@ public class EditSkills extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
+    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox15ActionPerformed
+    }//GEN-LAST:event_jCheckBox6ActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+    private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    }//GEN-LAST:event_jCheckBox13ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        boolean val = MenuManager.checkSkillEdit();
-        if(val){
-            for (int i = 1; i < 19; i++) {
-                String key = Integer.toString(i);
-                JTextField textField = skillsMap.get(key);
-                String text = textField.getText();
-                if(!"Enter Here".equals(text)){
-                    key = "lab" + i;
-                    MenuManager.skillEdit(key, text);
-                } 
-            }
-            this.dispose();
+        for (int i = 0; i < 19; i++) {
+            int j = i + 1;
+            String key = Integer.toString(j);
+            JCheckBox check = checkMap.get(key);
+            boolean state = check.isSelected();
+            MenuManager.setProf(i, state);
         }
+        MenuManager.updateSkills();
+        MenuManager.updateProf();
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
         
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
-        String text = jTextField1.getText();
-        if("Enter Here".equals(text)){
-            jTextField1.setText("");
-        }
-    }//GEN-LAST:event_jTextField1FocusGained
-
-    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
-        if(jTextField1.getText().isEmpty()){
-            jTextField1.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField1FocusLost
-
-    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
-        String text = jTextField2.getText();
-        if("Enter Here".equals(text)){
-            jTextField2.setText("");
-        }
-    }//GEN-LAST:event_jTextField2FocusGained
-
-    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
-        if(jTextField2.getText().isEmpty()){
-            jTextField2.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField2FocusLost
-
-    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
-        String text = jTextField3.getText();
-        if("Enter Here".equals(text)){
-            jTextField3.setText("");
-        }
-    }//GEN-LAST:event_jTextField3FocusGained
-
-    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
-        if(jTextField3.getText().isEmpty()){
-            jTextField3.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField3FocusLost
-
-    private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
-        String text = jTextField4.getText();
-        if("Enter Here".equals(text)){
-            jTextField4.setText("");
-        }
-    }//GEN-LAST:event_jTextField4FocusGained
-
-    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
-        if(jTextField4.getText().isEmpty()){
-            jTextField4.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField4FocusLost
-
-    private void jTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusGained
-        String text = jTextField5.getText();
-        if("Enter Here".equals(text)){
-            jTextField5.setText("");
-        }
-    }//GEN-LAST:event_jTextField5FocusGained
-
-    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
-        if(jTextField5.getText().isEmpty()){
-            jTextField5.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField5FocusLost
-
-    private void jTextField6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusGained
-        String text = jTextField6.getText();
-        if("Enter Here".equals(text)){
-            jTextField6.setText("");
-        }
-    }//GEN-LAST:event_jTextField6FocusGained
-
-    private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
-        if(jTextField6.getText().isEmpty()){
-            jTextField6.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField6FocusLost
-
-    private void jTextField7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusGained
-        String text = jTextField7.getText();
-        if("Enter Here".equals(text)){
-            jTextField7.setText("");
-        }
-    }//GEN-LAST:event_jTextField7FocusGained
-
-    private void jTextField7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusLost
-        if(jTextField7.getText().isEmpty()){
-            jTextField7.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField7FocusLost
-
-    private void jTextField8FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusGained
-        String text = jTextField8.getText();
-        if("Enter Here".equals(text)){
-            jTextField8.setText("");
-        }
-    }//GEN-LAST:event_jTextField8FocusGained
-
-    private void jTextField8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusLost
-        if(jTextField8.getText().isEmpty()){
-            jTextField8.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField8FocusLost
-
-    private void jTextField9FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField9FocusGained
-        String text = jTextField9.getText();
-        if("Enter Here".equals(text)){
-            jTextField9.setText("");
-        }
-    }//GEN-LAST:event_jTextField9FocusGained
-
-    private void jTextField9FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField9FocusLost
-        if(jTextField9.getText().isEmpty()){
-            jTextField9.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField9FocusLost
-
-    private void jTextField10FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField10FocusGained
-        String text = jTextField10.getText();
-        if("Enter Here".equals(text)){
-            jTextField10.setText("");
-        }
-    }//GEN-LAST:event_jTextField10FocusGained
-
-    private void jTextField10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField10FocusLost
-        if(jTextField10.getText().isEmpty()){
-            jTextField10.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField10FocusLost
-
-    private void jTextField11FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField11FocusGained
-        String text = jTextField11.getText();
-        if("Enter Here".equals(text)){
-            jTextField11.setText("");
-        }
-    }//GEN-LAST:event_jTextField11FocusGained
-
-    private void jTextField11FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField11FocusLost
-        if(jTextField11.getText().isEmpty()){
-            jTextField11.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField11FocusLost
-
-    private void jTextField12FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField12FocusGained
-        String text = jTextField12.getText();
-        if("Enter Here".equals(text)){
-            jTextField12.setText("");
-        }
-    }//GEN-LAST:event_jTextField12FocusGained
-
-    private void jTextField12FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField12FocusLost
-        if(jTextField12.getText().isEmpty()){
-            jTextField12.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField12FocusLost
-
-    private void jTextField13FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField13FocusGained
-        String text = jTextField13.getText();
-        if("Enter Here".equals(text)){
-            jTextField13.setText("");
-        }
-    }//GEN-LAST:event_jTextField13FocusGained
-
-    private void jTextField13FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField13FocusLost
-        if(jTextField13.getText().isEmpty()){
-            jTextField13.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField13FocusLost
-
-    private void jTextField14FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField14FocusGained
-        String text = jTextField14.getText();
-        if("Enter Here".equals(text)){
-            jTextField14.setText("");
-        }
-    }//GEN-LAST:event_jTextField14FocusGained
-
-    private void jTextField14FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField14FocusLost
-        if(jTextField14.getText().isEmpty()){
-            jTextField14.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField14FocusLost
-
-    private void jTextField15FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField15FocusGained
-        String text = jTextField15.getText();
-        if("Enter Here".equals(text)){
-            jTextField15.setText("");
-        }
-    }//GEN-LAST:event_jTextField15FocusGained
-
-    private void jTextField15FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField15FocusLost
-        if(jTextField15.getText().isEmpty()){
-            jTextField15.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField15FocusLost
-
-    private void jTextField16FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField16FocusGained
-        String text = jTextField16.getText();
-        if("Enter Here".equals(text)){
-            jTextField16.setText("");
-        }
-    }//GEN-LAST:event_jTextField16FocusGained
-
-    private void jTextField16FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField16FocusLost
-        if(jTextField16.getText().isEmpty()){
-            jTextField16.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField16FocusLost
-
-    private void jTextField17FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField17FocusGained
-        String text = jTextField17.getText();
-        if("Enter Here".equals(text)){
-            jTextField17.setText("");
-        }
-    }//GEN-LAST:event_jTextField17FocusGained
-
-    private void jTextField17FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField17FocusLost
-        if(jTextField17.getText().isEmpty()){
-            jTextField17.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField17FocusLost
-
-    private void jTextField18FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField18FocusGained
-        String text = jTextField18.getText();
-        if("Enter Here".equals(text)){
-            jTextField18.setText("");
-        }
-    }//GEN-LAST:event_jTextField18FocusGained
-
-    private void jTextField18FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField18FocusLost
-        if(jTextField18.getText().isEmpty()){
-            jTextField18.setText("Enter Here");
-        }
-    }//GEN-LAST:event_jTextField18FocusLost
-
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField1KeyTyped
-
-    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField2KeyTyped
-
-    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField3KeyTyped
-
-    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField4KeyTyped
-
-    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField5KeyTyped
-
-    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField6KeyTyped
-
-    private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField7KeyTyped
-
-    private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField8KeyTyped
-
-    private void jTextField9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField9KeyTyped
-
-    private void jTextField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField10KeyTyped
-
-    private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField11KeyTyped
-
-    private void jTextField12KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField12KeyTyped
-
-    private void jTextField13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField13KeyTyped
-
-    private void jTextField14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField14KeyTyped
-
-    private void jTextField15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField15KeyTyped
-
-    private void jTextField16KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField16KeyTyped
-
-    private void jTextField17KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField17KeyTyped
-
-    private void jTextField18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField18KeyTyped
+    private void jCheckBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox16ActionPerformed
 
     /**
      * maps the text fields for iteration, then sets the tooltips for each field
      */
     public void map(){
-        skillsMap.put("1", jTextField1);
-        skillsMap.put("2", jTextField2);
-        skillsMap.put("3", jTextField3);
-        skillsMap.put("4", jTextField4);
-        skillsMap.put("5", jTextField5);
-        skillsMap.put("6", jTextField6);
-        skillsMap.put("7", jTextField7);
-        skillsMap.put("8", jTextField8);
-        skillsMap.put("9", jTextField9);
-        skillsMap.put("10", jTextField10);
-        skillsMap.put("11", jTextField11);
-        skillsMap.put("12", jTextField12);
-        skillsMap.put("13", jTextField13);
-        skillsMap.put("14", jTextField14);
-        skillsMap.put("15", jTextField15);
-        skillsMap.put("16", jTextField16);
-        skillsMap.put("17", jTextField17);
-        skillsMap.put("18", jTextField18);
+        skillsMap.put("1", jTextField4);
+        skillsMap.put("2", jTextField1);
+        skillsMap.put("3", jTextField16);
+        skillsMap.put("4", jTextField17);
+        skillsMap.put("5", jTextField3);
+        skillsMap.put("6", jTextField7);
+        skillsMap.put("7", jTextField19);
+        skillsMap.put("8", jTextField11);
+        skillsMap.put("9", jTextField15);
+        skillsMap.put("10", jTextField2);
+        skillsMap.put("11", jTextField8);
+        skillsMap.put("12", jTextField10);
+        skillsMap.put("13", jTextField12);
+        skillsMap.put("14", jTextField18);
+        skillsMap.put("15", jTextField5);
+        skillsMap.put("16", jTextField9);
+        skillsMap.put("17", jTextField13);
+        skillsMap.put("18", jTextField14);
+        skillsMap.put("19", jTextField6);
         
-        jTextField1.setToolTipText("Can be between 1 and 20");
-        jTextField2.setToolTipText("Can be between 1 and 20");
-        jTextField3.setToolTipText("Can be between 1 and 20");
-        jTextField4.setToolTipText("Can be between 1 and 20");
-        jTextField5.setToolTipText("Can be between 1 and 20");
-        jTextField6.setToolTipText("Can be between 1 and 20");
-        jTextField7.setToolTipText("Can be between 1 and 20");
-        jTextField8.setToolTipText("Can be between 1 and 20");
-        jTextField9.setToolTipText("Can be between 1 and 20");
-        jTextField10.setToolTipText("Can be between 1 and 20");
-        jTextField11.setToolTipText("Can be between 1 and 20");
-        jTextField12.setToolTipText("Can be between 1 and 20");
-        jTextField13.setToolTipText("Can be between 1 and 20");
-        jTextField14.setToolTipText("Can be between 1 and 20");
-        jTextField15.setToolTipText("Can be between 1 and 20");
-        jTextField16.setToolTipText("Can be between 1 and 20");
-        jTextField17.setToolTipText("Can be between 1 and 20");
-        jTextField18.setToolTipText("Can be between 1 and 20");
-    }
-    
-    public static boolean inputValidate(){
-        boolean good = true;
-        int num = 0;
-        for(int i = 1; i < 19; i++){
-            if(!good){
-                break;
-            }
-            String key = Integer.toString(i);
-            JTextField field = skillsMap.get(key);
-            String text = field.getText();
-            if(!"Enter Here".equals(text)){
-                num = Integer.parseInt(text);
-                if(num > 20){
-                    text = "Skills cannot be greater than 20";
-                    MenuManager.errorWindow(text);
-                    good = false;
-                }
+        checkMap.put("1", jCheckBox4);
+        checkMap.put("2", jCheckBox1);
+        checkMap.put("3", jCheckBox16);
+        checkMap.put("4", jCheckBox17);
+        checkMap.put("5", jCheckBox3);
+        checkMap.put("6", jCheckBox7);
+        checkMap.put("7", jCheckBox19);
+        checkMap.put("8", jCheckBox11);
+        checkMap.put("9", jCheckBox15);
+        checkMap.put("10", jCheckBox2);
+        checkMap.put("11", jCheckBox8);
+        checkMap.put("12", jCheckBox10);
+        checkMap.put("13", jCheckBox12);
+        checkMap.put("14", jCheckBox18);
+        checkMap.put("15", jCheckBox5);
+        checkMap.put("16", jCheckBox9);
+        checkMap.put("17", jCheckBox13);
+        checkMap.put("18", jCheckBox14);
+        checkMap.put("19", jCheckBox6);
+        
+        jTextField1.setToolTipText("Determined by Dexterity");
+        jTextField2.setToolTipText("Determined by Wisdom");
+        jTextField3.setToolTipText("Determined by Intelligence");
+        jTextField4.setToolTipText("Determined by Strength");
+        jTextField5.setToolTipText("Determined by Charisma");
+        jTextField6.setToolTipText("Determined by Strength");
+        jTextField7.setToolTipText("Determined by Intelligence");
+        jTextField8.setToolTipText("Determined by Wisdom");
+        jTextField9.setToolTipText("Determined by Charisma");
+        jTextField10.setToolTipText("Determined by Wisdom");
+        jTextField11.setToolTipText("Determined by Intelligence");
+        jTextField12.setToolTipText("Determined by Wisdom");
+        jTextField13.setToolTipText("Determined by Charisma");
+        jTextField14.setToolTipText("Determined by Charisma");
+        jTextField15.setToolTipText("Determined by Intelligence");
+        jTextField16.setToolTipText("Determined by Dexterity");
+        jTextField17.setToolTipText("Determined by Dexterity");
+        jTextField18.setToolTipText("Determined by Wisdom");
+        jTextField19.setToolTipText("Determined by Intelligence");
+        
+        for(int i = 0; i < 19; i++){
+            boolean state = MenuManager.isProf(i);
+            if(state){
+                int j = i + 1;
+                String key = Integer.toString(j);
+                JCheckBox check = checkMap.get(key);
+                check.setSelected(state);
             }
         }
-        return good;
+    }
+    
+    public static void editSkills(String key, String value){
+        JTextField change = skillsMap.get(key);
+        change.setText(value);
     }
     
     /**
@@ -1217,6 +687,7 @@ public class EditSkills extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox16;
     private javax.swing.JCheckBox jCheckBox17;
     private javax.swing.JCheckBox jCheckBox18;
+    private javax.swing.JCheckBox jCheckBox19;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
@@ -1235,6 +706,7 @@ public class EditSkills extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1254,6 +726,7 @@ public class EditSkills extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

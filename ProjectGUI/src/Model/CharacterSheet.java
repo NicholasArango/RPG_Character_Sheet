@@ -166,6 +166,14 @@ import java.util.Scanner; // For user I/O
         return j;
     }
     
+    public void setProficiency(int i, boolean state){
+        basicStats.setProficiency(i, state);
+    }
+    
+    public boolean isProficient(int i){
+        return basicStats.isProficient(i);
+    }
+    
     public int getSkillProf(int key){
         int j;
         switch (key){

@@ -85,7 +85,19 @@ public class MenuManager extends JFrame {
             String value = Integer.toString(num);
             MainScreen.editSkills(key, value);
         }
-        
+    }
+    
+    public static void updateEditSkills(){
+        for(int i = 0; i < 19; i++){
+            int num = sheet.getSkillValue(i);
+            int j = i + 1;
+            String key = Integer.toString(j);
+            String value = Integer.toString(num);
+            EditSkills.editSkills(key, value);
+        }
+    }
+    
+    public static void updateProf(){
         for(int k = 1; k < 7; k++){
             int num = sheet.getSkillProf(k);
             String key = Integer.toString(k);
@@ -233,12 +245,9 @@ public class MenuManager extends JFrame {
         EditSkills skill1 = new EditSkills();
         skill1.setVisible(true);
         skill1.map();
+        updateEditSkills();
     }
     
-    public static boolean checkSkillEdit(){
-        boolean check = EditSkills.inputValidate();
-        return check;
-    }
     /**
      * Calls the function to change a single label in skill tab of the GUI
      * @param key the key to select the correct label from the statMap
@@ -246,6 +255,14 @@ public class MenuManager extends JFrame {
      */
     public static void skillEdit(String key, String value){
         MainScreen.editSkills(key, value);
+    }
+    
+    public static boolean isProf(int i){
+        return sheet.isProficient(i);
+    }
+    
+    public static void setProf(int i, boolean state){
+        sheet.setProficiency(i, state);
     }
     
     /**
