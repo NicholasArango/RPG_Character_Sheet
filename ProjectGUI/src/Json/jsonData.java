@@ -22,7 +22,8 @@ import java.util.LinkedHashMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JOptionPane;
@@ -42,6 +43,7 @@ public class jsonData {
     private final        JTable table = new JTable();
     private              File currentJsonFile; // Holds current file
     private Map<String, Object> dataMap = new HashMap<>();
+    private boolean[] profs = new boolean[19]; 
     
     public jsonData() {
         // not neccesssary for jackson
@@ -112,7 +114,7 @@ public class jsonData {
     public void getStats() {
         
     }
-    
+    /*
     private void onNewCharacter(ActionEvent ev) {
         String name = JOptionPane.showInputDialog(
             null,
@@ -156,10 +158,15 @@ public class jsonData {
             );
         }
     }
-    
+    */
     public void setDataMap(){
         dataMap.put("name", MenuManager.showName());
-        dataMap.put("proficiencies", MenuManager.saveProf());
+        profs = MenuManager.saveProf();
+        for(int i = 0;i < 19;i++){
+            String key = Integer.toString(i);
+            boolean state = profs[i];
+            dataMap.put(key, state);
+        }
         dataMap.put("Strength", MenuManager.getChar(2));
         dataMap.put("Dexterity", MenuManager.getChar(3));
         dataMap.put("Constitution", MenuManager.getChar(4));
@@ -194,11 +201,11 @@ public class jsonData {
         MenuManager.editChar(10, value);
         value = Integer.toString((int) dataMap.get("XP"));
         MenuManager.editChar(11, value);
-        /*boolean[] profs = (boolean []) dataMap.get("proficiencies");
         for(int i = 0; i < 19; i++){
-            boolean state = profs[i];
+            String key = Integer.toString(i);
+            boolean state = (boolean) dataMap.get(key);
             MenuManager.setProf(i, state);
-        }*/
+        }
     }
     
     public void loadData(File file) {
@@ -247,7 +254,7 @@ public class jsonData {
             );
         }
     }
-    
+    /*
     private void refreshTableFromData() {
         // if there’s no data, clear the table
         if (dataList == null || dataList.isEmpty()) {
@@ -273,5 +280,5 @@ public class jsonData {
 
         // swap it into the JTable
         table.setModel(model);
-    }
+    }*/
 }
