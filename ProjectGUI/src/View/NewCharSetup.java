@@ -15,7 +15,6 @@ import javax.swing.*;
  */
 public class NewCharSetup extends javax.swing.JFrame {
 
-    
     private static final Map<String, JTextField> textMap = new HashMap<>();
     /**
      * Creates new form NewCharSetup
