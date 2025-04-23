@@ -6,6 +6,8 @@ package View;
 
 import Controller.MenuManager;
 import Json.jsonData;
+import javax.swing.*;
+import java.io.File;
 
 /**
  *
@@ -118,6 +120,10 @@ public class StartScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     // Load Character:
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FileSelect frame = new FileSelect();
+        JFileChooser file = new JFileChooser();
+        int result = file.showOpenDialog(frame);
+        //frame.setVisible(true);
         // TODO add your handling code here:
         // Accesses saved JSON file
         dataCall.loadData();

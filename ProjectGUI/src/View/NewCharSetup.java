@@ -11,7 +11,7 @@ import javax.swing.*;
 
 /**
  *
- * @author nsara
+ * @author N Arango
  */
 public class NewCharSetup extends javax.swing.JFrame {
 

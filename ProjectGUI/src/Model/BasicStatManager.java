@@ -7,7 +7,7 @@ package Model;
 
 /**
  *
- * @author Robert J.
+ * @author Robert J., N Arango, 
  * 
  * Class: Basic Stat Manager
  *  public
