@@ -104,6 +104,10 @@ public class jsonData {
         }
     }
     
+    public void getStats() {
+        
+    }
+    
     private void onNewCharacter(ActionEvent ev) {
         String name = JOptionPane.showInputDialog(
             null,
@@ -113,7 +117,7 @@ public class jsonData {
         );
         if (name == null || name.isBlank()) return;
 
-        File folder = new File("src/json/jsonConfigs");
+        File folder = new File(configDir);
         folder.mkdirs();
         File file = new File(folder, name.trim() + ".json");
         if (file.exists()) {
