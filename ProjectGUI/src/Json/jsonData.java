@@ -32,20 +32,21 @@ import Controller.*;
 public class jsonData {
     
     // Used for storing information into the json files
-    private static final ObjectMapper MAPPER = new ObjectMapper()
-        .enable(SerializationFeature.INDENT_OUTPUT);
-    private Map<String, Integer> BaseStats;
-    public static ObjectNode root = MAPPER.createObjectNode();
+    private static final ObjectMapper MAPPER = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+    public  static       ObjectNode root = MAPPER.createObjectNode();
+    private              Map<String, Integer> BaseStats;
+    private              List<Map<String, Integer>> dataList;
     
     // Holds Directories and file names
-    private final String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
-    private File currentJsonFile; // Holds current file
+    private final        String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
+    private final        JTable table = new JTable();
+    private              File currentJsonFile; // Holds current file
     private List<Map<String, Integer>> dataList;
     private final JTable table = new JTable();
     private Map<String, Object> dataMap = new HashMap<>();
     
     public jsonData() {
-        // nothing for jackson
+        // not neccesssary for jackson
     }
     
     public Map<String, Integer> getBaseStats() {
@@ -110,6 +111,10 @@ public class jsonData {
         }
     }
     
+    public void getStats() {
+        
+    }
+    
     private void onNewCharacter(ActionEvent ev) {
         String name = JOptionPane.showInputDialog(
             null,
@@ -119,7 +124,7 @@ public class jsonData {
         );
         if (name == null || name.isBlank()) return;
 
-        File folder = new File("src/json/jsonConfigs");
+        File folder = new File(configDir);
         folder.mkdirs();
         File file = new File(folder, name.trim() + ".json");
         if (file.exists()) {
