@@ -4,7 +4,7 @@
  */
 package View;
 import Controller.MenuManager;
-import Json.jsonData;
+import Json.JsonData;
 import java.io.File;
 import javax.swing.JLabel;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public class MainScreen extends javax.swing.JFrame {
     private static final Map<String, JLabel> statMap = new HashMap<>();
     private static final Map<String, JLabel> saveMap = new HashMap<>();
     private static final Map<String, JLabel> skillMap = new HashMap<>();
-    private final jsonData dataCall = new jsonData();
+    private final JsonData dataCall = new JsonData();
     /**
      * Creates new form GUI
      */
