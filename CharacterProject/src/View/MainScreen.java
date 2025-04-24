@@ -15,6 +15,15 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
  * @author N Arango
+ * 
+ * Main JFrame that will show all relevant character data. Creates a JFrame with 
+ * a tabbed Pane to show 4 different panels on the same JFrame. Currently, only
+ * Base Stats and Skills are implemented. The Edit Character button 
+ * will open the Edit Character dialog and the Set Proficiency button will open
+ * the Edit Skills dialog.
+ * <p>
+ * The Menu allows the user to create a New Character, Save their character, and 
+ * Load a previous character. The Quit option will close the program
  */
 public class MainScreen extends javax.swing.JFrame {
 
@@ -768,7 +777,7 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jMenu1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jMenu1ComponentAdded
-        //ToDo
+        //nothing to do here
     }//GEN-LAST:event_jMenu1ComponentAdded
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -795,6 +804,7 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // New Character
         MenuManager.newWarning();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -866,6 +876,11 @@ public class MainScreen extends javax.swing.JFrame {
         change.setText(value);
     }
     
+    /**
+     * Changes a single label in the Saving Throws column
+     * @param key key to pull the correct label from the saveMap
+     * @param value string for the text replacement
+     */
     public static void editProf(String key, String value){
         JLabel change = saveMap.get(key);
         change.setText(value);

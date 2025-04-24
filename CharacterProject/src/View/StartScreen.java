@@ -13,6 +13,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
  * @author N Arango, Robert J.
+ * 
+ * JFrame that functions as the Start Screen. The New Character button opens the
+ * New Character dialog, while the Load Character button will open a file chooser
+ * to select a json character file to load.
  */
 public class StartScreen extends javax.swing.JFrame {
     private final jsonData dataCall = new jsonData();
@@ -134,10 +138,6 @@ public class StartScreen extends javax.swing.JFrame {
             MenuManager.loadCharS();
             this.dispose();
         }
-        
-        // TODO add your handling code here:
-        // Accesses saved JSON file
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {

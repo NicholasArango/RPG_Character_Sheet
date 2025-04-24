@@ -7,6 +7,9 @@ package View;
 /**
  *
  * @author N Arango
+ * 
+ * JFrame to inform the user of any errors. The function that detects an error must
+ * supply a String to inform the user of the error.
  */
 public class ErrorScreen extends javax.swing.JFrame {
 

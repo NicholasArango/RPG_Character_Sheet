@@ -9,6 +9,9 @@ import Controller.MenuManager;
 /**
  *
  * @author N Arango
+ * 
+ * JFrame to edit the Spellbook. Implementation was not achieved. All buttons other
+ * than Cancel will output a window to inform the user that they do not work.
  */
 public class EditSpellbook extends javax.swing.JFrame {
 

@@ -367,7 +367,10 @@ public class MenuManager extends JFrame {
         EditSpellbook spells1 = new EditSpellbook();
         spells1.setVisible(true);
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public static boolean[] saveProf(){
         return sheet.returnProf();
     }

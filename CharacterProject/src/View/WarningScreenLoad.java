@@ -12,7 +12,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author nsara
+ * @author N Arango
+ * 
+ * JFrame to warn the user about losing character data when loading a character.
+ * Clicking Continue will proceed with the Load Character process.
  */
 public class WarningScreenLoad extends javax.swing.JFrame {
 
