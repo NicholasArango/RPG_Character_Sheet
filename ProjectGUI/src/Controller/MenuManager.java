@@ -10,7 +10,8 @@ package Controller;
  * @author Robert J.
  * @author Ellie R.
  * @author N. Arango
- * @version 
+ * @version %I%
+ * @since 1.0
  * 
  * Class: Menu Manager
  *  public
@@ -65,16 +66,23 @@ public class MenuManager extends JFrame {
         setup.setVisible(true);
         setup.map();
     }
-    
+    /**
+     * 
+     */
     public static void newWarning(){
         WarningScreenNew screen = new WarningScreenNew();
         screen.setVisible(true);
     }
-    
+    /**
+     * 
+     */
     public static void loadWarning(){
         WarningScreenLoad screen = new WarningScreenLoad();
         screen.setVisible(true);
     }
+    /**
+     * 
+     */
     public static void newCharS(){
         gui.dispose();
         NewCharSetup setup = new NewCharSetup();
@@ -82,19 +90,26 @@ public class MenuManager extends JFrame {
         setup.map();
     }
     
+    /**
+     * This is a boole`an check for if NewCharSetup has the correct inputs
+     * 
+     * @return boolean
+     */
     public static boolean checkNewChar(){
         boolean check = NewCharSetup.inputValidate();
         return check;
     }
-    
+    /**
+     * Holds the characters name
+     * 
+     * @param name, holds the character name
+     */
     public static void createNewChar(String name){
         sheet = new CharacterSheet(name);
     }
     
     /**
      * Load function from start screen, uses the "Load Character" 
-     * 
-     * @param null
      */
     public static void loadCharS(){
         gui = new MainScreen();
@@ -105,8 +120,6 @@ public class MenuManager extends JFrame {
     
     /**
      * This loads the character values for the json file
-     * 
-     * @param null
      */
     public static void loadChar(){
         String value;
@@ -141,6 +154,10 @@ public class MenuManager extends JFrame {
         updateSkills();
         updateProf();
     }
+    /**
+     * Updates skills in character sheet after a user input.
+     * This collaborates with the buttons in EditSkills
+     */
     public static void updateSkills(){
         for(int i = 0; i < 19; i++){
             int num = sheet.getSkillValue(i);
@@ -151,7 +168,9 @@ public class MenuManager extends JFrame {
             MainScreen.editSkills(key, value);
         }
     }
-    
+    /**
+     * 
+     */
     public static void updateEditSkills(){
         for(int i = 0; i < 19; i++){
             int num = sheet.getSkillValue(i);
@@ -161,7 +180,9 @@ public class MenuManager extends JFrame {
             EditSkills.editSkills(key, value);
         }
     }
-    
+    /**
+     * 
+     */
     public static void updateProf(){
         for(int k = 1; k < 7; k++){
             int num = sheet.getSkillProf(k);
@@ -174,7 +195,11 @@ public class MenuManager extends JFrame {
             MainScreen.editProf(key, value);
         }
     }
-    
+    /**
+     * 
+     * @param key
+     * @param value 
+     */
     public static void editChar(int key, String value){
         int i;
         switch (key){
@@ -223,12 +248,19 @@ public class MenuManager extends JFrame {
             }
         }
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public static String showName(){
         String text = sheet.getCharacterName();
         return text;
     }
-    
+    /**
+     * 
+     * @param key
+     * @return 
+     */
     public static int getChar(int key){
         int i;
         switch (key){
@@ -286,7 +318,10 @@ public class MenuManager extends JFrame {
         boolean check = EditChar.inputValidate();
         return check;
     }
-    
+    /**
+     * 
+     * @param text 
+     */
     public static void errorWindow(String text){
         ErrorScreen newError = new ErrorScreen();
         newError.setup(text);
@@ -329,13 +364,18 @@ public class MenuManager extends JFrame {
     public static boolean isProf(int i){
         return sheet.isProficient(i);
     }
-    
+    /**
+     * Sets the proficiency value, affecting skill stat bonus
+     * 
+     * @param i
+     * @param state 
+     */
     public static void setProf(int i, boolean state){
         sheet.setProficiency(i, state);
     }
     
     /**
-     * Opens the Inventory editor window
+     * Opens the Inventory editor window.
      */
     public static void openInv(){
         EditInventory inv1 = new EditInventory();
@@ -343,18 +383,28 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Opens the Spellbook editor window
+     * Opens the Spellbook editor window.
      */
     public static void openSpells(){
         EditSpellbook spells1 = new EditSpellbook();
         spells1.setVisible(true);
     }
-    
+    /**
+     * Stores the proficiency value.
+     * 
+     * @return boolean array type.
+     */
     public static boolean[] saveProf(){
         return sheet.returnProf();
     }
 
-    // The entry point of the application. Ensures the GUI is created on Event
+    /**
+     * This is the Main function for MenuManager; sets
+     *      its values to be visible.
+     * 
+     * @param args
+     * @see MenuManager
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             MenuManager manager = new MenuManager();
