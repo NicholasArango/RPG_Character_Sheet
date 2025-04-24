@@ -31,7 +31,7 @@ import javax.swing.JOptionPane;
 //import javax.swing.table.DefaultTableModel;
 import Controller.*;
 
-public class jsonData {
+public class JsonData {
 
     // Used for storing information into the json files
     private static final ObjectMapper MAPPER = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
@@ -46,7 +46,7 @@ public class jsonData {
     private final Map<String, Object> dataMap = new HashMap<>();
     private boolean[] profs = new boolean[19]; 
     
-    public jsonData() {
+    public JsonData() {
         // not neccesssary for jackson
     }
     /*

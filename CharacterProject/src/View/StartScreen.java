@@ -5,7 +5,7 @@
 package View;
 
 import Controller.MenuManager;
-import Json.jsonData;
+import Json.JsonData;
 import javax.swing.*;
 import java.io.File;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -20,7 +20,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * to select a json character file to load.
  */
 public class StartScreen extends javax.swing.JFrame {
-    private final jsonData dataCall = new jsonData();
+    private final JsonData dataCall = new JsonData();
     /**
      * Creates new form StartScreen
      */
