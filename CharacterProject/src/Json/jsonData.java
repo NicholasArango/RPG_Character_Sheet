@@ -9,8 +9,8 @@ package Json;
  *
  * @author Robert J.
  * @author N Arango
- * 
- * 
+ * @version %I%
+ * @since 1.0
  */
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -31,7 +31,7 @@ import javax.swing.JOptionPane;
 //import javax.swing.table.DefaultTableModel;
 import Controller.*;
 
-public class JsonData {
+public class jsonData {
 
     // Used for storing information into the json files
     private static final ObjectMapper MAPPER = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
@@ -45,8 +45,10 @@ public class JsonData {
     private File currentJsonFile; // Holds current file
     private final Map<String, Object> dataMap = new HashMap<>();
     private boolean[] profs = new boolean[19]; 
-    
-    public JsonData() {
+    /**
+     * JsonData empty Constructor
+     */
+    public jsonData() {
         // not neccesssary for jackson
     }
     /*
@@ -155,7 +157,7 @@ public class JsonData {
     }*/
 
     /**
-     * Gets character data and places inside a Hash Map for saving as a json.
+     * Sets character data and places inside a Hash Map for saving as a json.
      */
     public void setDataMap(){
         dataMap.put("name", MenuManager.showName());
