@@ -20,15 +20,15 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedHashMap;
+//import java.util.LinkedHashMap;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.JTable;
+//import java.util.List;
+//import java.util.ArrayList;
+//import java.awt.event.ActionEvent;
+//import javax.swing.JTable;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+//import javax.swing.table.DefaultTableModel;
 import Controller.*;
 
 public class jsonData {
@@ -36,12 +36,12 @@ public class jsonData {
     // Used for storing information into the json files
     private static final ObjectMapper MAPPER = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
     public static ObjectNode root = MAPPER.createObjectNode();
-    private Map<String, Integer> BaseStats;
-    private List<Map<String, Integer>> dataList;
+    //private Map<String, Integer> BaseStats;
+    //private List<Map<String, Integer>> dataList;
 
     // Holds Directories and file names
-    private final String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
-    private final JTable table = new JTable();
+    //private final String configDir = "src/Json/jsonConfigs"; // Directory that holds created json files
+    //private final JTable table = new JTable();
     private File currentJsonFile; // Holds current file
     private final Map<String, Object> dataMap = new HashMap<>();
     private boolean[] profs = new boolean[19]; 
@@ -49,7 +49,7 @@ public class jsonData {
     public jsonData() {
         // not neccesssary for jackson
     }
-
+    /*
     public Map<String, Integer> getBaseStats() {
         return BaseStats;
     }
@@ -152,7 +152,7 @@ public class jsonData {
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
-    }
+    }*/
 
     /**
      * Gets character data and places inside a Hash Map for saving as a json.
@@ -262,7 +262,7 @@ public class jsonData {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+    /*
     private void refreshTableFromData() {
         // if there’s no data, clear the table
         if (dataList == null || dataList.isEmpty()) {
@@ -288,5 +288,5 @@ public class jsonData {
 
         // swap it into the JTable
         table.setModel(model);
-    }
+    }*/
 }

@@ -19,7 +19,7 @@ package Model;
  *  Manages the stats, variables, and possible bonuses for the specified character sheet
  * 
  * Collaborators:
- *  CharacterSheet and MenuManager
+ *  CharacterSheet
  * 
  * Methods:
  *  Attributes
