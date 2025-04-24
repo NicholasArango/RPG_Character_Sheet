@@ -71,113 +71,242 @@ import java.util.Scanner; // For user I/O
         return val;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setStrength(int i){
         basicStats.setStrength(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getStrength(){
         int i = basicStats.getStrength();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setDexterity(int i){
         basicStats.setDexterity(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getDexterity(){
         int i = basicStats.getDexterity();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setConstitution(int i){
         basicStats.setConstitution(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getConstitution(){
         int i = basicStats.getConstitution();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setIntelligence(int i){
         basicStats.setIntelligence(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getIntelligence(){
         int i = basicStats.getIntelligence();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setWisdom(int i){
         basicStats.setWisdom(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getWisdom(){
         int i = basicStats.getWisdom();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setCharisma(int i){
         basicStats.setCharisma(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getCharisma(){
         int i = basicStats.getCharisma();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setMaxHealth(int i){
         playerState.setMaxHealth(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getMaxHealth(){
         int i = playerState.getMaxHealth();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setCurrentHealth(int i){
         playerState.setCurrentHealth(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getCurrentHealth(){
         int i = playerState.getCurrentHealth();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setLevel(int i){
         basicStats.setLevel(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getLevel(){
         int i = basicStats.getLevel();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i 
+     */
     public void setExperience(int i){
         basicStats.setExperience(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public int getExperience(){
         int i = basicStats.getExperience();
         return i;
     }
     
+    /**
+     * 
+     * 
+     * @param i
+     * @return 
+     */
     public int getSkillValue(int i){
         int j = basicStats.getSkillValue(i);
         return j;
     }
     
+    /**
+     * 
+     * 
+     * @param i
+     * @param state 
+     */
     public void setProficiency(int i, boolean state){
         basicStats.setProficiency(i, state);
     }
     
+    /**
+     * 
+     * 
+     * @param i
+     * @return 
+     */
     public boolean isProficient(int i){
         return basicStats.isProficient(i);
     }
     
+    /**
+     * 
+     * 
+     * @return 
+     */
     public boolean[] returnProf(){
         return basicStats.returnProf();
     }
     
+    /**
+     * 
+     * 
+     * @param key
+     * @return 
+     */
     public int getSkillProf(int key){
         int j;
         switch (key){
