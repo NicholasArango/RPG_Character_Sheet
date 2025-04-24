@@ -42,7 +42,7 @@ import java.util.Scanner; // For user I/O
     
     
     // Sets the Basic Stat values in BasicStatManager based on user input
-    public void initializeBaseStats() {
+    /*public void initializeBaseStats() {
         Scanner in = new Scanner(System.in);
         System.out.print("Give your strength value between 1-30: ");
         
@@ -53,10 +53,10 @@ import java.util.Scanner; // For user I/O
         basicStats.setIntelligence(prompt("Enter Intelligence(1-30):", in, 1, 30));
         basicStats.setWisdom(prompt("Enter Wisdom(1-30):", in, 1, 30));
         basicStats.setCharisma(prompt("Enter Charisma(1-30):", in, 1, 30));
-    }
+    }*/
     
     // Prompt function for new Character base stats
-    private int prompt(String label, Scanner in, int min, int max) {
+    /*private int prompt(String label, Scanner in, int min, int max) {
         int val = 0;
         
         do {
@@ -69,21 +69,21 @@ import java.util.Scanner; // For user I/O
         } while (val < min || val > max);
         in.nextLine(); // consume end‑of‑line
         return val;
-    }
+    }*/
     
     /**
+     * Sets Strength in basicStats
      * 
-     * 
-     * @param i 
+     * @param i new Strength
      */
     public void setStrength(int i){
         basicStats.setStrength(i);
     }
     
     /**
+     * Gets Strength from basicStats
      * 
-     * 
-     * @return 
+     * @return current Strength
      */
     public int getStrength(){
         int i = basicStats.getStrength();
@@ -91,18 +91,18 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Sets Dexterity in basicStats
      * 
-     * 
-     * @param i 
+     * @param i new Dexterity
      */
     public void setDexterity(int i){
         basicStats.setDexterity(i);
     }
     
     /**
+     * Gets Dexterity from basicStats
      * 
-     * 
-     * @return 
+     * @return current Dexterity
      */
     public int getDexterity(){
         int i = basicStats.getDexterity();
@@ -110,18 +110,18 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Sets Constitution in basicStats
      * 
-     * 
-     * @param i 
+     * @param i new Constitution
      */
     public void setConstitution(int i){
         basicStats.setConstitution(i);
     }
     
     /**
+     * Gets Constitution from basicStats
      * 
-     * 
-     * @return 
+     * @return current Constitution
      */
     public int getConstitution(){
         int i = basicStats.getConstitution();
@@ -129,18 +129,18 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Sets Intelligence in basicStats
      * 
-     * 
-     * @param i 
+     * @param i new Intelligence
      */
     public void setIntelligence(int i){
         basicStats.setIntelligence(i);
     }
     
     /**
+     * Gets Intelligence from basicStats
      * 
-     * 
-     * @return 
+     * @return current Intelligence
      */
     public int getIntelligence(){
         int i = basicStats.getIntelligence();
@@ -148,18 +148,18 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Sets Wisdom in basicStats
      * 
-     * 
-     * @param i 
+     * @param i new Wisdom
      */
     public void setWisdom(int i){
         basicStats.setWisdom(i);
     }
     
     /**
+     * Gets Wisdom from basicStats
      * 
-     * 
-     * @return 
+     * @return current Wisdom
      */
     public int getWisdom(){
         int i = basicStats.getWisdom();
@@ -167,18 +167,18 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Sets Charisma in basicStats
      * 
-     * 
-     * @param i 
+     * @param i new Charisma
      */
     public void setCharisma(int i){
         basicStats.setCharisma(i);
     }
     
     /**
+     * Gets Charisma from basicStats
      * 
-     * 
-     * @return 
+     * @return current Charisma
      */
     public int getCharisma(){
         int i = basicStats.getCharisma();
@@ -186,18 +186,18 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Sets maxHealth in playerState
      * 
-     * 
-     * @param i 
+     * @param i new maxHealth
      */
     public void setMaxHealth(int i){
         playerState.setMaxHealth(i);
     }
     
     /**
+     * Gets maxHealth from playerState
      * 
-     * 
-     * @return 
+     * @return current maxHealth
      */
     public int getMaxHealth(){
         int i = playerState.getMaxHealth();
@@ -205,18 +205,18 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Sets currentHealth in playerState
      * 
-     * 
-     * @param i 
+     * @param i new currentHealth
      */
     public void setCurrentHealth(int i){
         playerState.setCurrentHealth(i);
     }
     
     /**
+     * Gets currentHealth from playerState
      * 
-     * 
-     * @return 
+     * @return current currentHealth
      */
     public int getCurrentHealth(){
         int i = playerState.getCurrentHealth();
@@ -224,18 +224,18 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Sets playerLevel in basicStats
      * 
-     * 
-     * @param i 
+     * @param i new playerLevel
      */
     public void setLevel(int i){
         basicStats.setLevel(i);
     }
     
     /**
+     * Gets playerLevel from basicStats
      * 
-     * 
-     * @return 
+     * @return current playerLevel
      */
     public int getLevel(){
         int i = basicStats.getLevel();
@@ -243,18 +243,18 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Sets experiencePoints in basicStats
      * 
-     * 
-     * @param i 
+     * @param i new experiencePoints
      */
     public void setExperience(int i){
         basicStats.setExperience(i);
     }
     
     /**
+     * Gets experiencePoints from basicStats
      * 
-     * 
-     * @return 
+     * @return current experiencePoints
      */
     public int getExperience(){
         int i = basicStats.getExperience();
@@ -262,10 +262,10 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Gets the value of the indicated Skill from basicStats
      * 
-     * 
-     * @param i
-     * @return 
+     * @param i index of the skill requested
+     * @return value of the requested Skill
      */
     public int getSkillValue(int i){
         int j = basicStats.getSkillValue(i);
@@ -273,39 +273,39 @@ import java.util.Scanner; // For user I/O
     }
     
     /**
+     * Changes the proficiency of the indicated skill
      * 
-     * 
-     * @param i
-     * @param state 
+     * @param i index of the skill
+     * @param state new value of the proficiency
      */
     public void setProficiency(int i, boolean state){
         basicStats.setProficiency(i, state);
     }
     
     /**
+     * Checks if the character is proficient in the indicated skill
      * 
-     * 
-     * @param i
-     * @return 
+     * @param i index of the skill
+     * @return value of the proficiency
      */
     public boolean isProficient(int i){
         return basicStats.isProficient(i);
     }
     
     /**
+     * Gets the boolean array for skill proficiency. Only used for saving to json
      * 
-     * 
-     * @return 
+     * @return skill proficiency array
      */
     public boolean[] returnProf(){
         return basicStats.returnProf();
     }
     
     /**
+     * Gets the saving throw value for the indicated core stat from basicStats
      * 
-     * 
-     * @param key
-     * @return 
+     * @param key key to choose core stat
+     * @return value for saving throws
      */
     public int getSkillProf(int key){
         int j;

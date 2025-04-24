@@ -7,7 +7,10 @@ package Json;
 
 /**
  *
- * @author Robert J., N Arango
+ * @author Robert J.
+ * @author N Arango
+ * 
+ * 
  */
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -110,10 +113,6 @@ public class jsonData {
     }
 
     
-    public void getStats() {
-        
-    }
-    
     private void onNewCharacter(ActionEvent ev) {
         String name = JOptionPane.showInputDialog(
                 null,
@@ -155,6 +154,9 @@ public class jsonData {
         }
     }
 
+    /**
+     * Gets character data and places inside a Hash Map for saving as a json.
+     */
     public void setDataMap(){
         dataMap.put("name", MenuManager.showName());
         profs = MenuManager.saveProf();
@@ -175,6 +177,9 @@ public class jsonData {
         dataMap.put("XP", MenuManager.getChar(11));
     }
 
+    /**
+     * Extracts character data from a Hash Map when loading from a json.
+     */
     public void loadCharacter() {
         MenuManager.editChar(1, (String) dataMap.get("name"));
         String value = Integer.toString((int) dataMap.get("Strength"));
@@ -204,6 +209,11 @@ public class jsonData {
         }
     }
 
+    /**
+     * Function to load a character from a json file.
+     * 
+     * @param file the file selected by the file chooser
+     */
     public void loadData(File file) {
         currentJsonFile = file;
         try {
@@ -223,6 +233,11 @@ public class jsonData {
         loadCharacter();
     }
 
+    /**
+     * Function to save a character to a json file.
+     * 
+     * @param file file chosen by the file chooser
+     */
     public void saveData(File file) {
         setDataMap();
         currentJsonFile = file;
