@@ -9,7 +9,9 @@ package Controller;
  *
  * @author Robert J.
  * @author Ellie R.
- * @author N Arango
+ * @author N. Arango
+ * @version %I%
+ * @since 1.0
  * 
  * Class: Menu Manager
  *  public
@@ -32,18 +34,15 @@ import Model.*;
 import javax.swing.*;
 import View.*;
 
-// BasicStatManager enum object names:
-// Attribute
-// Throw
-// Skill
-
 public class MenuManager extends JFrame {
     
     // main GUI window
     private static MainScreen gui;
     private static CharacterSheet sheet;
     
-    // Constructor: Initializes the UI and loads the JSON configuration.
+    /**
+     * Constructor: Initializes the UI and loads the JSON configuration.
+     */
     public MenuManager() {
     }
     
@@ -111,7 +110,7 @@ public class MenuManager extends JFrame {
     /**
      * Validates input for new character creation.
      * 
-     * @return true for success, false for failure
+     * @return true for success, false for failure.
      */
     public static boolean checkNewChar(){
         boolean check = NewCharSetup.inputValidate();
@@ -121,7 +120,7 @@ public class MenuManager extends JFrame {
     /**
      * Creates a new character sheet with the character name.
      * 
-     * @param name the name of the character
+     * @param name the name of the character.
      */
     public static void createNewChar(String name){
         sheet = new CharacterSheet(name);
@@ -221,8 +220,8 @@ public class MenuManager extends JFrame {
     /**
      * Function to change the indicated character parameter to the supplied value.
      * 
-     * @param key chooses which parameter to change
-     * @param value value to change the parameter to
+     * @param key chooses which parameter to change.
+     * @param value value to change the parameter to.
      */
     public static void editChar(int key, String value){
         int i;
@@ -276,7 +275,7 @@ public class MenuManager extends JFrame {
     /**
      * Gets the character name from the character sheet.
      * 
-     * @return character name
+     * @return character name.
      */
     public static String showName(){
         String text = sheet.getCharacterName();
@@ -286,8 +285,8 @@ public class MenuManager extends JFrame {
     /**
      * Gets integer character data from the character sheet.
      * 
-     * @param key indicates the field of character data for retrieval
-     * @return the value of the indicated field
+     * @param key indicates the field of character data for retrieval.
+     * @return the value of the indicated field.
      */
     public static int getChar(int key){
         int i;
@@ -341,7 +340,7 @@ public class MenuManager extends JFrame {
     /**
      * Validates the input from EditChar.
      * 
-     * @return true indicates success, fales indicates failure
+     * @return true indicates success, fales indicates failure.
      */
     public static boolean checkStatEdit(){
         boolean check = EditChar.inputValidate();
@@ -351,7 +350,7 @@ public class MenuManager extends JFrame {
     /**
      * Opens an error window with a message informing the user of the error.
      * 
-     * @param text the error message
+     * @param text the error message.
      */
     public static void errorWindow(String text){
         ErrorScreen newError = new ErrorScreen();
@@ -362,8 +361,8 @@ public class MenuManager extends JFrame {
     /**
      * Calls the function to change a single label in the stat tab of the GUI.
      * 
-     * @param key the key to select the correct label from the statMap
-     * @param value the value that will be input
+     * @param key the key to select the correct label from the statMap.
+     * @param value the value that will be input.
      */
     public static void statEdit(String key, String value){
         MainScreen.editStats(key, value);
@@ -382,8 +381,8 @@ public class MenuManager extends JFrame {
     /**
      * Calls the function to change a single label in skill tab of the GUI.
      * 
-     * @param key the key to select the correct label from the statMap
-     * @param value the value that will be input
+     * @param key the key to select the correct label from the statMap.
+     * @param value the value that will be input.
      */
     public static void skillEdit(String key, String value){
         MainScreen.editSkills(key, value);
@@ -392,8 +391,8 @@ public class MenuManager extends JFrame {
     /**
      * Function to check if the character has a proficiency in a given skill.
      * 
-     * @param i the index of the skill
-     * @return true if proficient, false if not proficient
+     * @param i the index of the skill.
+     * @return true if proficient, false if not proficient.
      */
     public static boolean isProf(int i){
         return sheet.isProficient(i);
@@ -402,8 +401,8 @@ public class MenuManager extends JFrame {
     /**
      * Function to change the proficiency in a given skill.
      * 
-     * @param i the index of the skill
-     * @param state the changed proficiency for the skill
+     * @param i the index of the skill.
+     * @param state the changed proficiency for the skill.
      */
     public static void setProf(int i, boolean state){
         sheet.setProficiency(i, state);
@@ -428,13 +427,17 @@ public class MenuManager extends JFrame {
      * Function to retrieve the entire skill proficiency array.
      * This is only used when saving to json.
      * 
-     * @return the boolean proficiency array
+     * @return the boolean proficiency array.
      */
     public static boolean[] saveProf(){
         return sheet.returnProf();
     }
 
-    // The entry point of the application. Ensures the GUI is created on Event
+    /** 
+     * The entry point of the application. Ensures the GUI is created on Event.
+     * 
+     * @param args
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             MenuManager manager = new MenuManager();

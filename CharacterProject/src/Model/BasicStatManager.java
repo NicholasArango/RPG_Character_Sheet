@@ -9,6 +9,8 @@ package Model;
  *
  * @author Robert J.
  * @author N Arango
+ * @version %I%
+ * @since 1.0
  * 
  * Class: Basic Stat Manager
  *  public
@@ -33,7 +35,7 @@ package Model;
 import java.io.Serializable;
 
 public class BasicStatManager implements Serializable {
-     private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private int playerLevel = 1;
     private int experiencePoints = 0;
 
@@ -69,18 +71,22 @@ public class BasicStatManager implements Serializable {
     public static final int PERFORMANCE = 16;
     public static final int PERSUASION = 17;
     public static final int FORTITUDE = 18;
-
+    
+    /**
+     * Constructor for BasicStatManager.
+     * Sets all proficiencies to being false by default.
+     */
     public BasicStatManager() {
-        // initialize all proficiencies to false by default
+        // initialize all proficiencies to false by default.
         for(int i = 0; i < skillProficiencies.length; i++) {
             skillProficiencies[i] = false;
         }
     }
     /**
      * Setter for playerLevel.
-     * Also updates the proficiencyBonus to account for new level
+     * Also updates the proficiencyBonus to account for new level.
      * 
-     * @param level new playerLevel
+     * @param level new playerLevel.
      */
     public void setLevel(int level){
        playerLevel = level;
@@ -88,79 +94,156 @@ public class BasicStatManager implements Serializable {
     }
     
     /**
-     * Getter for playerLevel
+     * Getter for playerLevel.
      * 
-     * @return current playerLevel
+     * @return current playerLevel.
      */
     public int getLevel(){
         return playerLevel;
     }
 
     /**
-     * Setter for experiencePoints
+     * Setter for experiencePoints.
      * 
-     * @param amount new experiencePoints
+     * @param amount new experiencePoints.
      */
     public void setExperience(int amount) {
         experiencePoints = amount;
     }
     
     /**
-     * Getter for experiencePoints
+     * Getter for experiencePoints.
      * 
-     * @return current experiencePoints
+     * @return int, current experiencePoints.
      */
     public int getExperience(){
         return experiencePoints;
     }
-    // attribute getters+setters
+    /**
+     * Getter for strength.
+     * 
+     * @return int, strength.
+     */
     public int getStrength() { return strength; }
+    /**
+     * Setter for strength.
+     * 
+     * @param strength, holds the input for strength.
+     */
     public void setStrength(int strength) {
         validateAttribute(strength);
         this.strength = strength;
     }
-
+    /**
+     * Getter for dexterity.
+     * 
+     * @return The dexterity value.
+     */
     public int getDexterity() { return dexterity; }
+    /**
+     * Setter for dexterity.
+     * 
+     * @param dexterity, holds the input for dexterity.
+     */
     public void setDexterity(int dexterity) {
         validateAttribute(dexterity);
         this.dexterity = dexterity;
     }
-    
+    /**
+     * Getter for constitution.
+     * 
+     * @return The constitution value.
+     */
     public int getConstitution() { return constitution; }
+    /**
+     * Setter for constitution.
+     * 
+     * @param constitution, holds the input for constitution.
+     */
     public void setConstitution(int constitution) {
         validateAttribute(constitution);
         this.constitution = constitution;
     }
-    
+    /**
+     * Getter for intelligence.
+     * 
+     * @return The intelligence value.
+     */
     public int getIntelligence() { return intelligence; }
+    /**
+     * Setter for intelligence.
+     * 
+     * @param intelligence, holds the input for intelligence.
+     */
     public void setIntelligence(int intelligence) {
         validateAttribute(intelligence);
         this.intelligence = intelligence;
     }
-    
+    /**
+     * Getter for wisdom.
+     * 
+     * @return The wisdom value.
+     */
     public int getWisdom() { return wisdom; }
+    /**
+     * Setter for wisdom.
+     * 
+     * @param wisdom, holds the input for wisdom.
+     */
     public void setWisdom(int wisdom) {
         validateAttribute(wisdom);
         this.wisdom = wisdom;
     }
     
+    /**
+     * Getter for charisma.
+     * 
+     * @return the charisma value.
+     */
     public int getCharisma() { return charisma; }
+    /**
+     * Setter for charisma.
+     * 
+     * @param charisma, holds the input for charisma.
+     */
     public void setCharisma(int charisma) {
         validateAttribute(charisma);
         this.charisma = charisma;
     }
     
-    // proficiency 
+    /**
+     * Getter for proficiency bonus.
+     * 
+     * @return The proficiency bonus.
+     */
     public int getProficiencyBonus() { return proficiencyBonus; }
+    /**
+     * Setter for proficiency bonus.
+     * 
+     * @param bonus, holds the value of the proficiency bonus.
+     */
     public void setProficiencyBonus(int bonus) {
         if(bonus < 0) throw new IllegalArgumentException("Proficiency bonus cannot be negative");
         this.proficiencyBonus = bonus;
     }
-
+    /**
+     * This checks if the character is proficient or not in any selected skill.
+     * 
+     * @param skillIndex, holds the skill's index.
+     * @return boolean
+     */
     public boolean isProficient(int skillIndex) {
         return skillProficiencies[skillIndex];
     }
-
+    
+    /**
+     * this function sets the proficiency for any selected skill.
+     * This is based upon user input.
+     * 
+     * @param skillIndex, holds the skill's index.
+     * @param proficient, holds whether or not the character is proficient in said skill.
+     * @see EditChar
+     */
     public void setProficiency(int skillIndex, boolean proficient) {
         skillProficiencies[skillIndex] = proficient;
     }
@@ -169,13 +252,19 @@ public class BasicStatManager implements Serializable {
      * Gets the entire proficiency array.
      * Only used to convert to json.
      * 
-     * @return skillProficiencies[]
+     * @return skillProficiencies[], the array of skill proficiencies.
      */
     public boolean[] returnProf(){
         return skillProficiencies;
     }
     
-    // Skill Calculations
+    /**
+     * This function gets the skill value based on the index of the skill.
+     * Then calculates the skill's modifier.
+     * 
+     * @param skillIndex, holds the index of the selected skill
+     * @return The modifier value for any selected skill.
+     */
     public int getSkillValue(int skillIndex) {
         int baseModifier = 0;
         boolean proficient = skillProficiencies[skillIndex];
@@ -255,18 +344,33 @@ public class BasicStatManager implements Serializable {
         return baseModifier + (proficient ? proficiencyBonus : 0);
     }
 
-    // modifier calculation
+    /**
+     * Calculates the modifier to skill scores.
+     * 
+     * @param abilityScore, holds the base ability score.
+     * @return The ability score after calculation.
+     */
     private int calculateModifier(int abilityScore) {
         return (int) Math.floor((abilityScore - 10) / 2);
     }
-
+    
+    /**
+     * This checks to see if the attribute value is between 1 and 30.
+     * 
+     * @param value , Holds the attribute value.
+     */
     private void validateAttribute(int value) {
         if(value < 1 || value > 30) {
             throw new IllegalArgumentException("Ability scores must be between 1 and 30");
         }
     }
 
-    // getters for UI 
+    /**
+     * All of these are getters for the UI. These get every base stat for
+     * the character and their modifier value.
+     * 
+     * @return int, calculatedModifer, Each base stat.
+     */
     public int getStrengthModifier() { return calculateModifier(strength); }
     public int getDexterityModifier() { return calculateModifier(dexterity); }
     public int getConstitutionModifier() { return calculateModifier(constitution); }
