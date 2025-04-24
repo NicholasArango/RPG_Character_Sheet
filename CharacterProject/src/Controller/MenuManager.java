@@ -47,6 +47,14 @@ public class MenuManager extends JFrame {
     }
     
     /**
+     * Open a new Start Screen.
+     */
+    public static void start(){
+        StartScreen start = new StartScreen();
+        start.setVisible(true);
+    }
+    
+    /**
      * Opens a new GUI for a new character.
      * It creates the GUI and calls the functions to initialize it to the default values.
      */
