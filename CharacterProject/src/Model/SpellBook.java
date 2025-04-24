@@ -13,6 +13,8 @@ import java.util.List;
 /**
  *
  * @author Robert J.
+ * @version %I%
+ * @since 1.0
  * 
  * Class: Spell Book
  * subclass of SpellList
@@ -52,30 +54,52 @@ import java.util.List;
 public class SpellBook {
     
     private List<Spell> knownSpells;
-
+    
+    /**
+     * Default constructor for spell book
+     */
     public SpellBook(){
         this.knownSpells = new ArrayList<>();
         this.addSpell(new Spell());
     }
     
-    // add spell
+    /**
+     * Adds any specified spell.
+     * 
+     * @param spell, holds the spell
+     */
     public void addSpell(Spell spell) {
         if (spell != null) {
             knownSpells.add(spell);
         }
     }
 
-    // remove a spell
+    /**
+     * Removes any specified spell.
+     * 
+     * @param spell, holds the spell
+     * @return The removed spell.
+     */
     public boolean removeSpell(Spell spell) {
         return knownSpells.remove(spell);
     }
 
-    // return all known spells 
+    /**
+     * Getter for the list of all spells.
+     * 
+     * @return returns an array list of all spells.
+     */
     public List<Spell> getAllSpells() {
         return new ArrayList<>(knownSpells); // Return copy to prevent internal list modification
     }
 
-    // return spells by specific level
+    /**
+     * Getter for all spells associated with a specific spell level.
+     * For example, spell level 1 gets all level 1 spells.
+     * 
+     * @param level, integer for spell level.
+     * @return All spells for specified level.
+     */
     public List<Spell> getSpellsByLevel(int level) {
         List<Spell> spellsByLevel = new ArrayList<>();
         for (Spell spell : knownSpells) {
@@ -86,7 +110,9 @@ public class SpellBook {
         return spellsByLevel;
     }
 
-    // Clear all spells from spellbook
+    /**
+     * Clears the character's spell book.
+     */
     public void clearSpellbook() {
         knownSpells.clear();
     }
