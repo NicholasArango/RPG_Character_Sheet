@@ -439,7 +439,7 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel49.setText("0");
         jLabel49.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
-        jButton2.setText("Set Proficiency");
+        jButton2.setText("Skill Proficiency");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -503,7 +503,7 @@ public class MainScreen extends javax.swing.JFrame {
                             .addComponent(jLabel43)
                             .addComponent(jLabel42)
                             .addComponent(jLabel41))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(47, 47, 47))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -729,7 +729,7 @@ public class MainScreen extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Quit");
+        jMenuItem3.setText("Quit/Start Screen");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -794,7 +794,8 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // Quit button
+        // Returns to Start Screen
+        MenuManager.start();
         this.dispose();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
