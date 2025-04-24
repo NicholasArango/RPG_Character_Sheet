@@ -701,6 +701,7 @@ public class EditChar extends javax.swing.JFrame {
 
     /**
      * Validates input before changing any values. If any checks fail, immediately output an error window and stop validation.
+     * 
      * @return returns the result
      */
     public static boolean inputValidate(){

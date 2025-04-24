@@ -3,7 +3,6 @@ package Model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Scanner; // For user I/O
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,7 +11,10 @@ import java.util.Scanner; // For user I/O
 
 /**
  *
- * @author Robert J., N Arango
+ * @author Robert J.
+ * @author N Arango
+ * 
+ * Interfaces between the Controller and the other elements of the Model.
  */
 
     public class CharacterSheet implements Serializable {
@@ -31,10 +33,22 @@ import java.util.Scanner; // For user I/O
         this.spellBook = new SpellBook();
     }
 
+    /**
+     * Gets characterName
+     * 
+     * @return current characterName
+     */
     public String getCharacterName() { return characterName; }
+    
+    /**
+     * Sets new characterName
+     * 
+     * @param name string of the new characterName
+     */
     public void setCharacterName(String name){
         characterName = name;
     }
+    
     public BasicStatManager getBaseStats() { return basicStats; }
     public Inventory getInventory() { return inventory; }
     public PlayerState getPlayerState() { return playerState; }

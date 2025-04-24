@@ -17,18 +17,12 @@ package Controller;
  *  public
  * 
  * Responsibilities:
- *  Load menus based on data in a JSON file
+ *  Facilitates communication between all view elements and with the CharacterSheet.
  * 
  * Collaborators:
- *  Inventory, Character Sheet, Item, Player State, 
- *  Spell Book, Spell List, Basic Stat Manager, Skills Manager
+ *  Character Sheet 
+ *  All elements of the View package
  * 
- * Methods:
- *  JSON:
- *      public
- *      Parameters: None
- *      return: bool
- *      Reads from the JSON file
  */
 import Model.*;
 import javax.swing.*;

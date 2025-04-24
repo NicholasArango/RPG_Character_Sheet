@@ -21,7 +21,7 @@ import java.util.Set;
  * public
  * 
  * Collaborators:
- *  Character Sheet, Menu Manager
+ *  Character Sheet
  * 
  * Responsibilities:
  *  Changes real time effects and stats such as:
