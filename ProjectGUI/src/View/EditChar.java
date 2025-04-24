@@ -372,7 +372,7 @@ public class EditChar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * maps the text fields for better iteration, then sets the tooltips for the fields
+     * maps the text fields for better iteration, then sets the tooltips for the fields.
      */
     public void map(){
         textMap.put("1", jTextField1);
@@ -413,11 +413,21 @@ public class EditChar extends javax.swing.JFrame {
             }
         }
     }
-    
+    /**
+     * Closes the Edit Character window.
+     * 
+     * @param evt, holds the action event.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     * This displays all relevant information for the user's Character. 
+     * Including: health, xp, level, max health, and modifies the skills, 
+     * and saving throw values.
+     * 
+     * @param evt, action event listener.
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         boolean val = MenuManager.checkStatEdit();
         if(val){
@@ -683,8 +693,9 @@ public class EditChar extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField11KeyTyped
 
     /**
-     * validates input before changing any values
-     * @return returns the result
+     * validates input before changing any values.
+     * 
+     * @return returns the result.
      */
     public static boolean inputValidate(){
         boolean good = true;
@@ -755,7 +766,10 @@ public class EditChar extends javax.swing.JFrame {
     
     
     /**
-     * @param args the command line arguments
+     * This runs when the user opens the Edit Character Menu, setting
+     * the GUI to be visible.
+     * 
+     * @param args the command line arguments.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

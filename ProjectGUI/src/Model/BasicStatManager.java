@@ -142,12 +142,23 @@ public class BasicStatManager implements Serializable {
     public void setProficiency(int skillIndex, boolean proficient) {
         skillProficiencies[skillIndex] = proficient;
     }
-
+    
+    /**
+     * 
+     * 
+     * @return skillProficiencies
+     */
     public boolean[] returnProf(){
         return skillProficiencies;
     }
     
-    // Skill Calculations
+    /**
+     * This gets the modifier value + proficiency for each skill whenever
+     * they're modified.
+     * 
+     * @param skillIndex, takes the Index of the skill being modified
+     * @return int
+     */
     public int getSkillValue(int skillIndex) {
         int baseModifier = 0;
         boolean proficient = skillProficiencies[skillIndex];

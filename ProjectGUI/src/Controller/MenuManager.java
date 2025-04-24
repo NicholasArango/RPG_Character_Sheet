@@ -91,7 +91,7 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * This is a boole`an check for if NewCharSetup has the correct inputs
+     * This is a boolean check for if NewCharSetup has the correct inputs
      * 
      * @return boolean
      */

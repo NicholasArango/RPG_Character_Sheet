@@ -11,18 +11,24 @@ import java.util.Scanner; // For user I/O
  */
 
 /**
- *
  * @author Robert J., N Arango
+ * @version %I%
+ * @since 1.0
  */
-
-    public class CharacterSheet implements Serializable {
+public class CharacterSheet implements Serializable {
     private static final long serialVersionUID = 1L;
     private String characterName;
     private final BasicStatManager basicStats;
     private final Inventory inventory;
     private final PlayerState playerState;
     private final SpellBook spellBook;
-
+    
+    /**
+     * Opens all relevant information regarding the charcter
+     * This includess the the character's stats, inventory, spells, and player state
+     * 
+     * @param name 
+     */
     public CharacterSheet(String name) {
         this.characterName = Objects.requireNonNull(name, "Character must have a name");
         this.basicStats = new BasicStatManager();
