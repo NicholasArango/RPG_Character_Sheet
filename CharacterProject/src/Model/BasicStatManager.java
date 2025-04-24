@@ -7,7 +7,8 @@ package Model;
 
 /**
  *
- * @author Robert J., N Arango, 
+ * @author Robert J.
+ * @author N Arango
  * 
  * Class: Basic Stat Manager
  *  public
@@ -75,19 +76,40 @@ public class BasicStatManager implements Serializable {
             skillProficiencies[i] = false;
         }
     }
-    
+    /**
+     * Setter for playerLevel.
+     * Also updates the proficiencyBonus to account for new level
+     * 
+     * @param level new playerLevel
+     */
     public void setLevel(int level){
        playerLevel = level;
        proficiencyBonus = (int) (Math.ceil(playerLevel/4) + 2);
     }
+    
+    /**
+     * Getter for playerLevel
+     * 
+     * @return current playerLevel
+     */
     public int getLevel(){
         return playerLevel;
     }
 
+    /**
+     * Setter for experiencePoints
+     * 
+     * @param amount new experiencePoints
+     */
     public void setExperience(int amount) {
         experiencePoints = amount;
     }
-        
+    
+    /**
+     * Getter for experiencePoints
+     * 
+     * @return current experiencePoints
+     */
     public int getExperience(){
         return experiencePoints;
     }
@@ -143,6 +165,12 @@ public class BasicStatManager implements Serializable {
         skillProficiencies[skillIndex] = proficient;
     }
 
+    /**
+     * Gets the entire proficiency array.
+     * Only used to convert to json.
+     * 
+     * @return skillProficiencies[]
+     */
     public boolean[] returnProf(){
         return skillProficiencies;
     }
@@ -246,12 +274,4 @@ public class BasicStatManager implements Serializable {
     public int getWisdomModifier() { return calculateModifier(wisdom); }
     public int getCharismaModifier() { return calculateModifier(charisma); }
     
-    public void getBaseStats() {
-        getStrengthModifier();
-        getDexterityModifier();
-        getConstitutionModifier();
-        getIntelligenceModifier();
-        getWisdomModifier();
-        getCharismaModifier();
-    }
 }

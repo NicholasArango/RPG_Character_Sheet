@@ -8,7 +8,10 @@ import Controller.MenuManager;
 
 /**
  *
- * @author nsara
+ * @author N Arango
+ * 
+ * JFrame to warn the user about losing character data when loading a character.
+ * Clicking Continue will proceed with opening the New Character dialog.
  */
 public class WarningScreenNew extends javax.swing.JFrame {
 

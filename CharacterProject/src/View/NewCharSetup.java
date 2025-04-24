@@ -12,6 +12,10 @@ import javax.swing.*;
 /**
  *
  * @author N Arango
+ * 
+ * JFrame to create a new character. User must fill all fields before the program
+ * can proceed. Validation is performed when Confirm is pressed before proceeding
+ * to the Main Screen.
  */
 public class NewCharSetup extends javax.swing.JFrame {
 
@@ -294,11 +298,14 @@ public class NewCharSetup extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //runs Validation
         boolean val = MenuManager.checkNewChar();
-        String name = "";
+        //if Validation passes, proceed with character creation
         if(val){
+            String name = "";
             MenuManager.newCharSetup();
             String text;
+            //input the character name and base stats
             for (int i = 1; i < 8; i++) {
                 String key = Integer.toString(i);
                 JTextField textField = textMap.get(key);
@@ -311,12 +318,16 @@ public class NewCharSetup extends javax.swing.JFrame {
                 MenuManager.statEdit(key, text);
                 MenuManager.editChar(i,text);
             }
+            //then input the maxHP stat. New characters are always initialized with full health
             JTextField hpMax = textMap.get("8");
             text = hpMax.getText();
             String uiText = text + "/" + text;
             MenuManager.statEdit("lab8", uiText);
             MenuManager.editChar(8,text);
             MenuManager.editChar(9,text);
+            //Level and XP are always initialized to the base for new characters, so no action needed
+            
+            //Then, update the skills and core stat saving throws on the Main Screen
             MenuManager.updateSkills();
             MenuManager.updateProf();
             this.dispose();
@@ -477,6 +488,10 @@ public class NewCharSetup extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField8KeyTyped
 
+    /**
+     * Function to put all text fields into a Hash Map, then attach a tool tip to
+     * each so that the user knows the appropriate bounds.
+     */
     public void map(){
         textMap.put("1", jTextField1);
         textMap.put("2", jTextField2);
@@ -497,6 +512,12 @@ public class NewCharSetup extends javax.swing.JFrame {
         jTextField8.setToolTipText("Can be between 1 and 9999");
     }
     
+    /**
+     * Validates input. Makes sure that all fields are filled and that all values
+     * are within acceptable ranges.
+     * 
+     * @return returns true for pass and false for fail.
+     */
     public static boolean inputValidate(){
         boolean good = true;
         int maxH = 0;
@@ -542,9 +563,6 @@ public class NewCharSetup extends javax.swing.JFrame {
         }
         return good;
     }
-    
-    
-    
     
     /**
      * @param args the command line arguments

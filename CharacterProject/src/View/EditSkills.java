@@ -14,6 +14,11 @@ import javax.swing.*;
 /**
  *
  * @author N Arango
+ * 
+ * JFrame to edit Skill proficiencies. The Controller checks for all current values
+ * and edits the fields and check boxes accordingly. The text fields are not editable
+ * by the user. When the edit button is pressed, the proficiencies are then recorded
+ * and the Main Screen is updated accordingly.
  */
 public class EditSkills extends javax.swing.JFrame {
 
@@ -515,6 +520,7 @@ public class EditSkills extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //loops through all checkboxes. Update the Model with their values.
         for (int i = 0; i < 19; i++) {
             int j = i + 1;
             String key = Integer.toString(j);
@@ -522,6 +528,7 @@ public class EditSkills extends javax.swing.JFrame {
             boolean state = check.isSelected();
             MenuManager.setProf(i, state);
         }
+        //Afterwards, update the Skills and core Stat Saving Throws
         MenuManager.updateSkills();
         MenuManager.updateProf();
         this.dispose();
@@ -532,7 +539,8 @@ public class EditSkills extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
-     * maps the text fields for iteration, then sets the tooltips for each field
+     * Maps the text fields for iteration, then sets the tool tips for each field.
+     * Afterwards, loops through the check boxes and changes them as needed.
      */
     public void map(){
         //Puts all text fields into a Hash Map to use a loop for iteration
@@ -607,7 +615,7 @@ public class EditSkills extends javax.swing.JFrame {
         }
     }
     /**
-     * 
+     * Function to change a single text Field.
      * @param key key for the Hash Map to access correct text field
      * @param value text to place in the text field
      */

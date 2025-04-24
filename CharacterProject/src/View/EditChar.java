@@ -11,6 +11,11 @@ import Controller.MenuManager;
 /**
  *
  * @author N Arango
+ * 
+ * Window to edit a Character that is currently displayed in the Main Screen.
+ * The Controller populates all fields with the current values after creation.
+ * When the Edit button is pressed, validation is performed before data is
+ * changed.
  */
 public class EditChar extends javax.swing.JFrame {
 
@@ -372,7 +377,7 @@ public class EditChar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * maps the text fields for better iteration, then sets the tooltips for the fields
+     * Puts all text fields into a Hash Map, gives them all tooltips, and then gets the needed values from the Model and inserts them into the text fields.
      */
     public void map(){
         textMap.put("1", jTextField1);
@@ -419,12 +424,15 @@ public class EditChar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //validates input.
         boolean val = MenuManager.checkStatEdit();
+        //if input is validated, proceed with getting values and editing the Model.
         if(val){
             String text;
             int level = 0;
             int xp= 0;
             int maxXP = 0;
+            //Puts the character name and all core Stats into the Model
             for (int i = 1; i < 8; i++) {
                 String key = Integer.toString(i);
                 JTextField textField = textMap.get(key);
@@ -435,7 +443,8 @@ public class EditChar extends javax.swing.JFrame {
                     MenuManager.editChar(i, text);
                 } 
             }
-            //Get the input from the hp Max and Current fields to format correctly for the Main Screen
+            //Get the input from the hp Max and hp Current fields to format correctly for the Main Screen.
+            //Then puts the values into the Model.
             JTextField hpMax = textMap.get("8");
             if(!"Enter Here".equals(hpMax.getText())){
                 JTextField hpCurr = textMap.get("9");
@@ -446,7 +455,7 @@ public class EditChar extends javax.swing.JFrame {
                     MenuManager.editChar(9, hpCurr.getText());
                 }
             }
-            //Get Level and XP and correctly format for the Main Screen
+            //Gets Level and XP, formats them for the Main Screen, and puts their values into the Model.
             JTextField textField = textMap.get("10");
             text = textField.getText();
             if(!"Enter Here".equals(text)){
@@ -463,6 +472,7 @@ public class EditChar extends javax.swing.JFrame {
                 MenuManager.statEdit("lab10", text);
                 MenuManager.editChar(11, textField.getText());
             }
+            //Updates the Skills and Base Stat Saving Throws on the Main Screen.
             MenuManager.updateSkills();
             MenuManager.updateProf();
             this.dispose();
@@ -683,7 +693,7 @@ public class EditChar extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField11KeyTyped
 
     /**
-     * validates input before changing any values
+     * Validates input before changing any values. If any checks fail, immediately output an error window and stop validation.
      * @return returns the result
      */
     public static boolean inputValidate(){

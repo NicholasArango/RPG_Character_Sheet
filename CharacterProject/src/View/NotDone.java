@@ -6,7 +6,9 @@ package View;
 
 /**
  *
- * @author nsara
+ * @author N Arango
+ * 
+ * JFrame to inform the user of a section of the program that was not implemented.
  */
 public class NotDone extends javax.swing.JFrame {
 
