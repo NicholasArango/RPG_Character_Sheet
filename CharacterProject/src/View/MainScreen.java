@@ -858,6 +858,7 @@ public class MainScreen extends javax.swing.JFrame {
     
     /**
      * Changes a single label in the stat tab
+     * 
      * @param key key to pull the correct label from the statMap
      * @param value string for the text replacement
      */
@@ -868,6 +869,7 @@ public class MainScreen extends javax.swing.JFrame {
        
     /**
      * Changes a single label in the skill tab
+     * 
      * @param key key to pull the correct label from the skillMap
      * @param value string for the text replacement
      */
@@ -878,6 +880,7 @@ public class MainScreen extends javax.swing.JFrame {
     
     /**
      * Changes a single label in the Saving Throws column
+     * 
      * @param key key to pull the correct label from the saveMap
      * @param value string for the text replacement
      */

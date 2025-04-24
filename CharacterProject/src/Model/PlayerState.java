@@ -7,7 +7,9 @@ package Model;
 
 /**
  *
- * @author Robert J., Ellie R, N Arango
+ * @author Robert J.
+ * @author Ellie R
+ * @author N Arango
  * 
  * Class: Player State
  * public
@@ -79,15 +81,21 @@ public class PlayerState {
             return modifier;
         }
     }
-
-    public PlayerState(int initialHealth) {
-        this.currentHealth = initialHealth;
-    }
-  
+    
+    /**
+     * Setter for maxHealth
+     * 
+     * @param amount new Max Health
+     */
     public void setMaxHealth(int amount) {
         maxHealth = amount;
     }
 
+    /**
+     * Setter for currentHealth
+     * 
+     * @param amount new currentHealth
+     */
     public void setCurrentHealth(int amount) {
         currentHealth = amount;
     }
@@ -108,11 +116,20 @@ public class PlayerState {
         return Collections.unmodifiableSet(activeStatuses);
     }
 
-    // getters
+    /**
+     * Getter for currentHealth
+     * 
+     * @return current currentHealth
+     */
     public int getCurrentHealth() {
         return currentHealth;
     }
 
+    /**
+     * Getter for maxHealth
+     * 
+     * @return current maxHealth
+     */
     public int getMaxHealth(){
         return maxHealth;
     }

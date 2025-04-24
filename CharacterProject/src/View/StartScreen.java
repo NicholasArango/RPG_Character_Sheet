@@ -12,7 +12,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author N Arango, Robert J.
+ * @author N Arango
+ * @author Robert J.
  * 
  * JFrame that functions as the Start Screen. The New Character button opens the
  * New Character dialog, while the Load Character button will open a file chooser

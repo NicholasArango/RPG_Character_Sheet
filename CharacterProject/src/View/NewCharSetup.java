@@ -515,6 +515,7 @@ public class NewCharSetup extends javax.swing.JFrame {
     /**
      * Validates input. Makes sure that all fields are filled and that all values
      * are within acceptable ranges.
+     * 
      * @return returns true for pass and false for fail.
      */
     public static boolean inputValidate(){
@@ -562,9 +563,6 @@ public class NewCharSetup extends javax.swing.JFrame {
         }
         return good;
     }
-    
-    
-    
     
     /**
      * @param args the command line arguments
