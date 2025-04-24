@@ -7,7 +7,9 @@ package Controller;
 
 /**
  *
- * @author Robert J., Ellie R., N. Arango
+ * @author Robert J.
+ * @author Ellie R.
+ * @author N Arango
  * 
  * Class: Menu Manager
  *  public
@@ -46,8 +48,8 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Opens a new GUI for a new character
-     * It creates the GUI and calls the functions to initialize it to the default values
+     * Opens a new GUI for a new character.
+     * It creates the GUI and calls the functions to initialize it to the default values.
      */
     public static void newCharSetup(){
         gui = new MainScreen();
@@ -55,7 +57,7 @@ public class MenuManager extends JFrame {
         gui.map();
     }
     /**
-     * Opens the Setup window for a new character
+     * Opens the Setup window for a new character.
      */
     public static void newChar() {
         NewCharSetup setup = new NewCharSetup();
@@ -64,7 +66,7 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Opens a warning window for making a new character from outside the start screen
+     * Opens a warning window for making a new character from outside the start screen.
      */
     public static void newWarning(){
         WarningScreenNew screen = new WarningScreenNew();
@@ -72,7 +74,7 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Opens a warning window for loading a character outside the start screen
+     * Opens a warning window for loading a character outside the start screen.
      */
     public static void loadWarning(){
         WarningScreenLoad screen = new WarningScreenLoad();
@@ -80,7 +82,7 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Open a simple window to indicate features that are not implemented
+     * Open a simple window to indicate features that are not implemented.
      */
     public static void notDone(){
         NotDone info = new NotDone();
@@ -88,8 +90,8 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * function for starting to make a new character from outside the start screen
-     * It disposes the Main Screen and opens the new character dialog
+     * Function for starting to make a new character from outside the start screen.
+     * It disposes the Main Screen and opens the new character dialog.
      */
     public static void newCharS(){
         gui.dispose();
@@ -99,8 +101,9 @@ public class MenuManager extends JFrame {
     }
     
     /**
+     * Validates input for new character creation.
      * 
-     * @return true indicates it 
+     * @return true for success, false for failure
      */
     public static boolean checkNewChar(){
         boolean check = NewCharSetup.inputValidate();
@@ -108,7 +111,8 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Creates a new character sheet with the character name
+     * Creates a new character sheet with the character name.
+     * 
      * @param name the name of the character
      */
     public static void createNewChar(String name){
@@ -116,8 +120,8 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Load function when accessed from start screen
-     * This creates a Main Screen that the regular load function can update
+     * Load function when accessed from start screen.
+     * This creates a Main Screen that the regular load function can update.
      */
     public static void loadCharS(){
         gui = new MainScreen();
@@ -127,7 +131,7 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Load function that updates the current Main Screen with all character values
+     * Load function that updates the current Main Screen with all character values.
      */
     public static void loadChar(){
         String value;
@@ -163,7 +167,9 @@ public class MenuManager extends JFrame {
         updateProf();
     }
     
-    
+    /**
+     * Function to update all skill values on the Main Screen.
+     */
     public static void updateSkills(){
         for(int i = 0; i < 19; i++){
             int num = sheet.getSkillValue(i);
@@ -175,6 +181,9 @@ public class MenuManager extends JFrame {
         }
     }
     
+    /**
+     * Function to update all skill values on the Skill Edit screen.
+     */
     public static void updateEditSkills(){
         for(int i = 0; i < 19; i++){
             int num = sheet.getSkillValue(i);
@@ -185,6 +194,9 @@ public class MenuManager extends JFrame {
         }
     }
     
+    /**
+     * Function to update all Saving Throws on the Main Screen.
+     */
     public static void updateProf(){
         for(int k = 1; k < 7; k++){
             int num = sheet.getSkillProf(k);
@@ -198,6 +210,12 @@ public class MenuManager extends JFrame {
         }
     }
     
+    /**
+     * Function to change the indicated character parameter to the supplied value.
+     * 
+     * @param key chooses which parameter to change
+     * @param value value to change the parameter to
+     */
     public static void editChar(int key, String value){
         int i;
         switch (key){
@@ -247,11 +265,22 @@ public class MenuManager extends JFrame {
         }
     }
     
+    /**
+     * Gets the character name from the character sheet.
+     * 
+     * @return character name
+     */
     public static String showName(){
         String text = sheet.getCharacterName();
         return text;
     }
     
+    /**
+     * Gets integer character data from the character sheet.
+     * 
+     * @param key indicates the field of character data for retrieval
+     * @return the value of the indicated field
+     */
     public static int getChar(int key){
         int i;
         switch (key){
@@ -293,7 +322,7 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Opens the Stat Editor window
+     * Opens the Stat Editor window.
      */
     public static void openStatEdit(){
         EditChar edit1 = new EditChar();
@@ -302,14 +331,20 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * validates the input
-     * @return returns result of the check
+     * Validates the input from EditChar.
+     * 
+     * @return true indicates success, fales indicates failure
      */
     public static boolean checkStatEdit(){
         boolean check = EditChar.inputValidate();
         return check;
     }
     
+    /**
+     * Opens an error window with a message informing the user of the error.
+     * 
+     * @param text the error message
+     */
     public static void errorWindow(String text){
         ErrorScreen newError = new ErrorScreen();
         newError.setup(text);
@@ -317,7 +352,8 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Calls the function to change a single label in the stat tab of the GUI
+     * Calls the function to change a single label in the stat tab of the GUI.
+     * 
      * @param key the key to select the correct label from the statMap
      * @param value the value that will be input
      */
@@ -326,7 +362,7 @@ public class MenuManager extends JFrame {
     }
 
     /**
-     * Opens the Skill Editor window
+     * Opens the Skill Editor window.
      */
     public static void openSkillEdit(){
         EditSkills skill1 = new EditSkills();
@@ -336,7 +372,8 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Calls the function to change a single label in skill tab of the GUI
+     * Calls the function to change a single label in skill tab of the GUI.
+     * 
      * @param key the key to select the correct label from the statMap
      * @param value the value that will be input
      */
@@ -344,16 +381,28 @@ public class MenuManager extends JFrame {
         MainScreen.editSkills(key, value);
     }
     
+    /**
+     * Function to check if the character has a proficiency in a given skill.
+     * 
+     * @param i the index of the skill
+     * @return true if proficient, false if not proficient
+     */
     public static boolean isProf(int i){
         return sheet.isProficient(i);
     }
     
+    /**
+     * Function to change the proficiency in a given skill.
+     * 
+     * @param i the index of the skill
+     * @param state the changed proficiency for the skill
+     */
     public static void setProf(int i, boolean state){
         sheet.setProficiency(i, state);
     }
     
     /**
-     * Opens the Inventory editor window
+     * Opens the Inventory editor window.
      */
     public static void openInv(){
         EditInventory inv1 = new EditInventory();
@@ -361,15 +410,17 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Opens the Spellbook editor window
+     * Opens the Spell book editor window.
      */
     public static void openSpells(){
         EditSpellbook spells1 = new EditSpellbook();
         spells1.setVisible(true);
     }
     /**
+     * Function to retrieve the entire skill proficiency array.
+     * This is only used when saving to json.
      * 
-     * @return 
+     * @return the boolean proficiency array
      */
     public static boolean[] saveProf(){
         return sheet.returnProf();
