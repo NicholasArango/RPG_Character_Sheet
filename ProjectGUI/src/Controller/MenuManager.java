@@ -7,7 +7,10 @@ package Controller;
 
 /**
  *
- * @author Robert J., Ellie R., N. Arango
+ * @author Robert J.
+ * @author Ellie R.
+ * @author N. Arango
+ * @version 
  * 
  * Class: Menu Manager
  *  public
@@ -43,7 +46,10 @@ public class MenuManager extends JFrame {
     /**
      * Opens a new GUI for a new character
      * It creates the GUI and calls the functions to initialize it to the default values
-     * TODO: connect it to the CharacterSheet
+     * 
+     * @param null
+     * @see MainScreen
+     * @see SetVisible
      */
     public static void newCharSetup(){
         gui = new MainScreen();
@@ -51,6 +57,9 @@ public class MenuManager extends JFrame {
         gui.map();
     }
     
+    /**
+     * This sets up the 
+     */
     public static void newChar() {
         NewCharSetup setup = new NewCharSetup();
         setup.setVisible(true);
@@ -83,7 +92,9 @@ public class MenuManager extends JFrame {
     }
     
     /**
-     * Load function from start screen
+     * Load function from start screen, uses the "Load Character" 
+     * 
+     * @param null
      */
     public static void loadCharS(){
         gui = new MainScreen();
@@ -92,6 +103,11 @@ public class MenuManager extends JFrame {
         loadChar();
     }
     
+    /**
+     * This loads the character values for the json file
+     * 
+     * @param null
+     */
     public static void loadChar(){
         String value;
         int maxHP;
